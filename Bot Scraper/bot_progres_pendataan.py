@@ -14,9 +14,10 @@ import pandas as pd
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
 import pyotp
+import os
+from dotenv import load_dotenv
 
-SECRET_KEY = "MRVGI53EMIYTKMTHOZ3W64RXJU2G6R3H"
-
+load_dotenv()
 # ── Konfigurasi umum ─────────────────────────────────────────────────────
 
 FORMAT_TANGGAL_JAM = "%d-%m-%Y_%H-%M-%S"
@@ -26,6 +27,14 @@ URL_DASHBOARD = "https://dashboard-se2026.apps.bps.go.id"
 URL_API = "https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih"
 SESSION_STATE = "Dashboard Scrapper/session_dash.json"
 MAX_RETRY_PER_SLS = 5
+
+DASHBOARD_USERNAME = os.environ.get("DASHBOARD_USERNAME")
+DASHBOARD_PASSWORD = os.environ.get("DASHBOARD_PASSWORD")
+DASHBOARD_OTP_SECRET = os.environ.get("DASHBOARD_OTP_SECRET")
+
+SELECTOR_USERNAME = "xpath=//*[@id='username']"
+SELECTOR_PASSWORD = "xpath=//*[@id='password']"
+SELECTOR_OTP = "xpath=//*[@id='otp']"
 
 KODE_KAB_LIST = [
     "1601",
@@ -118,7 +127,7 @@ KOLOM_UNTUK_REALISASI_KELUARGA = ["Jumlah Keluarga Ditemukan", "Jumlah Keluarga 
 KOLOM_AKHIR = (
     ["id_wilayah", "kd_kab", "nama_sls"]
     + KOLOM_INDIKATOR_USAHA
-    + [k for k in KOLOM_INDIKATOR_KELUARGA if k != "Jumlah Keluarga Prelist Awal"]
+    + [k for k in KOLOM_INDIKATOR_KELUARGA if k != "Jumlah Keluarga Prelist Awal_x"]
     + [
         "jumlah_prelist_usaha",
         "jumlah_usaha_realisasi",
@@ -202,13 +211,88 @@ def simpan_backup_excel(df: pd.DataFrame, folder: Path, prefix: str) -> Path:
 
 SELECTOR_TOMBOL_LOGIN = "xpath=//*[@id='v-0']/button"
 
-def klik_tombol_login(page, timeout_ms: int = 15000) -> None:
+
+def isi_username_password(page) -> None:
+    """Isi form username & password, lalu submit dengan menekan Enter."""
+    page.wait_for_selector(SELECTOR_USERNAME, state="visible", timeout=15000)
+    page.fill(SELECTOR_USERNAME, DASHBOARD_USERNAME)
+    page.fill(SELECTOR_PASSWORD, DASHBOARD_PASSWORD)
+    page.press(SELECTOR_PASSWORD, "Enter")
+    print("Username & password terisi, form disubmit.")
+
+
+def isi_otp(page, timeout_ms: int = 20000) -> None:
+    """Isi kode OTP dari TOTP generator, lalu submit dengan Enter.
+    Kode OTP baru di-generate saat elemen sudah muncul, supaya tidak
+    keburu expired kalau ada delay sebelumnya."""
+    page.wait_for_selector(SELECTOR_OTP, state="visible", timeout=timeout_ms)
+
+    totp = pyotp.TOTP(DASHBOARD_OTP_SECRET)
+    otp_code = totp.now()
+
+    page.fill(SELECTOR_OTP, otp_code)
+    page.press(SELECTOR_OTP, "Enter")
+    print(f"OTP ({otp_code}) terisi, form disubmit.")
+
+
+def klik_tombol_login(page, max_percobaan: int = 5, timeout_ms: int = 15000) -> bool:
+    """Klik tombol login, verifikasi ada perubahan nyata di halaman.
+    Kalau form username langsung muncul (tanpa captcha), sekalian isi
+    username/password/OTP di sini.
+
+    Return True kalau proses login (username+password+OTP) sudah selesai
+    ditangani otomatis di dalam fungsi ini, False kalau belum (misal karena
+    masih perlu captcha manual dulu, atau tombol login tidak ditemukan sama
+    sekali karena sudah login lewat session_state)."""
     try:
-        page.wait_for_selector(SELECTOR_TOMBOL_LOGIN, timeout=timeout_ms)
-        page.click(SELECTOR_TOMBOL_LOGIN)
-        print("Tombol login diklik.")
-    except Exception:
-        print("Tombol login tidak ditemukan (mungkin sudah login), dilewati.")
+        page.wait_for_selector(
+            SELECTOR_TOMBOL_LOGIN, timeout=timeout_ms, state="visible"
+        )
+    except Exception as e:
+        print(f"Tombol login tidak ditemukan (mungkin sudah login): {e}")
+        return False
+
+    url_sebelum = page.url
+
+    for percobaan in range(1, max_percobaan + 1):
+        try:
+            page.locator(SELECTOR_TOMBOL_LOGIN).click(timeout=5000)
+        except Exception as e:
+            print(f"  Percobaan {percobaan} - klik gagal: {e}")
+            page.wait_for_timeout(1500)
+            continue
+
+        page.wait_for_timeout(2000)  # beri waktu JS merespons klik
+
+        url_sesudah = page.url
+        ada_perubahan_url = url_sesudah != url_sebelum
+        ada_captcha = (
+            page.locator("iframe[src*='captcha'], .captcha, #captcha").count() > 0
+        )
+        ada_form_username = page.locator(SELECTOR_USERNAME).count() > 0
+
+        if ada_perubahan_url or ada_captcha or ada_form_username:
+            print(
+                f"Tombol login berhasil diklik (percobaan {percobaan}), halaman berubah."
+            )
+
+            if ada_form_username:
+                isi_username_password(page)
+                isi_otp(page)
+                return True
+
+            print("Form username belum muncul (kemungkinan perlu captcha manual dulu).")
+            return False
+
+        print(
+            f"  Percobaan {percobaan} - klik terkirim tapi belum ada perubahan, coba lagi..."
+        )
+
+    print(
+        "Tombol login diklik tapi tidak terdeteksi ada perubahan setelah beberapa percobaan."
+    )
+    return False
+
 
 def jalankan_scraping() -> tuple[pd.DataFrame, pd.DataFrame]:
     """Scrap data usaha & keluarga dalam satu sesi browser, lalu backup masing-masing
@@ -234,7 +318,7 @@ def jalankan_scraping() -> tuple[pd.DataFrame, pd.DataFrame]:
         page.goto(URL_DASHBOARD)
         klik_tombol_login(page)
 
-        input("Selesaikan captcha dulu, lalu tekan ENTER...")
+        # input("Selesaikan captcha dulu, lalu tekan ENTER...")
         # input
         print("=== Scraping data usaha ===")
         df_usaha = scrap_satu_jenis(context, page, SCRAP_CONFIG["usaha"]["indikator"])
