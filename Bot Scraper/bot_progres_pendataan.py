@@ -99,7 +99,7 @@ KOLOM_INDIKATOR_USAHA = [
 ]
 
 KOLOM_INDIKATOR_KELUARGA = [
-    "Jumlah Keluarga Prelist Awal",
+    "Jumlah Keluarga Prelist Awal_x",
     "Jumlah Keluarga Ditemukan",
     "Jumlah Keluarga Meninggal",
     "Jumlah Keluarga Tidak Eligible",
