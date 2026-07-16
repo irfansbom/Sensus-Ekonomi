@@ -302,7 +302,7 @@ def jalankan_scraping() -> tuple[pd.DataFrame, pd.DataFrame]:
             headless=False, args=["--disable-blink-features=AutomationControlled"]
         )
         context = browser.new_context(
-            storage_state=SESSION_STATE,
+            # storage_state=SESSION_STATE,
             accept_downloads=True,
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -407,7 +407,7 @@ def gabungkan_usaha_keluarga(
     df_merged = df_usaha_pivot.merge(
         df_keluarga_pivot, on="id_wilayah", how="outer", suffixes=("_x", "_y")
     )
-
+ 
     # Kolom kd_kab & nama_sls muncul di kedua df; ambil yang tidak kosong.
     df_merged["nama_sls"] = df_merged["nama_sls_x"].combine_first(
         df_merged["nama_sls_y"]
