@@ -141,8 +141,11 @@ KOLOM_AKHIR = (
 
 
 def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
-    """Minta data satu kabupaten ke API. Retry otomatis; kalau respons bukan
-    JSON, kemungkinan butuh captcha ulang."""
+    """Minta data satu kabupaten ke API. Retry otomatis kalau:
+    - request error (koneksi putus, timeout, dll)
+    - status bukan 200 (misal 401 = sesi login expired, 400 = bad request)
+    - respons bukan JSON (biasanya berarti kena captcha lagi)
+    """
     for percobaan in range(1, MAX_RETRY_PER_SLS + 1):
         try:
             response = context.request.get(
@@ -161,14 +164,27 @@ def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
             f"Content-Type: {content_type}"
         )
 
-        if "application/json" in content_type:
+        if response.status == 200 and "application/json" in content_type:
             return response.json()
+
+        if response.status in (401, 403):
+            print(
+                f"  [{kab}] Status {response.status} - sesi login kemungkinan expired."
+            )
+            print("  Cuplikan response:", response.text()[:300])
+            time.sleep(5)
+            continue
+
+        if response.status >= 400:
+            print(f"  [{kab}] Status {response.status} - request gagal, coba lagi...")
+            print("  Cuplikan response:", response.text()[:300])
+            time.sleep(5)
+            continue
 
         print(f"  [{kab}] Response bukan JSON, sepertinya perlu captcha ulang.")
         print("  Cuplikan response:", response.text()[:300])
         page.goto(URL_DASHBOARD)
-        time.sleep(3)
-        # input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
+        input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
 
     print(f"  [{kab}] GAGAL setelah {MAX_RETRY_PER_SLS} percobaan, dilewati.")
     return None
@@ -279,6 +295,7 @@ def klik_tombol_login(page, max_percobaan: int = 5, timeout_ms: int = 15000) -> 
             if ada_form_username:
                 isi_username_password(page)
                 isi_otp(page)
+                time.sleep(5)
                 return True
 
             print("Form username belum muncul (kemungkinan perlu captcha manual dulu).")
