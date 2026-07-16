@@ -438,15 +438,32 @@ def gabungkan_usaha_keluarga(
 
 
 def gabungkan_dengan_ppl_pml(df_merged: pd.DataFrame) -> pd.DataFrame:
+    df_merged = df_merged.copy()
+    df_merged["id_wilayah"] = df_merged["id_wilayah"].astype(str).str.strip()
+ 
     df_ppl = pd.read_excel(FILE_DAFTAR_PPL, dtype=str)
     df_ppl = df_ppl.dropna(subset=["IDSUBSLS_25_2"]).reset_index(drop=True)
-
-    return df_merged.merge(
+    df_ppl["IDSUBSLS_25_2"] = df_ppl["IDSUBSLS_25_2"].astype(str).str.strip()
+ 
+    df_hasil = df_merged.merge(
         df_ppl[["IDSUBSLS_25_2", "PPL", "PML"]],
         left_on="id_wilayah",
         right_on="IDSUBSLS_25_2",
         how="left",
     ).drop(columns="IDSUBSLS_25_2")
+ 
+    jumlah_tidak_match = df_hasil["PPL"].isna().sum()
+    if jumlah_tidak_match > 0:
+        print(
+            f"Peringatan: {jumlah_tidak_match} dari {len(df_hasil)} baris tidak "
+            "ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah "
+            "(misal angka nol di depan hilang saat scraping). Cek contoh:"
+        )
+        print(df_hasil.loc[df_hasil["PPL"].isna(), "id_wilayah"].head(5).tolist())
+        print("Bandingkan dengan contoh id di daftar PPL:")
+        print(df_ppl["IDSUBSLS_25_2"].head(5).tolist())
+ 
+    return df_hasil
 
 
 # ── Bagian 4: Export ke Excel & SQLite ──────────────────────────────────
@@ -518,7 +535,8 @@ def upsert_ke_sqlite(
 
 def main() -> None:
     df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
-
+    # df_usaha_mentah = pd.read_excel("../scrap_status_usaha/status_usaha_sls_sumsel_20260716_201826.xlsx")
+    # df_keluarga_mentah = pd.read_excel("../scrap_status_keluarga/status_keluarga_sls_sumsel_20260716_202033.xlsx")
     df_usaha_pivot = proses_data_usaha(df_usaha_mentah)
     df_keluarga_pivot = proses_data_keluarga(df_keluarga_mentah)
 
