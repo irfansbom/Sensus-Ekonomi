@@ -142,14 +142,17 @@ class BotTerdeteksi(Exception):
     """Dipicu kalau situs mendeteksi request ini sebagai bot. Sengaja dibuat
     berbeda dari error biasa supaya seluruh proses scraping BERHENTI TOTAL,
     bukan retry/lanjut diam-diam ke kabupaten lain."""
-
 DELAY_ANTAR_KABUPATEN_DETIK = (15, 30)  # jeda acak antara 15-30 detik
-
+ 
+ 
 def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
     """Minta data satu kabupaten ke API. Retry otomatis kalau:
     - request error (koneksi putus, timeout, dll)
     - status bukan 200 (misal 401 = sesi login expired, 400 = bad request)
-    - respons bukan JSON (biasanya berarti kena captcha lagi)
+    - kena deteksi bot dari situs (tunggu 70 detik cooldown, lalu coba lagi)
+ 
+    Semua retry ini dibatasi oleh MAX_RETRY_PER_SLS -- kalau habis, kabupaten
+    ini dilewati dan lanjut ke kabupaten berikutnya (bukan loop tanpa batas).
     """
     for percobaan in range(1, MAX_RETRY_PER_SLS + 1):
         try:
@@ -162,73 +165,66 @@ def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
             print(f"  [{kab}] percobaan {percobaan} - Request error: {e}")
             time.sleep(5)
             continue
-
+ 
         content_type = response.headers.get("content-type", "")
-        print(
-            f"  [{kab}] percobaan {percobaan} - Status: {response.status} - "
-            f"Content-Type: {content_type}"
-        )
-
+        print(f"  [{kab}] percobaan {percobaan} - Status: {response.status} - "
+              f"Content-Type: {content_type}")
+ 
         if response.status == 200 and "application/json" in content_type:
             return response.json()
-        
+ 
         cuplikan = response.text()[:500]
+ 
         if "Bot Detected" in cuplikan or "terdeteksi sebagai bot" in cuplikan:
-            raise BotTerdeteksi(
-                f"Situs mendeteksi request sebagai bot saat proses Kab {kab}. "
-                f"Cuplikan: {cuplikan[:300]}"
-            )
-            time.sleep(60)
+            print(f"  [{kab}] Kena deteksi bot. Menunggu 70 detik untuk cooldown...")
+            time.sleep(70)
             page.goto(URL_DASHBOARD)
-        # input(f"  Selesaikan cap
-            continue
-
+            continue  # coba lagi kabupaten yang sama, masih dalam batas MAX_RETRY_PER_SLS
+ 
         if response.status in (401, 403):
-            print(
-                f"  [{kab}] Status {response.status} - sesi login kemungkinan expired."
-            )
-            print("  Cuplikan response:", response.text()[:300])
+            print(f"  [{kab}] Status {response.status} - sesi login kemungkinan expired.")
+            print("  Cuplikan response:", cuplikan[:300])
             time.sleep(5)
             continue
-
+ 
         if response.status >= 400:
             print(f"  [{kab}] Status {response.status} - request gagal, coba lagi...")
-            print("  Cuplikan response:", response.text()[:300])
+            print("  Cuplikan response:", cuplikan[:300])
             time.sleep(5)
             continue
-
+ 
         print(f"  [{kab}] Response bukan JSON, sepertinya perlu captcha ulang.")
-        print("  Cuplikan response:", response.text()[:300])
+        print("  Cuplikan response:", cuplikan[:300])
         page.goto(URL_DASHBOARD)
-        # input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
-
+        input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
+ 
     print(f"  [{kab}] GAGAL setelah {MAX_RETRY_PER_SLS} percobaan, dilewati.")
     return None
-
-
+ 
+ 
 def scrap_satu_jenis(context, page, indikator: str) -> pd.DataFrame:
-    """Scrap semua kabupaten untuk satu jenis indikator (usaha atau keluarga)."""
+    """Scrap semua kabupaten untuk satu jenis indikator (usaha atau keluarga).
+    Kalau satu kabupaten gagal terus setelah semua retry (termasuk cooldown
+    deteksi bot), kabupaten itu dilewati dan proses lanjut ke kabupaten
+    berikutnya."""
     semua_df = []
-
+ 
     for kab in KODE_KAB_LIST:
         print(f"Proses Kab {kab}")
-        try:
-            data = minta_data_sls(context, page, kab, indikator)
-            if data is None:
-                continue
-
+        data = minta_data_sls(context, page, kab, indikator)
+        if data is not None:
             df = pd.DataFrame(data)
             df["kd_kab"] = kab
             semua_df.append(df)
             print(f"  -> {len(df)} baris")
-        except Exception as e:
-            print(f"ERROR Kab {kab}: {e}")
-
-        time.sleep(3)
-
+ 
+        jeda = random.uniform(*DELAY_ANTAR_KABUPATEN_DETIK)
+        print(f"  Jeda {jeda:.1f} detik sebelum kabupaten berikutnya...")
+        time.sleep(jeda)
+ 
     if not semua_df:
         raise RuntimeError("Tidak ada data yang berhasil diambil untuk indikator ini.")
-
+ 
     return pd.concat(semua_df, ignore_index=True)
 
 
@@ -526,24 +522,40 @@ def upsert_ke_sqlite(
 ) -> None:
     df = df.copy()
     df["last_update"] = tanggal_jam
-
+ 
     FOLDER_OUTPUT_DB.mkdir(parents=True, exist_ok=True)
     pastikan_tabel_dan_kolom(df, db_path, table)
-
+ 
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
-
+ 
     kolom_str = ", ".join(f'"{k}"' for k in df.columns)
     placeholder = ", ".join(["?"] * len(df.columns))
     data = df.where(pd.notnull(df), None).values.tolist()
-
+ 
     cursor.executemany(
         f'INSERT OR REPLACE INTO "{table}" ({kolom_str}) VALUES ({placeholder})', data
     )
-
     conn.commit()
+ 
+    # Diagnostic: berapa baris di DB yang TIDAK ikut ter-upsert run ini,
+    # supaya kelihatan jelas mana SLS yang last_update-nya tidak berubah
+    # karena memang tidak ada di df run ini (bukan karena bug upsert).
+    id_di_df = set(df["id_wilayah"].astype(str))
+    cursor.execute(f'SELECT id_wilayah FROM "{table}"')
+    id_di_db = {row[0] for row in cursor.fetchall()}
+    id_tidak_tersentuh = id_di_db - id_di_df
+ 
     conn.close()
+ 
     print(f"{len(df)} baris berhasil di-upsert ke {table} pada {tanggal_jam}")
+    if id_tidak_tersentuh:
+        print(
+            f"Catatan: {len(id_tidak_tersentuh)} id_wilayah di database TIDAK "
+            "ikut ter-upsert run ini (last_update tetap yang lama) karena "
+            "tidak ada di data hasil scraping run ini."
+        )
+ 
 
 
 # ── Main ──────────────────────────────────────────────────────────────────
