@@ -138,7 +138,12 @@ KOLOM_AKHIR = (
 
 
 # ── Bagian 1: Scraping dashboard ────────────────────────────────────────
+class BotTerdeteksi(Exception):
+    """Dipicu kalau situs mendeteksi request ini sebagai bot. Sengaja dibuat
+    berbeda dari error biasa supaya seluruh proses scraping BERHENTI TOTAL,
+    bukan retry/lanjut diam-diam ke kabupaten lain."""
 
+DELAY_ANTAR_KABUPATEN_DETIK = (15, 30)  # jeda acak antara 15-30 detik
 
 def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
     """Minta data satu kabupaten ke API. Retry otomatis kalau:
@@ -166,6 +171,17 @@ def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
 
         if response.status == 200 and "application/json" in content_type:
             return response.json()
+        
+        cuplikan = response.text()[:500]
+        if "Bot Detected" in cuplikan or "terdeteksi sebagai bot" in cuplikan:
+            raise BotTerdeteksi(
+                f"Situs mendeteksi request sebagai bot saat proses Kab {kab}. "
+                f"Cuplikan: {cuplikan[:300]}"
+            )
+            time.sleep(60)
+            page.goto(URL_DASHBOARD)
+        # input(f"  Selesaikan cap
+            continue
 
         if response.status in (401, 403):
             print(
@@ -184,7 +200,7 @@ def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
         print(f"  [{kab}] Response bukan JSON, sepertinya perlu captcha ulang.")
         print("  Cuplikan response:", response.text()[:300])
         page.goto(URL_DASHBOARD)
-        input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
+        # input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
 
     print(f"  [{kab}] GAGAL setelah {MAX_RETRY_PER_SLS} percobaan, dilewati.")
     return None
@@ -316,7 +332,7 @@ def jalankan_scraping() -> tuple[pd.DataFrame, pd.DataFrame]:
     ke Excel. Mengembalikan (df_usaha, df_keluarga) mentah (belum di-pivot)."""
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False, args=["--disable-blink-features=AutomationControlled"]
+            headless=True, args=["--disable-blink-features=AutomationControlled"]
         )
         context = browser.new_context(
             # storage_state=SESSION_STATE,

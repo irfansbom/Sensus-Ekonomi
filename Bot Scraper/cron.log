@@ -1,0 +1,1251 @@
+Traceback (most recent call last):
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 551, in <module>
+    main()
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 537, in main
+    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 318, in jalankan_scraping
+    browser = p.chromium.launch(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 16515, in launch
+    self._sync(
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 97, in launch
+    await self._channel.send(
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 563, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /home/boms/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=/tmp/playwright_chromiumdev_profile-IhUyTD --remote-debugging-pipe --no-startup-window
+  - <launched> pid=117394
+  - [pid=117394][err] [117394:117394:0717/080002.774632:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=117394][err] [117394:117394:0717/080002.775065:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=117394] <gracefully close start>
+  - [pid=117394] <kill>
+  - [pid=117394] <will force kill>
+  - [pid=117394] <process did exit: exitCode=1, signal=null>
+  - [pid=117394] starting temporary directories cleanup
+  - [pid=117394] finished temporary directories cleanup
+  - [pid=117394] <gracefully close end>
+
+Tombol login berhasil diklik (percobaan 1), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (620183) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10306 baris
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 7950 baris
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 11460 baris
+=== Scraping data keluarga ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 22308 baris
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1608] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1608] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1608] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1608] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1608] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1608] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1608] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1608] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1608] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1608] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1609] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1609] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1609] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1609] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1609] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1609] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1609] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1609] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1609] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1609] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1610] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1610] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1610] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1610] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1610] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1610] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1610] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1610] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1610] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1610] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1611] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1611] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1611] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1611] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1611] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1611] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1611] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1611] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1611] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1611] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1612] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1612] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1612] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1612] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1612] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1612] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1612] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1612] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1612] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1612] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1613] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1613] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1613] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1613] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1613] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1613] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1613] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1613] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1613] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1613] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1671] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1671] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1671] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1671] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1671] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] GAGAL setelah 5 percobaan, dilewati.
+Backup tersimpan di: ../scrap_status_usaha/status_usaha_sls_sumsel_20260717_120641.xlsx
+Backup tersimpan di: ../scrap_status_keluarga/status_keluarga_sls_sumsel_20260717_120846.xlsx
+Peringatan: 14 dari 38331 baris tidak ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah (misal angka nol di depan hilang saat scraping). Cek contoh:
+['1601000000000000', '1601140008028000', '1602000000000000', '1603000000000000', '1605000000000000']
+Bandingkan dengan contoh id di daftar PPL:
+['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
+Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_17-07-2026_12-00-02.xlsx
+38331 baris berhasil di-upsert ke rekap_progress_pendataan pada 17-07-2026_12-00-02
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+Tombol login berhasil diklik (percobaan 2), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (314977) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Request error: APIRequestContext.get: getaddrinfo ENOTFOUND dashboard-se2026.apps.bps.go.id
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=NINNLCLNCNLBFPHNMBPHLBMEKGIGAJGPGGKFBDEBMPCILOBBPDCNBGBBPNFELFICPDMDPDJIAAPKCLIMJNAAHDMMMONAHOKINCPDECELHLDOFCCONHDGMJNMMPICJLKC; f5avraaaaaaaaaaaaaaaa_session_=NOLEKNGCKFKLOIILNCKKBJAGOCGHNONMLGJICFHEKBIAFKIALKJHKJEJOAGKIOEGJLKDHGOJAAKJJBEDNENAJEBAMOAPOHAGGFBLCOGAGHAPPLJKFMBJHPINIMCGOAOI; TS00000000076=0868f8be6fab28008557ba2b9d9dc5296d22cdaa41608c89aacb365db51591288a7f08bf3c57b5c959b7eb6cc44b500b0871e7796509d0007f85f13a840bd8abd8e6b1f3b54f2b3030bd06e6fd0724841363c234082ac21287ab88ab79889b0eb3dc88c6f545c3ab880468cd24f9c12189ca8135433623e5994d6fcf5127b96077eab2bc9eb68a4cc303b0f35603521330539b291794dc80d4130d88cf5c5d7f7a0eda2ad6fe7ac989729f0b57b90d3abb1fa2725bb5784fe3afcb77cd49e0f054526213c1c32286e17f30e898ffd08082cdd28e0f7010698c3e478f6fbb5c67231fa048f807dada3a846179750da278c57c99b7e9bbca5b96c220d282168d38cba53636fe5a3c74; TSPD_101_DID=0868f8be6fab28008557ba2b9d9dc5296d22cdaa41608c89aacb365db51591288a7f08bf3c57b5c959b7eb6cc44b500b0871e7796506380002c70c262023b180e5aa00ea0f3b5ef32de51d642865679eeb62060ff6c483b7f49ea418022b8c0164bab1a7cb86fd65de95d90c758f1606; 8cca9705ae8eeae430ba4bbadb3e34b4=816d6bc522f0b1639afbdaf8c36c29c1; bps-cookie=!15LFPhSblUM1DCYZgF6f7w1bddpZccVEmA36GQO1Cs+McdGf50lBMhohZCFUAcJaSvMNaeiyFl2gbw==; TSPD_101=0868f8be6fab28004bdc086eda621eac1aec8d2d9387158fd859ff4b2dd282eea43165ae5b79fd15f699e41e5caafccc08c8f7642a051800016bd22ec53022775ca1732140a3428bba23ce13beb1c95e; f5avraaaaaaaaaaaaaaaa_session_=GPJOJFEKMPLIPBJHKOOMJOAKAECHFJLCJLGAGDJMAECDIJENAOKKFCHMCCFMNJLJPBODLCNMOACOKFKOFMAADFFALOHNGGFDNCCBNEPOPHHAKOEDFEIKOLEINDICFLKF; f5_cspm=1234; nuxt-session=Fe26.2**220f49c713d7e00aec44d7f46b964cf64134637772d85ff4628ceca7c294bfe9*f2XMXuJWEXH2WQHo5V8QTA*vN1r6hXUxYLajUkRNkSnlrhZHQ32aXUFMYXv7lcsG2mmEldFdDb4lARTez7e6_svUdPdK-MGaFNF_KaLYO8yLZYOPpo-JtbkBM4xmLvGnw2Z3n86l6Ke8z62mNLwUJqEo0m8LZywQP1N-BHT0zStP19LKIPFsNfN-ygVui8LjAQTJw9FeA2SZOMiMrL89Iuy6C4IHi0X1FZ2VUqA4qzCGzVJIIGbVGXTKk_RQpK8M60mF5sWRoQun0xIyvk2RZGT6ylRCsUfY6IxcBcHhEwaWCEnLl4j6u9MzGHL9PpKmxk5MlC58lnuEazgBSPTsmDy8_WZEMkSfLUOTv4uz7QJE4aXvSLg8vT8uU3JHp88SshCqBMsZmkk1HtnTgp39dC5e2ONV7LVL2NYLbeBZ5f_O1lYTayIV5wCpa6mia_iDDU_rHL2GEL6NH02p_KcCbRbsUd_pBASwC3koqOOxSBh_2D1K7m4y-9Tck-qNJyy27R16qmTWAugvxAruKgiN4PyeIiQKy9prsdso86n6trfRnUTQXonbz7f7a4Y2tHBy99MkP7MAVLG3Z8z9aAVOBKGtSBiqTgfz2U7FINMnpPS1Q*1784296810472*0d640ae711f82906dbc8b381a133cec5d3efd3b7d43cb2e5e373f32d1ece06a7*4_9ewoG-WOrN2MKJ9DohHAV8Do-A2YnHrohKpbnyQZE; TS01acc472=01266d26d05dbe6fc00b1289ee09e554202c3acb0bab5b345b318bcdadaec7474b7576d7246e45fd19cb08f64b2c288b0a0c70a0c37bca7f8a5cf303bcd21b1d6ae2fc1c3122b1c1bfc9f93c48295ffde1afc4ce612da524402cb32566b2e90547e40ec87a56b0b01942fe08e295d3feedfbc5c8fc52f2fd7c65db9cf57b86294405dadb8a; TSa369ea72029=0868f8be6fab280097c515a6b3e5293fbb3ff7aeb33c71eaa37cad60b6e9412c4b58e51b9ed33ba285b46a2451f971d8; TS4a623a73027=0868f8be6fab2000fad9b1e890a1f4c636963cef9c7034f2f7527f017bf29bed1029b928a6341a9608923bc95911300019e3d6f3f5f54c416e5157c28ea30577a2647baaed8f51c56675e981894ff3f21a68728f29a9b5fe6179721501f2c1d1
+
+  [1601] percobaan 2 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1672] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1673] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1673] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1674] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1674] GAGAL setelah 5 percobaan, dilewati.
+=== Scraping data keluarga ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1601] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1601] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1601] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1601] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1601] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1601] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1601] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1601] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1601] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1601] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1602] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1602] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1603] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1603] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1604] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1604] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1605] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1605] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1606] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+  [1607] percobaan 4 - Status: 200 - Content-Type: application/json
+  -> 49005 baris
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 14049 baris
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 34080 baris
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 16296 baris
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 8187 baris
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 5730 baris
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6414 baris
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 48444 baris
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6189 baris
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 4776 baris
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6882 baris
+Backup tersimpan di: ../scrap_status_usaha/status_usaha_sls_sumsel_20260717_151106.xlsx
+Backup tersimpan di: ../scrap_status_keluarga/status_keluarga_sls_sumsel_20260717_151305.xlsx
+Peringatan: 17 dari 38375 baris tidak ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah (misal angka nol di depan hilang saat scraping). Cek contoh:
+['1601000000000000', '1601140008028000', '1602000000000000', '1603000000000000', '1605000000000000']
+Bandingkan dengan contoh id di daftar PPL:
+['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
+Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_17-07-2026_15-00-01.xlsx
+38375 baris berhasil di-upsert ke rekap_progress_pendataan pada 17-07-2026_15-00-01
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+Tombol login berhasil diklik (percobaan 2), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (830080) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10306 baris
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 7950 baris
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 11460 baris
+=== Scraping data keluarga ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 22308 baris
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1602: Situs mendeteksi request sebagai bot saat proses Kab 1602. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1603: Situs mendeteksi request sebagai bot saat proses Kab 1603. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1604: Situs mendeteksi request sebagai bot saat proses Kab 1604. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1605: Situs mendeteksi request sebagai bot saat proses Kab 1605. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1606: Situs mendeteksi request sebagai bot saat proses Kab 1606. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1607: Situs mendeteksi request sebagai bot saat proses Kab 1607. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1608: Situs mendeteksi request sebagai bot saat proses Kab 1608. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1609: Situs mendeteksi request sebagai bot saat proses Kab 1609. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1610: Situs mendeteksi request sebagai bot saat proses Kab 1610. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1611: Situs mendeteksi request sebagai bot saat proses Kab 1611. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1612: Situs mendeteksi request sebagai bot saat proses Kab 1612. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1613: Situs mendeteksi request sebagai bot saat proses Kab 1613. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1671: Situs mendeteksi request sebagai bot saat proses Kab 1671. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1672: Situs mendeteksi request sebagai bot saat proses Kab 1672. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1673: Situs mendeteksi request sebagai bot saat proses Kab 1673. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1674: Situs mendeteksi request sebagai bot saat proses Kab 1674. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Backup tersimpan di: ../scrap_status_usaha/status_usaha_sls_sumsel_20260718_080703.xlsx
+Backup tersimpan di: ../scrap_status_keluarga/status_keluarga_sls_sumsel_20260718_080915.xlsx
+Peringatan: 14 dari 38331 baris tidak ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah (misal angka nol di depan hilang saat scraping). Cek contoh:
+['1601000000000000', '1601140008028000', '1602000000000000', '1603000000000000', '1605000000000000']
+Bandingkan dengan contoh id di daftar PPL:
+['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
+Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_18-07-2026_08-00-02.xlsx
+38331 baris berhasil di-upsert ke rekap_progress_pendataan pada 18-07-2026_08-00-02
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+  Percobaan 2 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+    - locator resolved to <button type="button" data-slot="base" data-v-daf625f1="" class="items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 text-sm gap-2 w-full ring-inset active:bg-primary/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary p-2 h-10 sm:h-11 font-bold text-gray-700 bg-primary-400/5 ring-1 ring-gray-200 hover:r…>…</button>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+    - click action done
+    - waiting for scheduled navigations to finish
+
+  Percobaan 3 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+    - waiting for" https://sso.bps.go.id/auth/realms/pegawai-bps/protocol/openid-connect/auth?client_id=03330-dashse-3k5&redirect_uri=https%3A%2F%2Fdashboard-se2026.apps.bps.go.id%2Fcallback&response_type=code&scope=op…" navigation to finish...
+    - navigated to "https://sso.bps.go.id/auth/realms/pegawai-bps/protocol/openid-connect/auth?client_id=03330-dashse-3k5&redirect_uri=https%3A%2F%2Fdashboard-se2026.apps.bps.go.id%2Fcallback&response_type=code&scope=op…"
+
+  Percobaan 4 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+
+  Percobaan 5 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+
+Tombol login diklik tapi tidak terdeteksi ada perubahan setelah beberapa percobaan.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 2 - Status: 502 - Content-Type: text/html
+  [1605] Status 502 - request gagal, coba lagi...
+  Cuplikan response: <html><body><h1>502 Bad Gateway</h1>
+The server returned an invalid or incomplete response.
+</body></html>
+
+  [1605] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] GAGAL setelah 5 percobaan, dilewati.
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 5 - Status: 200 - Content-Type: text/html
+ERROR Kab 1612: Situs mendeteksi request sebagai bot saat proses Kab 1612. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1613: Situs mendeteksi request sebagai bot saat proses Kab 1613. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1671: Situs mendeteksi request sebagai bot saat proses Kab 1671. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1672: Situs mendeteksi request sebagai bot saat proses Kab 1672. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1673: Situs mendeteksi request sebagai bot saat proses Kab 1673. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: text/html
+ERROR Kab 1674: Situs mendeteksi request sebagai bot saat proses Kab 1674. Cuplikan: <html><head><title>Bot Detected</title></head><br><br><body>Kami mendeteksi perilaku yang tidak wajar pada koneksi anda, sistem kami mendeteksi koneksi anda sebagai bot. Jika anda merasa ini adalah kesalahan, anda dapat melaporkannya kepada kami melalui HaloSIS dengan melampirkan kode berikut ini: B
+Traceback (most recent call last):
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 567, in <module>
+    main()
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 553, in main
+    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 357, in jalankan_scraping
+    df_usaha = scrap_satu_jenis(context, page, SCRAP_CONFIG["usaha"]["indikator"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 230, in scrap_satu_jenis
+    raise RuntimeError("Tidak ada data yang berhasil diambil untuk indikator ini.")
+RuntimeError: Tidak ada data yang berhasil diambil untuk indikator ini.
