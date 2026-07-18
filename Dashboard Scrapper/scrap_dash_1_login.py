@@ -13,6 +13,8 @@
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
 import json
+import pyotp
+DASHBOARD_OTP_SECRET = "MRVGI53EMIYTKMTHOZ3W64RXJU2G6R3H"
 
 with sync_playwright() as p:
     browser = p.chromium.launch(
@@ -30,6 +32,11 @@ with sync_playwright() as p:
     stealth.apply_stealth_sync(page)  # inject sebelum goto
 
     page.goto("https://dashboard-se2026.apps.bps.go.id/login")
+
+    input("Login manual lalu tekan Enter untuk otp...")
+    totp = pyotp.TOTP(DASHBOARD_OTP_SECRET)
+    otp_code = totp.now()
+    print(f"OTP ({otp_code}) terisi, form disubmit.")
 
     input("Login manual lalu tekan Enter...")
     context.storage_state(path="./Dashboard Scrapper/session_dash.json")

@@ -28,6 +28,7 @@ with sync_playwright() as p:
             "\n[SPASI] Download Kabupaten/Kota"
             "\n[d]     Download Mikro"
             "\n[h]     Download Laporan Harian"
+            "\n[k]     Unduh XLSX"
             "\n[Enter] Keluar"
             "\nPilihan: "
         )
@@ -56,6 +57,13 @@ with sync_playwright() as p:
                     page.get_by_role("button", name="Download XLSX").click()
 
                 download = d.value
+
+            elif key.lower() == "k":
+                with page.expect_download(timeout=600000) as d:
+                    page.get_by_role("button", name="Unduh XLSX").click()
+
+                download = d.value
+
             else:
                 print("Input tidak dikenali.")
                 continue

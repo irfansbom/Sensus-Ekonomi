@@ -17,6 +17,7 @@ from datetime import datetime
 import pandas as pd
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
+import threading
 
 # ---------------------------------------------------------------------------
 # Konfigurasi
@@ -325,6 +326,31 @@ def path_file_kec(kec: str) -> str:
     return os.path.join(FOLDER_OUTPUT, f"progres_kbli_{kec}.xlsx")
 
 
+def input_with_timeout(prompt: str, timeout: float) -> str | None:
+    """
+    Sama seperti input(), tapi kalau tidak ada respon dalam `timeout` detik,
+    return None (dianggap user tekan ENTER / lanjut).
+    """
+    result = {}
+
+    def _get_input():
+        try:
+            result["value"] = input(prompt)
+        except Exception:
+            result["value"] = None
+
+    thread = threading.Thread(target=_get_input, daemon=True)
+    thread.start()
+    thread.join(timeout)
+
+    if thread.is_alive():
+        # Timeout habis, user belum jawab -> anggap lanjut
+        print("\n  Waktu habis (60 detik), otomatis lanjut...")
+        return None  # None = dianggap lanjut, bukan 'd'
+
+    return result.get("value")
+
+
 def fetch_api(context, page, kec: str):
     """
     Ambil data satu kecamatan dari API.
@@ -360,12 +386,15 @@ def fetch_api(context, page, kec: str):
         print("  Cuplikan response:", response.text()[:300])
 
         page.goto(URL_DASHBOARD)
-        pilihan = input(
+        time.sleep(70)
+
+        pilihan = input_with_timeout(
             f"  Selesaikan captcha untuk kec {kec}.\n"
             f"  Tekan ENTER untuk lanjut, atau ketik 'd' lalu ENTER untuk "
-            f"STOP (data yang sudah ada akan tetap aman): "
+            f"STOP (data yang sudah ada akan tetap aman) [auto-lanjut dalam 60 detik]: ",
+            timeout=60,
         )
-        if pilihan.strip().lower() == "d":
+        if pilihan is not None and pilihan.strip().lower() == "d":
             raise StopScrapingException()
 
     print(f"  [{kec}] GAGAL setelah {MAX_RETRY_PER_KEC} percobaan, dilewati.")
@@ -405,7 +434,9 @@ def main():
     with sync_playwright() as p:
         browser, context, page = buat_browser_context(p)
 
-        page.goto(URL_DASHBOARD)
+        page.goto(URL_DASHBOARD) 
+        # time.sleep(10)
+
         input("Selesaikan captcha dulu, lalu tekan ENTER...")
 
         for kec in KODE_KEC_LIST:

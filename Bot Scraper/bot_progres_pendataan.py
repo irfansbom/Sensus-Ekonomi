@@ -184,7 +184,7 @@ def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
         print(f"  [{kab}] Response bukan JSON, sepertinya perlu captcha ulang.")
         print("  Cuplikan response:", response.text()[:300])
         page.goto(URL_DASHBOARD)
-        input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
+        # input(f"  Selesaikan captcha untuk lanjut scrap Kab {kab}, lalu tekan ENTER...")
 
     print(f"  [{kab}] GAGAL setelah {MAX_RETRY_PER_SLS} percobaan, dilewati.")
     return None
