@@ -16,6 +16,7 @@ from playwright_stealth import Stealth
 import pyotp
 import os
 from dotenv import load_dotenv
+import random
 
 load_dotenv()
 # ── Konfigurasi umum ─────────────────────────────────────────────────────
