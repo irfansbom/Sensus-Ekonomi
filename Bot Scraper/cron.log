@@ -1249,3 +1249,1380 @@ Traceback (most recent call last):
   File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 230, in scrap_satu_jenis
     raise RuntimeError("Tidak ada data yang berhasil diambil untuk indikator ini.")
 RuntimeError: Tidak ada data yang berhasil diambil untuk indikator ini.
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+Tombol login berhasil diklik (percobaan 2), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (660644) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Request error: APIRequestContext.get: getaddrinfo ENOTFOUND dashboard-se2026.apps.bps.go.id
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=DEBEOPGHCPPPBNKOHAEBAPHOHJHAOOPJEIHKIAKNHHBDNGFJOPLEEJMKJDBHGMDNIHKDOJBICCJGDOEHKCBANOIGEDCJMGMPKDDBGGJEENKIBLEMJKOGNIKCBAGLGCCI; f5avraaaaaaaaaaaaaaaa_session_=CMFJFIAHIOEABMHLJPPAADFOKAELIEMINCBNIKKMHHOIFCGEJAEPJFDCHPLENDCJAMGDMCOGCCCBEOBDEBMACFCEEDHJHDLPCIBEHCGDPJCIAAFNDCEKLMPJLGJHHJNG; TS00000000076=0868f8be6fab2800873d3e7c263f7aea4472245595359699381239f27ea899cf8fe50cb84daef74a99f6d35427b69ebf08eeb93c5409d000a80c2e43db3ed24efc0bda6e6200298c7606a954c676b8ddcbbb18449a244d782898fdab0ba8533743cad76d23286a37745bcf125c85831da7541837b995c7343ef5c16033575f8158691199f027de91fa3e7bae32435c5203cda1084400dd1f9fb926481926ffab75006c47f4bd71ccf80efca1271b5c816ab529d9ed7281fabcc2f042ce8ca9da157c2a7a1701b47f93bbd1a79ea4fe2fa9c2b0feb2789a7fe0b972d49a66488aa1446172cb7b53c0f00f23237aa7f38d8c0e84653e27ed7ccffa0db7f726996df8c9ba79169f2507; TSPD_101_DID=0868f8be6fab2800873d3e7c263f7aea4472245595359699381239f27ea899cf8fe50cb84daef74a99f6d35427b69ebf08eeb93c54063800c9a899c7f1dd0989a6f3933cd87385093be24071b9e61d52a4557e90aed4cbffb4cc087860d654acea4e03546591e0ec714ba19af5305486; 8cca9705ae8eeae430ba4bbadb3e34b4=2704fe622d1c141714d3e97073d93115; bps-cookie=!73E2TuPWaXvrCAovKNKgakuNOBzA3YlCTwiF+fupeWyACnwv4m7JThzK0kIJfB2AzhYXEFZF5A6j; TSPD_101=0868f8be6fab28005346ccc5df30ff27d86e0f68be0ec3c1d687db4493cff36f0b4199629f16dbf53696f9437351c9c4084bb900a40518001a2ee2d84c4e8ac45ca1732140a3428bba23ce13beb1c95e; f5_cspm=1234; f5avraaaaaaaaaaaaaaaa_session_=INABDHHLGAGPAAODNFJKEOIAAJHDCHCNHNAIMJEAPEFPOAADAOEEGLAMABJCBGPDNFADFOAHPCJDPCMNCONAEKBBDDDMIIKBIHGPLNLFJGMCCJAKNOFDMMKHNKJFMIBP; nuxt-session=Fe26.2**227cdde050117b5ee60bd8bec813cc6a31e417553dd4d370dbf08a01256a3132*o0K0O6rARPAKQICkAlzzvQ*1gtRgu-ZVJw88npBkRwfBzTc_eZdff5tXvbbFTekTV-pd93OJOO9ziB3xZOYXiCOcns60DY32CEzXfg2B9UYyBrxcsbU1nAo-xk3lU43NF6g-iM7xYXNMqkrJcB3I8F-rBJ4dMP4fnQJ0J-BmpDUwztKNJ3bQx7jANzyzFXxzDyUj9rxj2mMu-472e87S_WdFI5HSaiYGWuWDaqrNMX9ESR9ZMiZLp8oItEUdJ8VTQObfsZYsGP3VIqBxBYAHFGjJONSUoFffnzIfAZvSMZpHJZ5MmgRAkc2TXgCa1ohUE7dB5gC64Mwipri37UpJXSsnAYjE3qGnUkfm2A6CdgTH-R4fxBI-DEjWMSvVRUtIabejUeACgaVtfzpFP1z9puXnIHC_iH4wCDR9tiiPltHanSQpkjowkqhbfHHlpsQWeqnM0wV5Zx7l3GFjFwwflItKhJevMoO3B5Yl5BgA-ASUCCJn4OEYX6JUrLn-uJrJ4U77et1OviYsbPmDTl5adT9hAvG79L-02TPSLYQflWiKdQmqSzZf5-1YDcvUC9k34hmRRnnXmOo65yPEbi8rD3tAqHS_xhRUVurn0AEijQzYA*1784383211470*f65a78827a0e5d87c7b9f6e539464df4075604f61cf16d9fd11830d57c3d3758*X6KtcL1yTwPA-G7OE-7p5q8jW4yDNa4idOvJ_x7n8TU; TS01acc472=01266d26d0decd63a5b8c80effbcf43769701a4d80b107f5e7a25300e6552bc274d3b0862fff288e1ae5a01df99ca189ff36f136cbdb76f7f6174299ce144c193e59d84fec76488e7efaa5e1a0e2e49a437d89d3e3c1dfad28cdd2292179792c31f35d66516500069673172035f681a16aabd74b3c6ff2308ad87638feb6c5233e965fa08a; TSa369ea72029=0868f8be6fab280059d1d70432c3475c7efa6d9fc8bf9a3d5eac6b8847c40278974d2dff7de1e381faf1b3abf24aef95; TS4a623a73027=0868f8be6fab20008ad0ccb53f52db8289422b55b0a07c5f329d44861bf26cdb71ac1a02ba2cc47808de120620113000e153b72407c1c80094a01334aa3f8c959c672f1b709319cfbdbcd2f40afccec271a76bfd84779163aa362092f1c39ca9
+
+  [1601] percobaan 2 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+  Jeda 16.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+  Jeda 22.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+  Jeda 23.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+  Jeda 28.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+  Jeda 27.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+  Jeda 27.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+  Jeda 18.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+  Jeda 19.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+  Jeda 28.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+  Jeda 29.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+  Jeda 22.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+  Jeda 19.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+  Jeda 27.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+  Jeda 28.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1672] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1672] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1672] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+Traceback (most recent call last):
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 580, in <module>
+    main()
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 566, in main
+    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 354, in jalankan_scraping
+    df_usaha = scrap_satu_jenis(context, page, SCRAP_CONFIG["usaha"]["indikator"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 215, in scrap_satu_jenis
+    data = minta_data_sls(context, page, kab, indikator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 182, in minta_data_sls
+    page.goto(URL_DASHBOARD)
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9770, in goto
+    self._sync(
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_page.py", line 560, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 156, in goto
+    await self._channel.send(
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 563, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://dashboard-se2026.apps.bps.go.id/", waiting until "load"
+
+Tombol login berhasil diklik (percobaan 1), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (786632) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Request error: APIRequestContext.get: getaddrinfo ENOTFOUND dashboard-se2026.apps.bps.go.id
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=PAFPHALJFFPACFGKKDIGGEHAHGOIHIFDDNOELAIOBAHPNFDBGGMOEKEDACPFJNEDEFADNNKGPBICJDBIKPJAHBCAECFFPKLDHOCMOOGAOAJILJBKFOIDCEHONKCINGBG; TS00000000076=0868f8be6fab2800344c1a924aa3b7c4dbe3fb285dbd7a4ba117f54dc9ee5f3d3d38104da08ebab09fe9e1c0e7664ea0089cfcedfd09d00036a02da9f449a8444be2b04e692e2b2217ed5ed984737c00bcb0e3fdb179c7416107f9b5e07c0ccbcecb3bfbef682123ef476d1e83f009e6d90c76a497a0bbcdfe4ef7dc166f027deebb7e8ce641ceee9d24cea8a214599d284054f8939c5a9df9f7f61223e5ed8b62e9c351b58f5f0d3f1a5d9987f87c1b678d56c5b99ac607c5fd53df06358d6215809f0110b2d1c20df24d6a3a6fab4dc618595b5c462fbc70148056bba8a8cf9b35aac27758e88fe0348cd03c86bec9913a3ab2398ab484aa34ec3ef6af6c22857c19e121ffc72e; TSPD_101_DID=0868f8be6fab2800344c1a924aa3b7c4dbe3fb285dbd7a4ba117f54dc9ee5f3d3d38104da08ebab09fe9e1c0e7664ea0089cfcedfd063800033f568b3c5c6caab0174cf595ee251e1ae4666b3546509866245a11f959924a866cec737b5c28eae67a87e96ebfe3b662b8f8f94ef50265; 8cca9705ae8eeae430ba4bbadb3e34b4=9d1829f89c853647979c58f930d9beb6; bps-cookie=!R0qhbNsvhbMv2rAZgF6f7w1bddpZcTJNOGnMvxyyHVe0jItJn3+y1zYFCZdrfDsmALRBwN5xeF8g; TSPD_101=0868f8be6fab2800f06a67ca0b3971e73d19089baba69c14e0aa5e4bef519f5ecc1f4d2562baddcdff0ce2425bf0860a0824345e12051800ef8788652b566f985ca1732140a3428bba23ce13beb1c95e; f5_cspm=1234; f5avraaaaaaaaaaaaaaaa_session_=JFAKLDMKPANFNBKCLLCHMINBLBJEJCNCFIGLKBCGGBKCGKBEDHFDIMDCAPCJALJONIKDELJMNBIPFPBOJDPAGEKEECPNMJHBHLKKPLOKGDNHBALCEHILFNNOBJACMILH; nuxt-session=Fe26.2**1dfa31f78c4ed99dde3f9b31dbc8b8d23d10f7a7115108aec5efcf111b796e60*tqAFWQV4x14_hRQRm3sm0w*-B_I2Wgz9BLABDoLbkomnUIQMjigDiszkX9fytE_jGFOhb9wY6XYdPHU0FlpZkJ1PGW48dzjkIdTKb_eGjIGpwDvg5r3jk3g5FsTauQ3KLr757YcfXZG08EQc_i7st_7aFL8wCKpzAqIjqnsg9Y9w2UZzEbWjt5CrXL7FNgSy4zL0AybEK0IDNaQ23OZ6u589t26oPD5aSNGtp47pw2dRCSBh5oI-yiNmlsmb0dLvfoIstllQHvbIth3sVMzqa8GA-FzwnhXgBlotYiHpwqSwD2lBXOFPQX0yB9UDDaZq626xYPw545nK7HNkO2YlzEIqJeQdeh1IrwiCMJc_pU1JGuWXyg7mp6vLsOfoj88G0a12XOrXDNSrRsOb86tft0yzYRDD0SKE0hE33-RTfyBgCv0t4-c0OUsJfkUfIbrgm88kcFEyrs9juXOmfv5EDIQQxdmsd_BaKuS8CPoS4CkwNbnfhd320RlfnN40dIsApSLHu-T3bz_gGSeuGKotSx0zEb0Lc-0ZBBESqYMu99yicrNAfsboAE7way7Xo5vqKtjTgjd8nh2Znsp1D0eNvHkUw_C40_w4yCI_aNUJ0YwAA*1784444409071*ddaba3a2af566ea89345f67078552764c42a9402c6b19762aca5d766edf66b8e*rpsBckpCYKTcML39IGvvXbgiIkNsj1A9DclyKX7teuc; TS01acc472=01266d26d058d0acb9b9cb15aec34f17adf747262e8fa4225a528d2fae74919d57e7765c8dc2f3bc73679e856c042a267d02dd7602fb023e84fbd5e6ac9196f01faf67feb4e73f925dad64054a9643986937369e0295672c62bbae6696ac73fce835226f79f205d3f8a5805b51c32334d086e680a7a5abf941eef9d8a7e18dfe9e6dbd97c1; TSa369ea72029=0868f8be6fab28006c67854d3f3e5b61411417c5eee2eb7007694759624fd55affb3b6fae5c95ab8e36fbee8d2da10bd; TS4a623a73027=0868f8be6fab2000e5706a26e4704fe3237a6b02eebc80e259970aeb6117e5b3b87c1665770cff7c087555e77d113000ae6232991c86d46da9d75f836bbb5ed6eccf726c149be90559b4e0980e5c815db8a6fa403a0205f4d5afcce8a160eaad
+
+  [1601] percobaan 2 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+  Jeda 26.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+  Jeda 27.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+  Jeda 20.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+  Jeda 28.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+  Jeda 19.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+  Jeda 21.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+  Jeda 17.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+  Jeda 27.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+  Jeda 20.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+  Jeda 20.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+  Jeda 16.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+  Jeda 25.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+  Jeda 28.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+  Jeda 26.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10306 baris
+  Jeda 25.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1673] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1673] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1673] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1673] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 7950 baris
+  Jeda 27.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 11460 baris
+  Jeda 28.2 detik sebelum kabupaten berikutnya...
+=== Scraping data keluarga ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 22308 baris
+  Jeda 29.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 45078 baris
+  Jeda 19.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 34161 baris
+  Jeda 20.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 19707 baris
+  Jeda 21.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13083 baris
+  Jeda 26.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 33099 baris
+  Jeda 26.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1607] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1607] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1607] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1607] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 49005 baris
+  Jeda 20.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 14049 baris
+  Jeda 22.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 34080 baris
+  Jeda 17.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 16296 baris
+  Jeda 19.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 8187 baris
+  Jeda 22.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 5730 baris
+  Jeda 28.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6414 baris
+  Jeda 17.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 48444 baris
+  Jeda 29.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1672] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1672] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1672] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1672] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 6189 baris
+  Jeda 16.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 4776 baris
+  Jeda 25.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6882 baris
+  Jeda 23.4 detik sebelum kabupaten berikutnya...
+Backup tersimpan di: ../scrap_status_usaha/status_usaha_sls_sumsel_20260719_083259.xlsx
+Backup tersimpan di: ../scrap_status_keluarga/status_keluarga_sls_sumsel_20260719_083510.xlsx
+Peringatan: 18 dari 38406 baris tidak ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah (misal angka nol di depan hilang saat scraping). Cek contoh:
+['1601000000000000', '1601140008028000', '1602000000000000', '1603000000000000', '1604000000000000']
+Bandingkan dengan contoh id di daftar PPL:
+['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
+Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_19-07-2026_08-00-01.xlsx
+38406 baris berhasil di-upsert ke rekap_progress_pendataan pada 19-07-2026_08-00-01
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+Tombol login berhasil diklik (percobaan 2), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (929750) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+  Jeda 24.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+  Jeda 18.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+  Jeda 29.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+  Jeda 15.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+  Jeda 23.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+  Jeda 15.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+  Jeda 18.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+  Jeda 19.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+  Jeda 26.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+  Jeda 20.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+  Jeda 28.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+  Jeda 18.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+  Jeda 19.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+  Jeda 15.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10306 baris
+  Jeda 18.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 7950 baris
+  Jeda 29.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 11460 baris
+  Jeda 21.4 detik sebelum kabupaten berikutnya...
+=== Scraping data keluarga ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 22308 baris
+  Jeda 15.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1602] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1602] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1602] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1602] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 45078 baris
+  Jeda 26.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 34161 baris
+  Jeda 18.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 19707 baris
+  Jeda 25.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13083 baris
+  Jeda 20.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 33099 baris
+  Jeda 20.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 49005 baris
+  Jeda 17.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 14049 baris
+  Jeda 28.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 34080 baris
+  Jeda 25.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 16296 baris
+  Jeda 23.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 8187 baris
+  Jeda 24.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 5730 baris
+  Jeda 25.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6414 baris
+  Jeda 23.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 48444 baris
+  Jeda 27.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6189 baris
+  Jeda 19.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 4776 baris
+  Jeda 17.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6882 baris
+  Jeda 15.6 detik sebelum kabupaten berikutnya...
+Backup tersimpan di: ../scrap_status_usaha/status_usaha_sls_sumsel_20260719_122808.xlsx
+Backup tersimpan di: ../scrap_status_keluarga/status_keluarga_sls_sumsel_20260719_123017.xlsx
+Peringatan: 18 dari 38406 baris tidak ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah (misal angka nol di depan hilang saat scraping). Cek contoh:
+['1601000000000000', '1601140008028000', '1602000000000000', '1603000000000000', '1604000000000000']
+Bandingkan dengan contoh id di daftar PPL:
+['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
+Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_19-07-2026_12-00-01.xlsx
+38406 baris berhasil di-upsert ke rekap_progress_pendataan pada 19-07-2026_12-00-01
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+Tombol login berhasil diklik (percobaan 2), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (042755) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+  Jeda 21.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+  Jeda 16.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+  Jeda 21.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+  Jeda 15.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+  Jeda 15.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+  Jeda 17.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+  Jeda 29.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+  Jeda 25.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+  Jeda 15.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+  Jeda 29.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+  Jeda 15.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+  Jeda 18.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+  Jeda 27.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+  Jeda 26.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10306 baris
+  Jeda 18.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 7950 baris
+  Jeda 24.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 11460 baris
+  Jeda 20.7 detik sebelum kabupaten berikutnya...
+=== Scraping data keluarga ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1601] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1601] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1601] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1601] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 22308 baris
+  Jeda 18.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 45078 baris
+  Jeda 29.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 34161 baris
+  Jeda 23.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 19707 baris
+  Jeda 28.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13083 baris
+  Jeda 25.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 33099 baris
+  Jeda 24.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 49005 baris
+  Jeda 19.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 14049 baris
+  Jeda 27.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 34080 baris
+  Jeda 28.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 16296 baris
+  Jeda 22.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 8187 baris
+  Jeda 25.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 5730 baris
+  Jeda 18.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6414 baris
+  Jeda 17.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 48444 baris
+  Jeda 17.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6189 baris
+  Jeda 18.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 4776 baris
+  Jeda 23.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6882 baris
+  Jeda 16.3 detik sebelum kabupaten berikutnya...
+Backup tersimpan di: ../scrap_status_usaha/status_usaha_sls_sumsel_20260719_152842.xlsx
+Backup tersimpan di: ../scrap_status_keluarga/status_keluarga_sls_sumsel_20260719_153052.xlsx
+Peringatan: 18 dari 38406 baris tidak ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah (misal angka nol di depan hilang saat scraping). Cek contoh:
+['1601000000000000', '1601140008028000', '1602000000000000', '1603000000000000', '1604000000000000']
+Bandingkan dengan contoh id di daftar PPL:
+['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
+Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_19-07-2026_15-00-01.xlsx
+38406 baris berhasil di-upsert ke rekap_progress_pendataan pada 19-07-2026_15-00-01
+Tombol login tidak ditemukan (mungkin sudah login): Page.wait_for_selector: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button") to be visible
+    - waiting for" https://dashboard-se2026.apps.bps.go.id/" navigation to finish...
+
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1601] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1601] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1601] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1601] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 22.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 29.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Request error: APIRequestContext.get: Timeout 120000ms exceeded.
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=AHHIHPJNBEBKEBKEJNPJIJEDDBDCOLLPHFDLDMNJILFGDCGKMGLHPKHNPBEGNKJFPMKDJLIJMDADDFLCBCNAFJMHBHPPONNGMICDEEPFLAENIGLGEDILELLBDIDNPNKC; TS00000000076=0868f8be6fab2800d44862e163080c97cb42ed7d296af47b1422c08d1eb5a97289c2674ddca82c7bc05b39df3338b7a50875e5c70309d00029a44afac58a1f0e0f73ec41457fa39a81ca4291ccb0c0997c0b831426be2d1dae65545594c02b0bb0df4a02f232b94619070ef3ae6784506b49e37195548d4b966606baaa7aec6fe1c6b94c772cccb56b46de11a8789c0d17fc25a95b08cd03917c36cfa14df94e1fe7d0386803828a86f3cc8f5dfa3430a0e24149a86aa98b46eddf1d58a911620e6f09d3eb06f569deae145e34775b102769f1e1cbbb6d82e1c8ef4bdd354e2203155bfaeceaf99385a2cefbad70fca9c725b24d514627fbea427fa434fbbdf8f56761032df33a55; TSPD_101_DID=0868f8be6fab2800d44862e163080c97cb42ed7d296af47b1422c08d1eb5a97289c2674ddca82c7bc05b39df3338b7a50875e5c7030638007fb88083dc21c70266b942a402e75f5ea7afc65b2b3e0881340855641c80a375f1762430871ee55aa51825dd0755e0090bab04a731e6017b; nuxt-session=Fe26.2**f8a5c74c721c5b1b4d45823c6ed9077d51e5c0ef946bbe67f5c8310b7279873c*59BkuxHnRcgXZqvH6kjUaA*hyNr6E3d84KPPkN_KUdSEzFCnVLj2YyDairBM7-IfVemJxmMOSP7lofTojq03-l1GBjrZanIDJsXLMTl2HV8ZSKTRGaxISxfOTkgk8dM17O7cPZw3Y_-4pXW3IVDXwU0*1784595688919*246bfcc0c44ace4831a2d1c1100164a7f632adb1155d9a5ae3d820c3795a31f9*4_7A7CJHd2hiZt2n862otTFS4PW95JlrcdT3YBFPx5I; 8cca9705ae8eeae430ba4bbadb3e34b4=d258575d71f8745c83de1bcc300c18cb; bps-cookie=!qJn5sR4Hm5JylIEZgF6f7w1bddpZcaJ6pkT3UAs0/hbt+MXFaUc7Az7t9GTf+hlXIEsiogYE68BF; TSPD_101=0868f8be6fab2800e337d3a9fae7fb22275d2212aba6335f6ce0b54b3115a7bc66549d639851e4fe100f92fc32866afa088dc6bba7051800a35ad4b0f8f492935ca1732140a3428bba23ce13beb1c95e; f5_cspm=1234; f5avraaaaaaaaaaaaaaaa_session_=BKJDNHLGKCGIIDFJGMPIFHDAHDDHNMOKDPPGAINGFHNIPBFFLGBKEBCLGIGFLABHHCMDGLMMDDMCONIKKIMAAANOGHMHKMIJPNDEBCDDMJMPEALMPLOCLBEHFDOBJKID; TS01acc472=01266d26d0b3c86191eb9155618a004b0613fcc541c99afad35c7b38b11aa198c4f60fbb80229a44ee6a9d539bfc36e37e537045e271886ebbccc63a394246ae7b00282a11eb041c668cdcad02677bd089d971f63c71828818bb668b75beed16aae6f1f8948cb228c27fec14d1b7f80aaf66c5725fa3e8f34556b6878225953afdb1ed8583; TS4a623a73027=0868f8be6fab2000fe8f13c77a0d56179fe39c369cc0280d2325bf060b8ccb438dda15277e6174f70849387ba61130005c2e4d97c4ab006ff1b36f660012e51895a26621d2936c648d3a6d020816e1900071425cf8131d711941dadac7270018
+
+  [1603] percobaan 2 - Request error: APIRequestContext.get: Timeout 120000ms exceeded.
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=AHHIHPJNBEBKEBKEJNPJIJEDDBDCOLLPHFDLDMNJILFGDCGKMGLHPKHNPBEGNKJFPMKDJLIJMDADDFLCBCNAFJMHBHPPONNGMICDEEPFLAENIGLGEDILELLBDIDNPNKC; TS00000000076=0868f8be6fab2800d44862e163080c97cb42ed7d296af47b1422c08d1eb5a97289c2674ddca82c7bc05b39df3338b7a50875e5c70309d00029a44afac58a1f0e0f73ec41457fa39a81ca4291ccb0c0997c0b831426be2d1dae65545594c02b0bb0df4a02f232b94619070ef3ae6784506b49e37195548d4b966606baaa7aec6fe1c6b94c772cccb56b46de11a8789c0d17fc25a95b08cd03917c36cfa14df94e1fe7d0386803828a86f3cc8f5dfa3430a0e24149a86aa98b46eddf1d58a911620e6f09d3eb06f569deae145e34775b102769f1e1cbbb6d82e1c8ef4bdd354e2203155bfaeceaf99385a2cefbad70fca9c725b24d514627fbea427fa434fbbdf8f56761032df33a55; TSPD_101_DID=0868f8be6fab2800d44862e163080c97cb42ed7d296af47b1422c08d1eb5a97289c2674ddca82c7bc05b39df3338b7a50875e5c7030638007fb88083dc21c70266b942a402e75f5ea7afc65b2b3e0881340855641c80a375f1762430871ee55aa51825dd0755e0090bab04a731e6017b; nuxt-session=Fe26.2**f8a5c74c721c5b1b4d45823c6ed9077d51e5c0ef946bbe67f5c8310b7279873c*59BkuxHnRcgXZqvH6kjUaA*hyNr6E3d84KPPkN_KUdSEzFCnVLj2YyDairBM7-IfVemJxmMOSP7lofTojq03-l1GBjrZanIDJsXLMTl2HV8ZSKTRGaxISxfOTkgk8dM17O7cPZw3Y_-4pXW3IVDXwU0*1784595688919*246bfcc0c44ace4831a2d1c1100164a7f632adb1155d9a5ae3d820c3795a31f9*4_7A7CJHd2hiZt2n862otTFS4PW95JlrcdT3YBFPx5I; 8cca9705ae8eeae430ba4bbadb3e34b4=d258575d71f8745c83de1bcc300c18cb; bps-cookie=!qJn5sR4Hm5JylIEZgF6f7w1bddpZcaJ6pkT3UAs0/hbt+MXFaUc7Az7t9GTf+hlXIEsiogYE68BF; TSPD_101=0868f8be6fab2800e337d3a9fae7fb22275d2212aba6335f6ce0b54b3115a7bc66549d639851e4fe100f92fc32866afa088dc6bba7051800a35ad4b0f8f492935ca1732140a3428bba23ce13beb1c95e; f5_cspm=1234; f5avraaaaaaaaaaaaaaaa_session_=BKJDNHLGKCGIIDFJGMPIFHDAHDDHNMOKDPPGAINGFHNIPBFFLGBKEBCLGIGFLABHHCMDGLMMDDMCONIKKIMAAANOGHMHKMIJPNDEBCDDMJMPEALMPLOCLBEHFDOBJKID; TS01acc472=01266d26d0b3c86191eb9155618a004b0613fcc541c99afad35c7b38b11aa198c4f60fbb80229a44ee6a9d539bfc36e37e537045e271886ebbccc63a394246ae7b00282a11eb041c668cdcad02677bd089d971f63c71828818bb668b75beed16aae6f1f8948cb228c27fec14d1b7f80aaf66c5725fa3e8f34556b6878225953afdb1ed8583; TS4a623a73027=0868f8be6fab2000fe8f13c77a0d56179fe39c369cc0280d2325bf060b8ccb438dda15277e6174f70849387ba61130005c2e4d97c4ab006ff1b36f660012e51895a26621d2936c648d3a6d020816e1900071425cf8131d711941dadac7270018
+
+  [1603] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1603] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1603] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1603] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1603] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1603] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1603] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 23.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1604] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1604] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 25.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 23.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 27.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 23.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 19.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 4 - Request error: APIRequestContext.get: Timeout 120000ms exceeded.
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=OMBNAMLCFICAEAFPFHIAFOFNEBLFJAKLIPCIOGJHDMMHEEBFIBFJLOIGHDFONMMMNFGDCCPIMFNHPBBHEGGAKDPNOHENPIJJCGLBFBCJKPLLLAHIFOHCFAJACMLMBHCM; nuxt-session=Fe26.2**f8a5c74c721c5b1b4d45823c6ed9077d51e5c0ef946bbe67f5c8310b7279873c*59BkuxHnRcgXZqvH6kjUaA*hyNr6E3d84KPPkN_KUdSEzFCnVLj2YyDairBM7-IfVemJxmMOSP7lofTojq03-l1GBjrZanIDJsXLMTl2HV8ZSKTRGaxISxfOTkgk8dM17O7cPZw3Y_-4pXW3IVDXwU0*1784595688919*246bfcc0c44ace4831a2d1c1100164a7f632adb1155d9a5ae3d820c3795a31f9*4_7A7CJHd2hiZt2n862otTFS4PW95JlrcdT3YBFPx5I; 8cca9705ae8eeae430ba4bbadb3e34b4=d258575d71f8745c83de1bcc300c18cb; bps-cookie=!qJn5sR4Hm5JylIEZgF6f7w1bddpZcaJ6pkT3UAs0/hbt+MXFaUc7Az7t9GTf+hlXIEsiogYE68BF; f5_cspm=1234; TS00000000076=0868f8be6fab280094adca7b379d3be676549200b92ad3b6986b5e87607d5a915bfa77c9dc168dded00221e1da771a9b083df67cab09d000005e98788b4124830f73ec41457fa39a81ca4291ccb0c0997c0b831426be2d1dae65545594c02b0bb0df4a02f232b94619070ef3ae6784506b49e37195548d4b966606baaa7aec6fe1c6b94c772cccb56b46de11a8789c0d32022b2f7d886840f246f0f618f9d895f1acd4e8399e3e1563b60db4596599cc1d4a4067b23a9fe5e92db1858a800629bdd1d8abdc91ae0f9b5cd327cddc3883587c896866316886a733a3182ef012c9ec8d67e5ded0f7125f752abc54149623c397addc0e8aea2b061192a9e6f4070ff917d10fc93bc882; TSPD_101_DID=0868f8be6fab280094adca7b379d3be676549200b92ad3b6986b5e87607d5a915bfa77c9dc168dded00221e1da771a9b083df67cab06380032e6b266a0390cce2deaf55aacb9d028ed8ca25dbeda76a150a38d0542fd796c754a42b45fe894f59aaee4bcb6e9ae4ed3c3388cdb313197; f5avraaaaaaaaaaaaaaaa_session_=GJEONKNPAKOJJIOACGMEFBKKOJLFMCBLGBFDMLEOBHFFMIFJFCIEOCLFNMBCCGMDMJODJLAENFGDJCDLIOKAIJFBIHDCJJJOIEAGPCLFNHDCPFHKALGJLFOFPCNFLILG; TSPD_101=0868f8be6fab2800a3331ba7275a20987cd3371d383383ad6205ee5f1c3ca569fa23d02d1a8da7ea48e1ac818854d53e08bfe38d6d0518001cdca10c5555f4895ca1732140a3428bba23ce13beb1c95e; TS01acc472=01266d26d0965f620dc89d5c1412b7f6c29a6d5c92839b2c613716d67ab7c741426952006b819fcd90a0a4a1039ef01698e2007c1e736f83abdb6ca4b10c3e3106bab1e0f559b86b9d69688b0e8c496fa9d033d58d7ee277f97238d6352ced452a4cfa551ca9f83171e1c016f362b5895b2425338ed1af039d7bf6f7a2edab560f9f21601c; TSa369ea72029=0868f8be6fab28004f51cd47cb7551664886141f02b029be9978629ba181f14682160bb8935b9bb0180eb8c88d95435e; TS4a623a73027=0868f8be6fab2000eddc1afad3671975e3390e614f8ede2f665b0fa330b14d9bc988d2aaa3285d5b0876e32dfa1130002eb901da1eb988f68f28f17cbe27affe352b7a1e08eec6a01506a18f4dca343af4276fb97463e4158a5652d7287d3017
+
+  [1609] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 26.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 26.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 21.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 15.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 24.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 23.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 27.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 16.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 20.8 detik sebelum kabupaten berikutnya...
+Traceback (most recent call last):
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 580, in <module>
+    main()
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 566, in main
+    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 354, in jalankan_scraping
+    df_usaha = scrap_satu_jenis(context, page, SCRAP_CONFIG["usaha"]["indikator"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 227, in scrap_satu_jenis
+    raise RuntimeError("Tidak ada data yang berhasil diambil untuk indikator ini.")
+RuntimeError: Tidak ada data yang berhasil diambil untuk indikator ini.
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+Tombol login berhasil diklik (percobaan 2), halaman berubah.
+Username & password terisi, form disubmit.
+OTP (471062) terisi, form disubmit.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 37171 baris
+  Jeda 18.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 75121 baris
+  Jeda 18.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56926 baris
+  Jeda 15.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 32835 baris
+  Jeda 18.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 21796 baris
+  Jeda 16.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 55156 baris
+  Jeda 24.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 81676 baris
+  Jeda 18.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 23416 baris
+  Jeda 29.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 56792 baris
+  Jeda 16.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 27151 baris
+  Jeda 19.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13635 baris
+  Jeda 23.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 9541 baris
+  Jeda 19.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10681 baris
+  Jeda 28.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 80731 baris
+  Jeda 15.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 10306 baris
+  Jeda 17.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 7950 baris
+  Jeda 28.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 11460 baris
+  Jeda 24.5 detik sebelum kabupaten berikutnya...
+=== Scraping data keluarga ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1601] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1601] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1601] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1601] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 22308 baris
+  Jeda 26.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 45078 baris
+  Jeda 18.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 34161 baris
+  Jeda 24.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 19707 baris
+  Jeda 21.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 13083 baris
+  Jeda 21.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 33099 baris
+  Jeda 23.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 49005 baris
+  Jeda 18.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 14049 baris
+  Jeda 24.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1609] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1609] percobaan 3 - Status: 200 - Content-Type: application/json
+  -> 34080 baris
+  Jeda 18.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 16296 baris
+  Jeda 20.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 8187 baris
+  Jeda 28.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 5730 baris
+  Jeda 22.5 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6414 baris
+  Jeda 18.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 48444 baris
+  Jeda 26.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6189 baris
+  Jeda 19.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 4776 baris
+  Jeda 15.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 200 - Content-Type: application/json
+  -> 6882 baris
+  Jeda 15.1 detik sebelum kabupaten berikutnya...
+Backup tersimpan di: ../scrap_status_usaha/status_usaha_sls_sumsel_20260720_122827.xlsx
+Backup tersimpan di: ../scrap_status_keluarga/status_keluarga_sls_sumsel_20260720_123033.xlsx
+Peringatan: 18 dari 38410 baris tidak ketemu PPL/PML-nya. Kemungkinan ada perbedaan format id_wilayah (misal angka nol di depan hilang saat scraping). Cek contoh:
+['1601000000000000', '1601140008028000', '1602000000000000', '1603000000000000', '1604000000000000']
+Bandingkan dengan contoh id di daftar PPL:
+['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
+Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_20-07-2026_12-00-01.xlsx
+38410 baris berhasil di-upsert ke rekap_progress_pendataan pada 20-07-2026_12-00-01

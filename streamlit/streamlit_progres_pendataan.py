@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR.parent / "SQLLITE" / "rekap_progress_pendataan.db"
 
 
-@st.cache_data
+@st.cache_data(ttl=60)  # cache refresh tiap 60 detik
 def load_data(db_path):
     conn = sqlite3.connect(db_path)
     df = pd.read_sql_query("SELECT * FROM rekap_progress_pendataan", conn)
