@@ -144,8 +144,8 @@ class BotTerdeteksi(Exception):
     berbeda dari error biasa supaya seluruh proses scraping BERHENTI TOTAL,
     bukan retry/lanjut diam-diam ke kabupaten lain."""
 DELAY_ANTAR_KABUPATEN_DETIK = (120,180)  # jeda acak antara 15-30 detik
- 
- 
+
+
 def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
     """Minta data satu kabupaten ke API. Retry otomatis kalau:
     - request error (koneksi putus, timeout, dll)
@@ -201,8 +201,8 @@ def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
 
     print(f"  [{kab}] GAGAL setelah {MAX_RETRY_PER_SLS} percobaan, dilewati.")
     return None
- 
- 
+
+
 def scrap_satu_jenis(context, page, indikator: str) -> pd.DataFrame:
     """Scrap semua kabupaten untuk satu jenis indikator (usaha atau keluarga).
     Kalau satu kabupaten gagal terus setelah semua retry (termasuk cooldown
@@ -444,7 +444,7 @@ def gabungkan_usaha_keluarga(
     )
     df_merged["kd_kab"] = df_merged["kd_kab_x"].combine_first(df_merged["kd_kab_y"])
     df_merged = df_merged.rename(
-        columns={"Jumlah Keluarga Prelist Awal_x": "jumlah_prelist_keluarga"}
+        columns={"Jumlah Keluarga Prelist Awal": "jumlah_prelist_keluarga"}
     )
 
     return df_merged[KOLOM_AKHIR]
@@ -556,24 +556,28 @@ def upsert_ke_sqlite(
             "ikut ter-upsert run ini (last_update tetap yang lama) karena "
             "tidak ada di data hasil scraping run ini."
         )
- 
 
 
 # ── Main ──────────────────────────────────────────────────────────────────
 
 
 def main() -> None:
-    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
-    # df_usaha_mentah = pd.read_excel("../scrap_status_usaha/status_usaha_sls_sumsel_20260716_201826.xlsx")
-    # df_keluarga_mentah = pd.read_excel("../scrap_status_keluarga/status_keluarga_sls_sumsel_20260716_202033.xlsx")
+    # df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+    df_usaha_mentah = pd.read_excel(
+        "scrap_status_usaha\status_usaha_sls_sumsel_20260715_135259.xlsx"
+    )
+    df_keluarga_mentah = pd.read_excel(
+        "scrap_status_keluarga\status_keluarga_sls_sumsel_20260715_141229.xlsx"
+    )
     df_usaha_pivot = proses_data_usaha(df_usaha_mentah)
     df_keluarga_pivot = proses_data_keluarga(df_keluarga_mentah)
-
+  
     df_merged = gabungkan_usaha_keluarga(df_usaha_pivot, df_keluarga_pivot)
-    df_final = gabungkan_dengan_ppl_pml(df_merged)
+    print(df_merged.columns)
+    # df_final = gabungkan_dengan_ppl_pml(df_merged)
 
-    simpan_ke_excel(df_final)
-    upsert_ke_sqlite(df_final, TANGGAL_JAM)
+    # simpan_ke_excel(df_final)
+    # upsert_ke_sqlite(df_final, TANGGAL_JAM)
 
 
 if __name__ == "__main__":
