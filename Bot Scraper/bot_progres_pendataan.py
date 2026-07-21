@@ -562,22 +562,22 @@ def upsert_ke_sqlite(
 
 
 def main() -> None:
-    # df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
-    df_usaha_mentah = pd.read_excel(
-        "scrap_status_usaha\status_usaha_sls_sumsel_20260715_135259.xlsx"
-    )
-    df_keluarga_mentah = pd.read_excel(
-        "scrap_status_keluarga\status_keluarga_sls_sumsel_20260715_141229.xlsx"
-    )
+    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+    # df_usaha_mentah = pd.read_excel(
+    #     "scrap_status_usaha\status_usaha_sls_sumsel_20260715_135259.xlsx"
+    # )
+    # df_keluarga_mentah = pd.read_excel(
+    #     "scrap_status_keluarga\status_keluarga_sls_sumsel_20260715_141229.xlsx"
+    # )
     df_usaha_pivot = proses_data_usaha(df_usaha_mentah)
     df_keluarga_pivot = proses_data_keluarga(df_keluarga_mentah)
   
     df_merged = gabungkan_usaha_keluarga(df_usaha_pivot, df_keluarga_pivot)
     print(df_merged.columns)
-    # df_final = gabungkan_dengan_ppl_pml(df_merged)
+    df_final = gabungkan_dengan_ppl_pml(df_merged)
 
-    # simpan_ke_excel(df_final)
-    # upsert_ke_sqlite(df_final, TANGGAL_JAM)
+    simpan_ke_excel(df_final)
+    upsert_ke_sqlite(df_final, TANGGAL_JAM)
 
 
 if __name__ == "__main__":
