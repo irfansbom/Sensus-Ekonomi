@@ -2626,3 +2626,1686 @@ Bandingkan dengan contoh id di daftar PPL:
 ['1601052001000100', '1601052001000200', '1601052001000300', '1601052001000400', '1601052001000500']
 Excel tersimpan di: ../Rekap Progres Pendataan/rekap_progres_pendataan_20-07-2026_12-00-01.xlsx
 38410 baris berhasil di-upsert ke rekap_progress_pendataan pada 20-07-2026_12-00-01
+Tombol login tidak ditemukan (mungkin sudah login): Page.wait_for_selector: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button") to be visible
+    - waiting for" https://dashboard-se2026.apps.bps.go.id/" navigation to finish...
+
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1601] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1601] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1601] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1601] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1601] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1601] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1601] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1601] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1601] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1601] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 24.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1602] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1602] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1602] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1602] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1602] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1602] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1602] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1602] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1602] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1602] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 26.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1603] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1603] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1603] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1603] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1603] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1603] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1603] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1603] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1603] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1603] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 26.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1604] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1604] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1604] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1604] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1604] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1604] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1604] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1604] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1604] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1604] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 24.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1605] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1605] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1605] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1605] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1605] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1605] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1605] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1605] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1605] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1605] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 27.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1606] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1606] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1606] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1606] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1606] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1606] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1606] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 15.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1607] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1607] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1607] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1607] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1607] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1607] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 29.7 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1608] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1608] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1608] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1608] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1608] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1608] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1608] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1608] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1608] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1608] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 21.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1609] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1609] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1609] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1609] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1609] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1609] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1609] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1609] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1609] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1609] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 29.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1610] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1610] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1610] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1610] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1610] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1610] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1610] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1610] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1610] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1610] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 27.4 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1611] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1611] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1611] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1611] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1611] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1611] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1611] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1611] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1611] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1611] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 25.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1612] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1612] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1612] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1612] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1612] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1612] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1612] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1612] percobaan 5 - Status: 503 - Content-Type: text/html
+  [1612] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1612] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 22.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 503 - Content-Type: text/html
+  [1613] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1613] percobaan 2 - Status: 503 - Content-Type: text/html
+  [1613] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1613] percobaan 3 - Status: 503 - Content-Type: text/html
+  [1613] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1613] percobaan 4 - Status: 503 - Content-Type: text/html
+  [1613] Status 503 - request gagal, coba lagi...
+  Cuplikan response: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.66666667;
+        font-size: 16px;
+        color: #333;
+        bac
+  [1613] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1613] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1613] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 23.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1671] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1671] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1671] percobaan 4 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1671] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1671] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1671] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 15.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1672] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1672] percobaan 3 - Status: 200 - Content-Type: text/html
+  [1672] Response bukan JSON, sepertinya perlu captcha ulang.
+  Cuplikan response: <!DOCTYPE html>
+<html><head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CacheControl" content="no-cache"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="shortcut icon" href="data:;base64,iVBORw0KG
+  [1672] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 16.2 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1673] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1673] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1673] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1673] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 23.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 20.2 detik sebelum kabupaten berikutnya...
+Traceback (most recent call last):
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 580, in <module>
+    main()
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 566, in main
+    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 354, in jalankan_scraping
+    df_usaha = scrap_satu_jenis(context, page, SCRAP_CONFIG["usaha"]["indikator"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 227, in scrap_satu_jenis
+    raise RuntimeError("Tidak ada data yang berhasil diambil untuk indikator ini.")
+RuntimeError: Tidak ada data yang berhasil diambil untuk indikator ini.
+  Percobaan 1 - klik terkirim tapi belum ada perubahan, coba lagi...
+  Percobaan 2 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+    - locator resolved to <button type="button" data-slot="base" data-v-daf625f1="" class="items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 text-sm gap-2 w-full ring-inset active:bg-primary/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary p-2 h-10 sm:h-11 font-bold text-gray-700 bg-primary-400/5 ring-1 ring-gray-200 hover:r…>…</button>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+    - click action done
+    - waiting for scheduled navigations to finish
+
+  Percobaan 3 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+    - waiting for" https://sso.bps.go.id/auth/realms/pegawai-bps/protocol/openid-connect/auth?client_id=03330-dashse-3k5&redirect_uri=https%3A%2F%2Fdashboard-se2026.apps.bps.go.id%2Fcallback&response_type=code&scope=op…" navigation to finish...
+
+  Percobaan 4 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+
+  Percobaan 5 - klik gagal: Locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id='v-0']/button")
+
+Tombol login diklik tapi tidak terdeteksi ada perubahan setelah beberapa percobaan.
+=== Scraping data usaha ===
+Proses Kab 1601
+  [1601] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1601] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1601",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1601] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 17.6 detik sebelum kabupaten berikutnya...
+Proses Kab 1602
+  [1602] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1602] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1602",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1602] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 15.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1603
+  [1603] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1603] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1603",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1603] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 20.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1604
+  [1604] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1604] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1604",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1604] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 24.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1605
+  [1605] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1605] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1605",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1605] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 21.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1606
+  [1606] percobaan 1 - Status: 200 - Content-Type: text/html
+  [1606] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1606] percobaan 2 - Status: 200 - Content-Type: text/html
+  [1606] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1606] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1606] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1606",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1606] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 26.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1607
+  [1607] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1607] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1607",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1607] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 28.0 detik sebelum kabupaten berikutnya...
+Proses Kab 1608
+  [1608] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1608] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1608",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1608] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 25.3 detik sebelum kabupaten berikutnya...
+Proses Kab 1609
+  [1609] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1609] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1609",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1609] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 15.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1610
+  [1610] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1610] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1610",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1610] percobaan 5 - Status: 200 - Content-Type: text/html
+  [1610] Kena deteksi bot. Menunggu 70 detik untuk cooldown...
+  [1610] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 22.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1611
+  [1611] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1611] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1611",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1611] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 18.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1612
+  [1612] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1612] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1612",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1612] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 26.1 detik sebelum kabupaten berikutnya...
+Proses Kab 1613
+  [1613] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] percobaan 4 - Request error: APIRequestContext.get: socket hang up
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=AFODCHJNENEADFJMMAGLMOBGPNBCHOJLHJBFLMEMBHHPNJGFMGPFHANNPGHPAENPEOODIALPAHKEEPOMAJBAEMKKNMNNLBIMMONGBHFIBIIFKOOKNDFAIGOENBFELJBH; nuxt-session=Fe26.2**659be252461840b0e0e786c0152f173db2a429f1481a24d9e85b94ca397606c2*xt6GBCTWFEqS0cjv8wTL4A*gtJ0WfElrEi4XkIIAJU0CT4GWnVHzaaByuLEvxngoBiu221-jj7PdJ7AhdjYIwbf-fq2HB7ARFOO6lBTo0DHk5SgTDwRtdUfesZQ3nes7LVb8p5xQr5CVC-_nqUadqwR*1784682005142*d43f3baa8a8452c5ad095ac7983511f8d1331054b42f8cf98588e63e86c583d2*acr5197ydKb8sfNz-nsZKkXLd8T09YSA62IAUSW6uuk; 8cca9705ae8eeae430ba4bbadb3e34b4=99f5c374cb382bcde3657c99af16ce5e; bps-cookie=!C91gTZmsmpHyvtFUN0QQ37J5P6JML8qfCEWqmlrjhVr/AxZDp9F1c71l9Z2rD7q6Dv/1u899Q1uzrw==; f5_cspm=1234; f5avraaaaaaaaaaaaaaaa_session_=JMCFMOOEBOPLENCPKNANCJILJHIFMODCNJKEJHEFECHPFFKOKCGBEEIBIJLEJBOEONEDHMNAJHLDHAJBPEKACKLCLMONLBLDNKHMJEGJEINAMFNBCDCHDCIEPICBDNCD; TS00000000076=0868f8be6fab2800740c529266af63ae82b698a281b2080d52d96dbc01ff79ca7bd07cccd9a5fc47ad2da26727614dcd0806f51a0009d000eb65e66a67a6c041aedd947888cbc16536dcb271cef1ab5df4e8c697eb34b616b72fbfc9ef2664d766fbfa26e379f8b878686b49f432b5493b0efcf00ba339e42a7d2a17740de9b26714e00f9cac56c027ff6951280f03bdb007c30c2664c3fb992e90db77af0933e16511cca4132eb9a8437f6901dc1e312a5e82b901d94c4d9b2629d16aa8dc6375bc528009a1e98184e60a63c6172029bd7ab3e51e0358b46c6dc253521f3607cda02451bf2a6d75a74a36fa64dc4b4675ae99f429f3ca27094219e21cbba178875da23c9f3f4eed; TSPD_101_DID=0868f8be6fab2800740c529266af63ae82b698a281b2080d52d96dbc01ff79ca7bd07cccd9a5fc47ad2da26727614dcd0806f51a00063800c7116f8a06c8a0998e9c5f8b11f21fa026da86199e5d73a9993bf779e690b16276308a05bcd387894cf7e1122f0198fc5326b50e6774bad9; TSPD_101=0868f8be6fab280022cbea9a97b2a257f10a8d55b72ef28b39f5e428eb19cc38d71af4afcb6947ad12b5ac6754e29f2d0832f8f0ec05180030d25522abee71895ca1732140a3428bba23ce13beb1c95e; TS01acc472=01266d26d053a935140ac687cdf9360ad9e8423360da6dddb4b51615647746161e7ffdb8a5009f15d59974f695951386421fe909c029f9298b8db98457593f1d698f4a1c39f6bfc6bf1fe676098b0937d4f99dde737589a7eb554974e822dfd8821a48ef785e97995ea8bd2ede78462fdc5f5bbaea4fe61f724fa5efdda4dceffea87f152d; TSa369ea72029=0868f8be6fab2800a6ab9f51294acb30fca7a57b124438eb0836383ecb9f7565096a5f6233fdb73444093ef8eafdf05f; TS4a623a73027=0868f8be6fab20008e2c7274edc5afba6624eb632a750aa4d6347db0572b746da85b2624b57b20c608984c04a711300082fee321bfcce08daa36d658ddca526f709c077c1e4478dde09217b97ca7038499726c58b713a18ac42a28ce38e4ee67
+
+  [1613] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1613] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1613",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1613] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 19.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1671
+  [1671] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1671] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1671",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1671] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 23.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1672
+  [1672] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1672] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1672",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1672] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 16.9 detik sebelum kabupaten berikutnya...
+Proses Kab 1673
+  [1673] percobaan 1 - Request error: APIRequestContext.get: socket hang up
+Call log:
+  - → GET https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - cookie: f5avraaaaaaaaaaaaaaaa_session_=AFODCHJNENEADFJMMAGLMOBGPNBCHOJLHJBFLMEMBHHPNJGFMGPFHANNPGHPAENPEOODIALPAHKEEPOMAJBAEMKKNMNNLBIMMONGBHFIBIIFKOOKNDFAIGOENBFELJBH; nuxt-session=Fe26.2**659be252461840b0e0e786c0152f173db2a429f1481a24d9e85b94ca397606c2*xt6GBCTWFEqS0cjv8wTL4A*gtJ0WfElrEi4XkIIAJU0CT4GWnVHzaaByuLEvxngoBiu221-jj7PdJ7AhdjYIwbf-fq2HB7ARFOO6lBTo0DHk5SgTDwRtdUfesZQ3nes7LVb8p5xQr5CVC-_nqUadqwR*1784682005142*d43f3baa8a8452c5ad095ac7983511f8d1331054b42f8cf98588e63e86c583d2*acr5197ydKb8sfNz-nsZKkXLd8T09YSA62IAUSW6uuk; 8cca9705ae8eeae430ba4bbadb3e34b4=99f5c374cb382bcde3657c99af16ce5e; bps-cookie=!C91gTZmsmpHyvtFUN0QQ37J5P6JML8qfCEWqmlrjhVr/AxZDp9F1c71l9Z2rD7q6Dv/1u899Q1uzrw==; f5_cspm=1234; f5avraaaaaaaaaaaaaaaa_session_=JMCFMOOEBOPLENCPKNANCJILJHIFMODCNJKEJHEFECHPFFKOKCGBEEIBIJLEJBOEONEDHMNAJHLDHAJBPEKACKLCLMONLBLDNKHMJEGJEINAMFNBCDCHDCIEPICBDNCD; TS00000000076=0868f8be6fab2800740c529266af63ae82b698a281b2080d52d96dbc01ff79ca7bd07cccd9a5fc47ad2da26727614dcd0806f51a0009d000eb65e66a67a6c041aedd947888cbc16536dcb271cef1ab5df4e8c697eb34b616b72fbfc9ef2664d766fbfa26e379f8b878686b49f432b5493b0efcf00ba339e42a7d2a17740de9b26714e00f9cac56c027ff6951280f03bdb007c30c2664c3fb992e90db77af0933e16511cca4132eb9a8437f6901dc1e312a5e82b901d94c4d9b2629d16aa8dc6375bc528009a1e98184e60a63c6172029bd7ab3e51e0358b46c6dc253521f3607cda02451bf2a6d75a74a36fa64dc4b4675ae99f429f3ca27094219e21cbba178875da23c9f3f4eed; TSPD_101_DID=0868f8be6fab2800740c529266af63ae82b698a281b2080d52d96dbc01ff79ca7bd07cccd9a5fc47ad2da26727614dcd0806f51a00063800c7116f8a06c8a0998e9c5f8b11f21fa026da86199e5d73a9993bf779e690b16276308a05bcd387894cf7e1122f0198fc5326b50e6774bad9; TSPD_101=0868f8be6fab280022cbea9a97b2a257f10a8d55b72ef28b39f5e428eb19cc38d71af4afcb6947ad12b5ac6754e29f2d0832f8f0ec05180030d25522abee71895ca1732140a3428bba23ce13beb1c95e; TS01acc472=01266d26d053a935140ac687cdf9360ad9e8423360da6dddb4b51615647746161e7ffdb8a5009f15d59974f695951386421fe909c029f9298b8db98457593f1d698f4a1c39f6bfc6bf1fe676098b0937d4f99dde737589a7eb554974e822dfd8821a48ef785e97995ea8bd2ede78462fdc5f5bbaea4fe61f724fa5efdda4dceffea87f152d; TSa369ea72029=0868f8be6fab2800d9b93e0ce98b99a596c956bfc783467636542d57719b16096a9d44d04db0572e62efa6c09751aac0; TS4a623a73027=0868f8be6fab20009eddc8859a466e76ebd25afb7af4e93572b8200a051b6752debb2cb33f94bb7108cbb1b2c01130007caecc1b3b1a561d0d127983ff67a1580dbed6a5734eb0a6b0bb1dd155a0e0252de9f421d408ac90c0f319f1ca80ee49
+
+  [1673] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1673] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1673",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1673] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 15.8 detik sebelum kabupaten berikutnya...
+Proses Kab 1674
+  [1674] percobaan 1 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 2 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 3 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 4 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] percobaan 5 - Status: 401 - Content-Type: application/json
+  [1674] Status 401 - sesi login kemungkinan expired.
+  Cuplikan response: {
+  "error": true,
+  "url": "http://dashboard-se2026.apps.bps.go.id/api/agregat/fasih?level=sub_sls&indikator=108%2C109%2C110%2C10264%2C10265%2C10247%2C10266%2C10268%2C14%2C882%2C10691%2C10693%2C10694%2C10695%2C10696%2C10246&kabupaten=1674",
+  "statusCode": 401,
+  "statusMessage": "Unauthorized: Ses
+  [1674] GAGAL setelah 5 percobaan, dilewati.
+  Jeda 29.7 detik sebelum kabupaten berikutnya...
+Traceback (most recent call last):
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 580, in <module>
+    main()
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 566, in main
+    df_usaha_mentah, df_keluarga_mentah = jalankan_scraping()
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 354, in jalankan_scraping
+    df_usaha = scrap_satu_jenis(context, page, SCRAP_CONFIG["usaha"]["indikator"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/boms/Documents/2026/Sensus Ekonomi/Bot Scraper/bot_progres_pendataan.py", line 227, in scrap_satu_jenis
+    raise RuntimeError("Tidak ada data yang berhasil diambil untuk indikator ini.")
+RuntimeError: Tidak ada data yang berhasil diambil untuk indikator ini.

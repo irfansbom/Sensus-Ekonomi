@@ -143,7 +143,7 @@ class BotTerdeteksi(Exception):
     """Dipicu kalau situs mendeteksi request ini sebagai bot. Sengaja dibuat
     berbeda dari error biasa supaya seluruh proses scraping BERHENTI TOTAL,
     bukan retry/lanjut diam-diam ke kabupaten lain."""
-DELAY_ANTAR_KABUPATEN_DETIK = (15, 30)  # jeda acak antara 15-30 detik
+DELAY_ANTAR_KABUPATEN_DETIK = (120,180)  # jeda acak antara 15-30 detik
  
  
 def minta_data_sls(context, page, kab: str, indikator: str) -> list | None:
