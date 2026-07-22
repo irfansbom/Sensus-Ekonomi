@@ -2,6 +2,7 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 from pathlib import Path
+import io
 
 # Layout wide agar memanfaatkan lebar layar laptop standar
 st.set_page_config(page_title="Keberadaan Usaha By Subsls", layout="wide")
@@ -41,29 +42,29 @@ search_ppl = st.sidebar.text_input("Cari PPL")
 
 
 # ==== PILIH KOLOM YANG DITAMPILKAN ====
-st.sidebar.header("Tampilan Kolom")
+# st.sidebar.header("Tampilan Kolom")
 
 all_columns = df.columns.tolist()
 
 # Ganti list ini sesuai kolom yang ingin muncul PERTAMA KALI
-default_columns = [
-    "id_wilayah",
-    "kd_kab",
-    "nama_sls",
-    "PPL",
-    "PML",
-    "jumlah_prelist_usaha",
-    "jumlah_usaha_realisasi",
-    "jumlah_prelist_keluarga",
-    "jumlah_keluarga_realisasi",
-    "last_update",
-]
+# default_columns = [
+#     "id_wilayah",
+#     "kd_kab",
+#     "nama_sls",
+#     "PPL",
+#     "PML",
+#     "jumlah_prelist_usaha",
+#     "jumlah_usaha_realisasi",
+#     "jumlah_prelist_keluarga",
+#     "jumlah_keluarga_realisasi",
+#     "last_update",
+# ]
 
-default_columns = [c for c in default_columns if c in all_columns]
+# default_columns = [c for c in default_columns if c in all_columns]
 
-selected_columns = st.sidebar.multiselect(
-    "Pilih kolom yang ditampilkan", options=all_columns, default=default_columns
-)
+# selected_columns = st.sidebar.multiselect(
+#     "Pilih kolom yang ditampilkan", options=all_columns, default=default_columns
+# )
 
 
 # ==== TERAPKAN FILTER ====
@@ -88,10 +89,14 @@ if search_ppl:
     ]
 
 # ==== TERAPKAN PILIHAN KOLOM (INI YANG KEMARIN KELEWAT) ====
-if selected_columns:
-    display_df = filtered_df[selected_columns]
-else:
-    display_df = filtered_df
+filtered_df = filtered_df.sort_values(by="id_wilayah", ascending=True).reset_index(drop=True)
+
+# ==== TERAPKAN PILIHAN KOLOM ====
+# if selected_columns:
+#     display_df = filtered_df[selected_columns]
+# else:
+    # display_df = filtered_df
+display_df = filtered_df
 
 
 # ==== KETERANGAN KOLOM (untuk expander & tooltip) ====
@@ -124,3 +129,34 @@ st.dataframe(
     height=600,
     column_config=column_config,
 )
+
+
+# ==== FUNGSI KONVERSI DF KE EXCEL (DI MEMORI) ====
+def convert_df_to_excel(dataframe):
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        dataframe.to_excel(writer, index=False, sheet_name="Data")
+    return output.getvalue()
+
+# ==== TOMBOL DOWNLOAD CSV & EXCEL ====
+col1, col2 = st.columns(2)
+
+with col1:
+    csv_data = display_df.to_csv(index=False).encode("utf-8-sig")
+    st.download_button(
+        label="⬇️ Download CSV",
+        data=csv_data,
+        file_name="keberadaan_usaha_subsls.csv",
+        mime="text/csv",
+        use_container_width=True,
+    )
+
+with col2:
+    excel_data = convert_df_to_excel(display_df)
+    st.download_button(
+        label="⬇️ Download Excel",
+        data=excel_data,
+        file_name="keberadaan_usaha_subsls.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True,
+    )
