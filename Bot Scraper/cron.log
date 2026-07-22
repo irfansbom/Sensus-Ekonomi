@@ -55,3 +55,4 @@ Traceback (most recent call last):
     handle = open(handle, ioargs.mode)
              ^^^^^^^^^^^^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'scrap_status_pendataan/status_pendataan_sls_sumsel_20260608_145000.xlsx'
+/usr/bin/python3: can't open file '/home/boms/Documents/2026/Sensus Ekonomi/Bot': [Errno 2] No such file or directory
