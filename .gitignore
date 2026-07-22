@@ -1,7 +1,7 @@
 *.csv
 *.xlsx
 *.json
-
+**/*.log
 **/*.csv
 **/*.xlsx
 **/*.db
