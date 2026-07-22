@@ -727,13 +727,13 @@ def main() -> None:
     FOLDER_REKAP.mkdir(parents=True, exist_ok=True)
 
     print("=== Proses Login & Scraping Anomali (headless) ===")
-    # df_usaha, df_keluarga = jalankan_scraping_anomali()
-    df_keluarga = pd.read_excel(
-        "../scrap_anomali_keluarga/anomali_keluarga_sumsel_20260722_122744.xlsx"
-    )
-    df_usaha = pd.read_excel(
-        "../scrap_anomali_usaha/anomali_usaha_sumsel_20260722_122720.xlsx"
-    )
+    df_usaha, df_keluarga = jalankan_scraping_anomali()
+    # df_keluarga = pd.read_excel(
+    #     "../scrap_anomali_keluarga/anomali_keluarga_sumsel_20260722_122744.xlsx"
+    # )
+    # df_usaha = pd.read_excel(
+    #     "../scrap_anomali_usaha/anomali_usaha_sumsel_20260722_122720.xlsx"
+    # )
     print("=== Proses Rekap Pertanggal ===")
     raw_anomali = siapkan_raw_anomali(df_usaha, df_keluarga)
     is_resolved, not_resolved = pisahkan_status_resolved(raw_anomali)
