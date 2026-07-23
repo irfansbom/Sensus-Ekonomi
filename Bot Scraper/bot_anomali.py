@@ -459,9 +459,9 @@ def gabungkan_dengan_rekap_lama(
 ) -> pd.DataFrame:
     """Outer join rekap lama dengan anomali yang belum resolved hari ini.
 
-    Baris yang belum resolved diberi tanda centang pada kolom tanggal
-    hari ini. Baris lama yang tidak muncul lagi akan tetap ada (kolom
-    tanggal hari ini menjadi kosong/NaN untuk baris tsb)."""
+    Kalau kolom tanggal hari ini sudah ada di rekap lama (mis. script
+    di-run ulang di hari yang sama), hasil scrap TERBARU akan menimpa
+    isi kolom tanggal itu, bukan bikin kolom baru "-tgl_baru"."""
     raw_anomali_baru = not_resolved.drop(columns=["is_resolved"]).copy()
     raw_anomali_baru[tanggal_hari_ini] = TANDA_CENTANG
 
@@ -479,11 +479,20 @@ def gabungkan_dengan_rekap_lama(
         suffixes=("", "_baru"),
         indicator=True,
     )
-    for col in EXTRA_COLS:
+
+    # Gabungkan kolom yang bentrok: extra_columns + kolom tanggal hari ini
+    # (kolom tanggal hari ini bisa bentrok kalau script di-run ulang di
+    # tanggal yang sama). Hasil scrap terbaru (kolom "_baru") diprioritaskan.
+    kolom_untuk_digabung = EXTRA_COLS + [tanggal_hari_ini]
+    for col in kolom_untuk_digabung:
         col_baru = f"{col}_baru"
         if col_baru in rekap.columns:
-            rekap[col] = rekap[col_baru].combine_first(rekap[col])
+            if col in rekap.columns:
+                rekap[col] = rekap[col_baru].combine_first(rekap[col])
+            else:
+                rekap[col] = rekap[col_baru]
             rekap = rekap.drop(columns=[col_baru])
+
     return rekap.drop(columns=["_merge"])
 
 
@@ -728,12 +737,6 @@ def main() -> None:
 
     print("=== Proses Login & Scraping Anomali (headless) ===")
     df_usaha, df_keluarga = jalankan_scraping_anomali()
-    # df_keluarga = pd.read_excel(
-    #     "../scrap_anomali_keluarga/anomali_keluarga_sumsel_20260722_122744.xlsx"
-    # )
-    # df_usaha = pd.read_excel(
-    #     "../scrap_anomali_usaha/anomali_usaha_sumsel_20260722_122720.xlsx"
-    # )
     print("=== Proses Rekap Pertanggal ===")
     raw_anomali = siapkan_raw_anomali(df_usaha, df_keluarga)
     is_resolved, not_resolved = pisahkan_status_resolved(raw_anomali)
