@@ -1,37 +1,199 @@
-"""
-Scraper progres KBLI per kecamatan dari Dashboard SE2026.
-
-Fitur:
-- Tiap kecamatan yang berhasil diambil langsung disimpan ke file Excel
-  terpisah (aman kalau proses berhenti di tengah jalan).
-- Kalau dijalankan ulang, kecamatan yang sudah punya file akan otomatis
-  dilewati (resume otomatis).
-- Saat butuh captcha ulang, user bisa pilih: ENTER untuk lanjut,
-  atau ketik 'd' untuk berhenti (data yang sudah diambil tetap aman).
-"""
-
 import os
+import sqlite3
 import time
 from datetime import datetime
-
+from pathlib import Path
+import random
 import pandas as pd
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
 import threading
+import pyotp
+from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
 # Konfigurasi
 # ---------------------------------------------------------------------------
 
-URL_DASHBOARD = "https://dashboard-se2026.apps.bps.go.id"
+ENV_PATH = Path(__file__).resolve().parent / ".env"
+load_dotenv(dotenv_path=ENV_PATH)
+
+# ── Konfigurasi umum ─────────────────────────────────────────────────────
+
+FORMAT_TANGGAL = "%d-%m-%Y"
+FORMAT_TANGGAL_JAM = "%d-%m-%Y_%H-%M-%S"
+TANGGAL_HARI_INI = datetime.now().strftime(FORMAT_TANGGAL)
+TANGGAL_JAM = datetime.now().strftime(FORMAT_TANGGAL_JAM)
+
+# Kredensial dari .env, sama seperti script rekap progres pendataan.
+DASHBOARD_USERNAME = os.environ.get("DASHBOARD_USERNAME")
+DASHBOARD_PASSWORD = os.environ.get("DASHBOARD_PASSWORD")
+DASHBOARD_OTP_SECRET = os.environ.get("DASHBOARD_OTP_SECRET")
+
+URL_DASHBOARD = "https://dashboard-se2026.apps.bps.go.id/se2026"
 URL_API = "https://dashboard-se2026.apps.bps.go.id/api/agregat/fasih"
 
-SESSION_FILE = "Dashboard Scrapper/session_dash.json"
-FOLDER_OUTPUT = "scrap_progres_kbli"
+FOLDER_OUTPUT = "../scrap_progres_kbli"
 MAX_RETRY_PER_KEC = (
-    5  # batas retry supaya tidak infinite loop kalau captcha terus gagal
+    5 
 )
-DELAY_ANTAR_KEC = 3  # detik, jeda antar request supaya tidak dianggap bot
+DELAY_ANTAR_KEC = 30  
+
+FOLDER_OUTPUT_REKAP = Path("../rekap_progres_kbli")
+
+FOLDER_OUTPUT_DB = Path("../SQLLITE")
+DB_PATH = FOLDER_OUTPUT_DB / "rekap_progres_kbli.db"
+TABLE_NAME = "rekap_progres_kbli"
+
+
+INDIKATOR_JUMLAH_USAHA = [
+    'Jumlah Usaha Kategori KBLI "A"',
+    'Jumlah Usaha Kategori KBLI "B"',
+    "Jumlah Usaha C",
+    "Jumlah Usaha D",
+    "Jumlah Usaha E",
+    "Jumlah Usaha F",
+    "Jumlah Usaha G",
+    "Jumlah Usaha H",
+    "Jumlah Usaha I",
+    "Jumlah Usaha J",
+    "Jumlah Usaha K",
+    'Jumlah Usaha Kategori KBLI "L" (Aktivitas Keuangan dan Asuransi)',
+    "Jumlah Usaha M",
+    "Jumlah Usaha N, O",
+    "Jumlah Usaha P",
+    "Jumlah Usaha Q",
+    "Jumlah Usaha R",
+    "Jumlah Usaha S, U",
+    "Jumlah Usaha T",
+    "Jumlah Usaha V",
+]
+
+INDIKATOR_NILAI_TAMBAH = [
+    'Nilai Tambah Kategori KBLI "A"',
+    "Nilai Tambah B",
+    "Nilai Tambah C",
+    "Nilai Tambah D",
+    "Nilai Tambah E",
+    "Nilai Tambah F",
+    "Nilai Tambah G",
+    "Nilai Tambah H",
+    "Nilai Tambah I",
+    "Nilai Tambah J",
+    "Nilai Tambah K",
+    'Nilai Tambah Kategori KBLI "L" (Aktivitas Keuangan dan Asuransi)',
+    "Nilai Tambah M",
+    "Nilai Tambah N, O",
+    "Nilai Tambah P",
+    "Nilai Tambah Q",
+    "Nilai Tambah R",
+    "Nilai Tambah S, U",
+    "Nilai Tambah T",
+    "Nilai Tambah V",
+]
+
+INDIKATOR_TOTAL_OMSET = [
+    'Total Omzet Kategori KBLI "A"',
+    "Total Omzet B",
+    "Total Omzet C",
+    "Total Omzet D",
+    "Total Omzet E",
+    "Total Omzet F",
+    "Total Omzet G",
+    "Total Omzet H",
+    "Total Omzet I",
+    "Total Omzet J",
+    "Total Omzet K",
+    'Total Omzet Kategori KBLI "L" (Aktivitas Keuangan dan Asuransi)',
+    "Total Omzet M",
+    "Total Omzet N, O",
+    "Total Omzet P",
+    "Total Omzet Q",
+    "Total Omzet R",
+    "Total Omzet S, U",
+    "Total Omzet T",
+    "Total Omzet V",
+]
+
+INDIKATOR_TOTAL_OUTPUT = [
+    "Total Output A",
+    "Total Output B",
+    "Total Output C",
+    "Total Output D",
+    "Total Output E",
+    "Total Output F",
+    "Total Output G",
+    "Total Output H",
+    "Total Output I",
+    "Total Output J",
+    "Total Output K",
+    "Total Output L",
+    "Total Output M",
+    "Total Output N,O",
+    "Total Output P",
+    "Total Output Q",
+    "Total Output R",
+    "Total Output S,U",
+    "Total Output T",
+    "Total Output V",
+]
+
+INDIKATOR_TENAGA_KERJA = [
+    "Total Tenaga Kerja A",
+    "Total Tenaga Kerja B",
+    "Total Tenaga Kerja C",
+    "Total Tenaga Kerja D",
+    "Total Tenaga Kerja E",
+    "Total Tenaga Kerja F",
+    "Total Tenaga Kerja G",
+    "Total Tenaga Kerja H",
+    "Total Tenaga Kerja I",
+    "Total Tenaga Kerja J",
+    "Total Tenaga Kerja K",
+    "Total Tenaga Kerja L",
+    "Total Tenaga Kerja M",
+    "Total Tenaga Kerja N,O",
+    "Total Tenaga Kerja P",
+    "Total Tenaga Kerja Q",
+    "Total Tenaga Kerja R",
+    "Total Tenaga Kerja S,U",
+    "Total Tenaga Kerja T",
+    "Total Tenaga Kerja V",
+]
+
+INDIKATOR_TOTAL_UPAH = [
+    "Total Upah dan Gaji A",
+    "Total Upah dan Gaji B",
+    "Total Upah dan Gaji C",
+    "Total Upah dan Gaji D",
+    "Total Upah dan Gaji E",
+    "Total Upah dan Gaji F",
+    "Total Upah dan Gaji G",
+    "Total Upah dan Gaji H",
+    "Total Upah dan Gaji I",
+    "Total Upah dan Gaji J",
+    "Total Upah dan Gaji K",
+    "Total Upah dan Gaji L",
+    "Total Upah dan Gaji M",
+    "Total Upah dan Gaji N,O",
+    "Total Upah dan Gaji P",
+    "Total Upah dan Gaji Q",
+    "Total Upah dan Gaji R",
+    "Total Upah dan Gaji S,U",
+    "Total Upah dan Gaji T",
+    "Total Upah dan Gaji V",
+]
+
+KOLOM_AKHIR = [
+    "id_wilayah",
+    "nama_wilayah",
+    "jumlah_usaha",
+    "nilai_tambah",
+    "total_omset",
+    "total_output",
+    "tenaga_kerja",
+    "total_upah",
+]
 
 INDIKATOR = (
     "60,61,62,11519,11520,11521,63,64,65,11522,11523,11524,66,67,68,11525,11526,11527,"
@@ -300,6 +462,114 @@ class StopScrapingException(Exception):
 # ---------------------------------------------------------------------------
 
 
+SELECTOR_USERNAME = "xpath=//*[@id='username']"
+SELECTOR_PASSWORD = "xpath=//*[@id='password']"
+SELECTOR_OTP = "xpath=//*[@id='otp']"
+SELECTOR_TOMBOL_LOGIN = "xpath=//*[@id='v-0']/button"
+
+def isi_username_password(page) -> None:
+    page.wait_for_selector(SELECTOR_USERNAME, state="visible", timeout=15000)
+    page.fill(SELECTOR_USERNAME, DASHBOARD_USERNAME)
+    page.fill(SELECTOR_PASSWORD, DASHBOARD_PASSWORD)
+    page.press(SELECTOR_PASSWORD, "Enter")
+    time.sleep(5)
+    print("Username & password terisi, form disubmit.")
+
+
+def isi_otp(page, timeout_ms: int = 20000) -> None:
+    page.wait_for_selector(SELECTOR_OTP, state="visible", timeout=timeout_ms)
+
+    totp = pyotp.TOTP(DASHBOARD_OTP_SECRET)
+    otp_code = totp.now()
+
+    page.fill(SELECTOR_OTP, otp_code)
+    page.press(SELECTOR_OTP, "Enter")
+
+    time.sleep(5)
+    print(f"OTP ({otp_code}) terisi, form disubmit.")
+
+
+def klik_tombol_login(page, max_percobaan: int = 5, timeout_ms: int = 15000) -> bool:
+    try:
+        page.wait_for_selector(
+            SELECTOR_TOMBOL_LOGIN, timeout=timeout_ms, state="visible"
+        )
+    except Exception as e:
+        print(f"Tombol login tidak ditemukan (mungkin sudah login): {e}")
+        return False
+
+    url_sebelum = page.url
+
+    for percobaan in range(1, max_percobaan + 1):
+        try:
+            time.sleep(random.uniform(1, 5))
+            page.locator(SELECTOR_TOMBOL_LOGIN).click(timeout=5000)
+        except Exception as e:
+            print(f"  Percobaan {percobaan} - klik gagal: {e}")
+            page.wait_for_timeout(1500)
+            continue
+
+        page.wait_for_timeout(2000)
+
+        url_sesudah = page.url
+        ada_perubahan_url = url_sesudah != url_sebelum
+        ada_captcha = (
+            page.locator("iframe[src*='captcha'], .captcha, #captcha").count() > 0
+        )
+        ada_form_username = page.locator(SELECTOR_USERNAME).count() > 0
+
+        if ada_perubahan_url or ada_captcha or ada_form_username:
+            print(
+                f"Tombol login berhasil diklik (percobaan {percobaan}), halaman berubah."
+            )
+
+            if ada_form_username:
+                isi_username_password(page)
+                isi_otp(page)
+                return True
+
+            print("Form username belum muncul (kemungkinan perlu captcha manual dulu).")
+            return False
+
+        print(
+            f"  Percobaan {percobaan} - klik terkirim tapi belum ada perubahan, coba lagi..."
+        )
+
+    print(
+        "Tombol login diklik tapi tidak terdeteksi ada perubahan setelah beberapa percobaan."
+    )
+    return False
+
+
+def goto_dashboard_aman(page, percobaan: int = 3) -> bool:
+    """Navigasi ke URL_DASHBOARD dengan lebih toleran terhadap koneksi
+    lambat: pakai wait_until='domcontentloaded' (tidak perlu nunggu semua
+    resource/gambar selesai load) + timeout lebih panjang, dan retry
+    beberapa kali kalau timeout. Return True kalau berhasil, False kalau
+    tetap gagal setelah semua percobaan (proses tetap lanjut, tidak crash)."""
+    for i in range(1, percobaan + 1):
+        try:
+            page.goto(URL_DASHBOARD, timeout=60_000, wait_until="domcontentloaded")
+            return True
+        except Exception as e:
+            print(f"  goto dashboard percobaan {i} gagal: {e}")
+            time.sleep(3)
+    print("  Gagal membuka dashboard setelah beberapa percobaan, lanjut tanpa reload.")
+    return False
+
+
+def login_dashboard(page) -> None:
+    """Bungkus alur login lengkap: klik tombol login -> (captcha manual kalau
+    perlu) -> isi username/password/OTP."""
+    goto_dashboard_aman(page)
+    login_selesai_otomatis = klik_tombol_login(page)
+
+    if not login_selesai_otomatis:
+        if page.locator(SELECTOR_USERNAME).count() > 0:
+            isi_username_password(page)
+            isi_otp(page)
+
+
 def buat_browser_context(playwright):
     """Buka browser + context dengan session yang sudah login sebelumnya."""
     browser = playwright.chromium.launch(
@@ -307,7 +577,6 @@ def buat_browser_context(playwright):
         args=["--disable-blink-features=AutomationControlled"],
     )
     context = browser.new_context(
-        storage_state=SESSION_FILE,
         accept_downloads=True,
         user_agent=(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -319,6 +588,7 @@ def buat_browser_context(playwright):
     )
     page = context.new_page()
     Stealth().apply_stealth_sync(page)
+    login_dashboard(page)
     return browser, context, page
 
 
@@ -326,11 +596,7 @@ def path_file_kec(kec: str) -> str:
     return os.path.join(FOLDER_OUTPUT, f"progres_kbli_{kec}.xlsx")
 
 
-def input_with_timeout(prompt: str, timeout: float) -> str | None:
-    """
-    Sama seperti input(), tapi kalau tidak ada respon dalam `timeout` detik,
-    return None (dianggap user tekan ENTER / lanjut).
-    """
+def input_with_timeout(prompt: str, timeout: float) -> str | None :
     result = {}
 
     def _get_input():
@@ -352,11 +618,6 @@ def input_with_timeout(prompt: str, timeout: float) -> str | None:
 
 
 def fetch_api(context, page, kec: str):
-    """
-    Ambil data satu kecamatan dari API.
-    Return dict/list JSON kalau berhasil, None kalau gagal setelah retry habis.
-    Raise StopScrapingException kalau user memilih berhenti.
-    """
     for percobaan in range(1, MAX_RETRY_PER_KEC + 1):
         try:
             response = context.request.get(
@@ -379,21 +640,42 @@ def fetch_api(context, page, kec: str):
             f"- Status: {response.status} - Content-Type: {content_type}"
         )
 
-        if "application/json" in content_type:
+        if response.status == 200 and "application/json" in content_type:
             return response.json()
+
+        if "application/json" in content_type and response.status in (401, 403):
+            # Body-nya JSON tapi status 401/403 -> sesi login expired,
+            # bukan captcha. Cukup buka ulang dashboard & tunggu sebentar,
+            # lalu coba lagi kecamatan yang sama (masih dalam batas retry).
+            print(
+                f"  [{kec}] Status {response.status} - sesi login kemungkinan "
+                "expired. Reload dashboard & tunggu 5 detik..."
+            )
+            goto_dashboard_aman(page)
+            time.sleep(5)
+            continue
 
         cuplikan = response.text()[:500]
 
         if "Bot Detected" in cuplikan or "terdeteksi sebagai bot" in cuplikan:
             print(f"  [{kec}] Kena deteksi bot. Menunggu 70 detik untuk cooldown...")
-            time.sleep(70)
-            page.goto(URL_DASHBOARD)
+            time.sleep(120)
+            goto_dashboard_aman(page)
             continue  # coba lagi kecamatan yang sama, masih dalam batas MAX_RETRY_PER_KEC
+
+        if "text/html" in content_type :
+            print(
+                f"  [{kec}] Status {response.status} - sesi login kemungkinan "
+                "expired. Reload dashboard & tunggu 5 detik..."
+            )
+            goto_dashboard_aman(page)
+            time.sleep(5)
+            continue
 
         print(f"  [{kec}] Response bukan JSON, sepertinya perlu captcha ulang.")
         print("  Cuplikan response:", cuplikan[:300])
 
-        page.goto(URL_DASHBOARD)
+        goto_dashboard_aman(page)
         time.sleep(120)
 
         pilihan = input_with_timeout(
@@ -427,6 +709,51 @@ def proses_satu_kecamatan(context, page, kec: str) -> bool:
     return True
 
 
+def jalankan_scraping_anomali() -> tuple[pd.DataFrame, pd.DataFrame]:
+    with sync_playwright() as p:
+            browser, context, page = buat_browser_context(p)
+            # Tidak perlu page.goto(URL_DASHBOARD) lagi di sini -- login_dashboard()
+            # yang dipanggil di dalam buat_browser_context() sudah goto + login.
+            # Navigasi kedua yang redundant ini penyebab TimeoutError kalau
+            # dashboard lambat merender ulang setelah submit OTP.
+            time.sleep(5)
+            kec_selesai = []
+            kec_gagal = []
+            for kec in KODE_KEC_LIST:
+                print(f"Proses Kec {kec}")
+    
+                # resume otomatis: skip kalau file kec ini sudah pernah berhasil
+                if os.path.exists(path_file_kec(kec)):
+                    print(f"  -> Sudah ada file untuk kec {kec}, dilewati.")
+                    continue
+    
+                try:
+                    berhasil = proses_satu_kecamatan(context, page, kec)
+                    if berhasil:
+                        kec_selesai.append(kec)
+                    else:
+                        kec_gagal.append(kec)
+    
+                except StopScrapingException:
+                    idx = KODE_KEC_LIST.index(kec)
+                    sisa = KODE_KEC_LIST[idx:]
+                    print(f"\nDihentikan oleh user pada kec {kec}.")
+                    print(f"Sisa {len(sisa)} kecamatan belum diproses:")
+                    print(sisa)
+                    stop_requested = True
+                    break
+    
+                except Exception as e:
+                    print(f"ERROR Kec {kec}: {e}")
+                    kec_gagal.append(kec)
+    
+                time.sleep(DELAY_ANTAR_KEC)
+    
+            context.close()
+            browser.close()
+    return kec_selesai, kec_gagal
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -435,50 +762,8 @@ def proses_satu_kecamatan(context, page, kec: str) -> bool:
 def main():
     os.makedirs(FOLDER_OUTPUT, exist_ok=True)
 
-    kec_selesai = []
-    kec_gagal = []
+    kec_selesai, kec_gagal = jalankan_scraping_anomali()
     stop_requested = False
-
-    with sync_playwright() as p:
-        browser, context, page = buat_browser_context(p)
-
-        page.goto(URL_DASHBOARD)
-        # time.sleep(10)
-
-        input("Selesaikan captcha dulu, lalu tekan ENTER...")
-
-        for kec in KODE_KEC_LIST:
-            print(f"Proses Kec {kec}")
-
-            # resume otomatis: skip kalau file kec ini sudah pernah berhasil
-            if os.path.exists(path_file_kec(kec)):
-                print(f"  -> Sudah ada file untuk kec {kec}, dilewati.")
-                continue
-
-            try:
-                berhasil = proses_satu_kecamatan(context, page, kec)
-                if berhasil:
-                    kec_selesai.append(kec)
-                else:
-                    kec_gagal.append(kec)
-
-            except StopScrapingException:
-                idx = KODE_KEC_LIST.index(kec)
-                sisa = KODE_KEC_LIST[idx:]
-                print(f"\nDihentikan oleh user pada kec {kec}.")
-                print(f"Sisa {len(sisa)} kecamatan belum diproses:")
-                print(sisa)
-                stop_requested = True
-                break
-
-            except Exception as e:
-                print(f"ERROR Kec {kec}: {e}")
-                kec_gagal.append(kec)
-
-            time.sleep(DELAY_ANTAR_KEC)
-
-        context.close()
-        browser.close()
 
     print("\n" + "=" * 50)
     print(f"Kecamatan berhasil diambil sesi ini : {len(kec_selesai)}")
@@ -494,11 +779,139 @@ def main():
     print("=" * 50)
 
 
+# ---------------------------------------------------------------------------
+# Pivot, agregasi & upsert ke SQLite
+# ---------------------------------------------------------------------------
+
+
+def _jumlahkan_satu_kategori(
+    df: pd.DataFrame, daftar_indikator: list[str], nama_kolom_baru: str
+) -> pd.DataFrame:
+    """Filter baris sesuai daftar_indikator, lalu jumlahkan total_value per
+    SLS (id_wilayah + nama_wilayah). Hasil: df 3 kolom (id_wilayah,
+    nama_wilayah, nama_kolom_baru)."""
+    subset = df[df["nama_indikator"].isin(daftar_indikator)]
+    return (
+        subset.groupby(["id_wilayah", "nama_wilayah"], as_index=False)["total_value"]
+        .sum()
+        .rename(columns={"total_value": nama_kolom_baru})
+    )
+
+
+def pivot_dan_agregasi(df_mentah: pd.DataFrame) -> pd.DataFrame:
+    """Ubah data long (satu baris per SLS x indikator) jadi satu baris per
+    SLS dengan 6 kolom agregat (jumlah_usaha, nilai_tambah, dst), mengikuti
+    pola yang sama dengan rekap_progres_kbli.ipynb."""
+    kategori = [
+        (INDIKATOR_JUMLAH_USAHA, "jumlah_usaha"),
+        (INDIKATOR_NILAI_TAMBAH, "nilai_tambah"),
+        (INDIKATOR_TOTAL_OMSET, "total_omset"),
+        (INDIKATOR_TOTAL_OUTPUT, "total_output"),
+        (INDIKATOR_TENAGA_KERJA, "tenaga_kerja"),
+        (INDIKATOR_TOTAL_UPAH, "total_upah"),
+    ]
+
+    df_gabung = None
+    for daftar_indikator, nama_kolom in kategori:
+        df_kategori = _jumlahkan_satu_kategori(df_mentah, daftar_indikator, nama_kolom)
+        df_gabung = (
+            df_kategori
+            if df_gabung is None
+            else df_gabung.merge(
+                df_kategori, on=["id_wilayah", "nama_wilayah"], how="outer"
+            )
+        )
+
+    return df_gabung[KOLOM_AKHIR]
+
+
+def konversi_kolom_numerik_ke_int(df: pd.DataFrame) -> pd.DataFrame:
+    """Pastikan kolom-kolom agregat tersimpan sebagai integer (bukan float),
+    supaya tidak muncul '.0' di SQLite. Pakai Int64 (nullable) supaya nilai
+    NaN tetap aman (tidak error) kalau memang ada baris yang datanya kosong."""
+    df = df.copy()
+    kolom_numerik = [k for k in KOLOM_AKHIR if k not in ("id_wilayah", "nama_wilayah")]
+    for kolom in kolom_numerik:
+        df[kolom] = pd.to_numeric(df[kolom], errors="coerce").round().astype("Int64")
+    return df
+
+
+def pastikan_tabel_dan_kolom(df: pd.DataFrame, db_path: Path, table: str) -> None:
+    """Buat tabel + unique index kalau belum ada; tambah kolom baru kalau df
+    punya kolom yang belum dikenal tabel."""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table,)
+    )
+    tabel_ada = cursor.fetchone()
+
+    if not tabel_ada:
+        df.head(0).to_sql(table, conn, if_exists="replace", index=False)
+        cursor.execute(
+            f'CREATE UNIQUE INDEX IF NOT EXISTS idx_id_wilayah ON "{table}" (id_wilayah)'
+        )
+    else:
+        cursor.execute(f'PRAGMA table_info("{table}")')
+        kolom_ada = {row[1] for row in cursor.fetchall()}
+        for kolom in df.columns:
+            if kolom not in kolom_ada:
+                cursor.execute(f'ALTER TABLE "{table}" ADD COLUMN "{kolom}" TEXT')
+                print(f"Kolom '{kolom}' ditambahkan ke tabel {table}")
+
+    conn.commit()
+    conn.close()
+
+
+def upsert_ke_sqlite(
+    df: pd.DataFrame, tanggal_jam: str, db_path: Path = DB_PATH, table: str = TABLE_NAME
+) -> None:
+    """Upsert (INSERT OR REPLACE) berdasarkan id_wilayah sebagai unique key,
+    persis pola yang sama dengan bot_progres_pendataan.py."""
+    df = df.copy()
+    df["last_update"] = tanggal_jam
+
+    FOLDER_OUTPUT_DB.mkdir(parents=True, exist_ok=True)
+    pastikan_tabel_dan_kolom(df, db_path, table)
+
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    kolom_str = ", ".join(f'"{k}"' for k in df.columns)
+    placeholder = ", ".join(["?"] * len(df.columns))
+    data = df.where(pd.notnull(df), None).values.tolist()
+
+    cursor.executemany(
+        f'INSERT OR REPLACE INTO "{table}" ({kolom_str}) VALUES ({placeholder})', data
+    )
+    conn.commit()
+
+    # Diagnostic: berapa baris di DB yang TIDAK ikut ter-upsert run ini,
+    # supaya kelihatan jelas mana SLS yang last_update-nya tidak berubah
+    # karena memang tidak ada di df run ini (bukan karena bug upsert).
+    id_di_df = set(df["id_wilayah"].astype(str))
+    cursor.execute(f'SELECT id_wilayah FROM "{table}"')
+    id_di_db = {row[0] for row in cursor.fetchall()}
+    id_tidak_tersentuh = id_di_db - id_di_df
+
+    conn.close()
+
+    print(f"{len(df)} baris berhasil di-upsert ke {table} pada {tanggal_jam}")
+    if id_tidak_tersentuh:
+        print(
+            f"Catatan: {len(id_tidak_tersentuh)} id_wilayah di database TIDAK "
+            "ikut ter-upsert run ini (last_update tetap yang lama) karena "
+            "tidak ada di data hasil scraping run ini."
+        )
+
+
 def gabungkan_semua_file():
     """
     Utilitas terpisah: gabungkan semua file per-kecamatan yang sudah
-    tersimpan di FOLDER_OUTPUT menjadi satu file rekap.
-    Panggil manual kapan saja setelah sebagian/semua kecamatan selesai.
+    tersimpan di FOLDER_OUTPUT menjadi satu file rekap, lalu pivot+agregasi
+    dan upsert ke SQLite. Panggil manual kapan saja setelah sebagian/semua
+    kecamatan selesai.
     """
     import glob
 
@@ -510,16 +923,27 @@ def gabungkan_semua_file():
     all_df = [pd.read_excel(f) for f in files]
     hasil = pd.concat(all_df, ignore_index=True)
 
+    tanggal_jam = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    file_rekap = os.path.join(FOLDER_OUTPUT, f"rekap_gabungan_{timestamp}.xlsx")
+
+    FOLDER_OUTPUT_REKAP.mkdir(parents=True, exist_ok=True)
+    file_rekap = FOLDER_OUTPUT_REKAP / f"rekap_progres_kbli_{timestamp}.xlsx"
     hasil.to_excel(file_rekap, index=False)
 
     print(f"Total file digabung : {len(files)}")
     print(f"Total baris gabungan: {len(hasil)}")
     print(f"File rekap tersimpan: {file_rekap}")
 
+    print("Proses Pivot & Agregasi")
+    df_pivot = pivot_dan_agregasi(hasil)
+    df_pivot = konversi_kolom_numerik_ke_int(df_pivot)
+
+    print("Proses Upsert ke SQLite")
+    upsert_ke_sqlite(df_pivot, tanggal_jam)
+
 
 if __name__ == "__main__":
     main()
-    # Setelah semua/sebagian kecamatan selesai, jalankan ini untuk gabungkan:
-    # gabungkan_semua_file()
+    # Setelah semua/sebagian kecamatan selesai, jalankan ini untuk gabungkan
+    # + upsert ke SQLite:
+    gabungkan_semua_file()

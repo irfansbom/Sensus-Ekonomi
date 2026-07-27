@@ -41,24 +41,6 @@ DASHBOARD_USERNAME = os.environ.get("DASHBOARD_USERNAME")
 DASHBOARD_PASSWORD = os.environ.get("DASHBOARD_PASSWORD")
 DASHBOARD_OTP_SECRET = os.environ.get("DASHBOARD_OTP_SECRET")
  
-_KREDENSIAL = {
-    "DASHBOARD_USERNAME": DASHBOARD_USERNAME,
-    "DASHBOARD_PASSWORD": DASHBOARD_PASSWORD,
-    "DASHBOARD_OTP_SECRET": DASHBOARD_OTP_SECRET,
-}
-_KOSONG = [k for k, v in _KREDENSIAL.items() if not v]
- 
-if _KOSONG:
-    raise RuntimeError(
-        f"Variabel berikut kosong/tidak ditemukan: {', '.join(_KOSONG)}.\n"
-        f"Dicari dari file: {ENV_PATH} (ada: {ENV_PATH.exists()}).\n"
-        "Pastikan file .env ada persis di folder yang sama dengan script ini "
-        "dan berisi baris seperti:\n"
-        "  DASHBOARD_USERNAME=muh.prayitno\n"
-        "  DASHBOARD_PASSWORD=Prayitno_26\n"
-        "  DASHBOARD_OTP_SECRET=MRVGI53EMIYTKMTHOZ3W64RXJU2G6R3H"
-    )
- 
 SELECTOR_USERNAME = "xpath=//*[@id='username']"
 SELECTOR_PASSWORD = "xpath=//*[@id='password']"
 SELECTOR_OTP = "xpath=//*[@id='otp']"

@@ -3,6 +3,7 @@ import sqlite3
 import pandas as pd
 from pathlib import Path
 import io
+import re
 
 # Layout wide agar memanfaatkan lebar layar laptop standar
 st.set_page_config(page_title="Rekap Anomali Pertanggal", layout="wide")
@@ -57,6 +58,68 @@ if selected_anomali_no:
 filtered_df = filtered_df.sort_values(by="level_6_code", ascending=True).reset_index(
     drop=True
 )
+
+# ==== DEFINISIKAN SEMUA KOLOM ====
+all_columns = df.columns.tolist()
+
+# ==== DETEKSI KOLOM YANG NAMANYA TANGGAL (format dd-mm-yyyy) ====
+date_col_pattern = re.compile(r"^\d{2}-\d{2}-\d{4}$")
+
+date_columns = [c for c in all_columns if date_col_pattern.match(c)]
+date_columns_sorted = sorted(
+    date_columns, key=lambda x: pd.to_datetime(x, format="%d-%m-%Y")
+)
+
+st.sidebar.subheader("Pilih Kolom Tanggal")
+
+# Default: tampilkan cuma tanggal PALING BARU
+default_date_cols = date_columns_sorted[-1:] if date_columns_sorted else []
+# ==== FILTER ISI KOLOM TANGGAL (mirip filter Excel per kolom) ====
+st.sidebar.subheader("Filter Isian Kolom Tanggal")
+
+if date_columns_sorted:
+    filter_date_col = st.sidebar.selectbox(
+        "Pilih kolom tanggal untuk difilter isinya",
+        options=["(Tidak difilter)"] + date_columns_sorted,
+    )
+else:
+    filter_date_col = "(Tidak difilter)"
+
+if filter_date_col != "(Tidak difilter)":
+    # Ambil nilai unik di kolom tsb, tangani NaN/kosong terpisah
+    raw_values = filtered_df[filter_date_col]
+    unique_values = raw_values.dropna().unique().tolist()
+    unique_values = [v for v in unique_values if str(v).strip() != ""]
+    unique_values = sorted(unique_values, key=lambda x: str(x))
+
+    has_blank = (
+        raw_values.isna().any() or (raw_values.astype(str).str.strip() == "").any()
+    )
+
+    options = unique_values.copy()
+    if has_blank:
+        options = ["(Kosong/Blank)"] + options
+
+    selected_values = st.sidebar.multiselect(
+        f"Tampilkan baris dengan isian '{filter_date_col}'",
+        options=options,
+        default=[],
+    )
+
+    if selected_values:
+        mask = pd.Series(False, index=filtered_df.index)
+
+        if "(Kosong/Blank)" in selected_values:
+            mask |= filtered_df[filter_date_col].isna() | (
+                filtered_df[filter_date_col].astype(str).str.strip() == ""
+            )
+
+        other_values = [v for v in selected_values if v != "(Kosong/Blank)"]
+        if other_values:
+            mask |= filtered_df[filter_date_col].isin(other_values)
+
+        filtered_df = filtered_df[mask]
+
 display_df = filtered_df
 
 st.write(f"Menampilkan **{len(filtered_df)}** dari **{len(df)}** total baris")
