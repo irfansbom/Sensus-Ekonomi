@@ -29,9 +29,12 @@ TABEL = "usaha"
 SEMUA = "(Semua)"
 KOLOM_FILTER = ("level_2_code", "kategori")  # whitelist kolom yang boleh difilter/group
 
+# Label tampilan tiap kolom filter
+LABEL = {"level_2_code": "kode wilayah", "kategori": "kategori"}
+
 # ---------- Filter pengecekan ----------
-AMBANG_OUTPUT = 1_000_000_000  # output > 1 miliar
-AMBANG_NTB = -5_000_000  # nilai tambah < -5 juta
+AMBANG_OUTPUT = 1_000_000_000  # output >= 1 miliar
+AMBANG_NTB = -5_000_000  # nilai tambah <= -5 juta
 
 OPSI_SEMUA_DATA = "Semua data"
 OPSI_CEK_1 = f"Output >= {AMBANG_OUTPUT:,} & flag_rasio_3 = 1"
@@ -102,6 +105,7 @@ KOLOM_TAMPIL = [
 HEADER = ["assignment_id", "nama_usaha", *KOLOM_GABUNG, "selesai", "keterangan"]
 LEBAR = [1.6, 2, 2, 2.4, 2.2, 2.6, 2, 0.9, 2.6]
 
+# {grp}: kolom pengelompokan (utama). Filter silang masuk lewat {where}.
 REKAP_SQL = """
     SELECT {grp},
            SUM(COALESCE(status_penyelesaian, 0) <> 1) AS belum,
@@ -137,16 +141,26 @@ def siapkan_db():
 siapkan_db()
 
 
-def bangun_where(kolom, nilai=None, cek=OPSI_SEMUA_DATA):
-    assert kolom in KOLOM_FILTER, f"Kolom tidak diizinkan: {kolom}"
+def bangun_where(filter_kolom=None, cek=OPSI_SEMUA_DATA):
+    """
+    filter_kolom: dict {kolom: nilai}. Kolom dengan nilai None diabaikan.
+    Dict diubah ke tuple terurut di fungsi cache agar bisa di-hash.
+    """
     syarat, params = [], []
-    if nilai is not None:
-        syarat.append(f"{kolom} = ?")
-        params.append(nilai)
+    for kolom, nilai in dict(filter_kolom or {}).items():
+        assert kolom in KOLOM_FILTER, f"Kolom tidak diizinkan: {kolom}"
+        if nilai is not None:
+            syarat.append(f"{kolom} = ?")
+            params.append(nilai)
     if cek in KONDISI_CEK:
         syarat.append(KONDISI_CEK[cek])
     where = f"WHERE {' AND '.join(syarat)}" if syarat else ""
     return where, params
+
+
+def _tuple(d):
+    """dict -> tuple terurut (hashable, aman untuk st.cache_data)."""
+    return tuple(sorted(d.items()))
 
 
 @st.cache_data(show_spinner=False)
@@ -159,14 +173,15 @@ def get_pilihan(kolom):
 
 
 @st.cache_data(show_spinner=False)
-def get_rekap(kolom, cek=OPSI_SEMUA_DATA):
-    where, _ = bangun_where(kolom, None, cek)
-    return query(REKAP_SQL.format(grp=kolom, tabel=TABEL, where=where))
+def get_rekap(grp, filter_kolom=(), cek=OPSI_SEMUA_DATA):
+    assert grp in KOLOM_FILTER
+    where, params = bangun_where(dict(filter_kolom), cek)
+    return query(REKAP_SQL.format(grp=grp, tabel=TABEL, where=where), params)
 
 
 @st.cache_data(show_spinner=False)
-def get_ringkas(kolom, nilai, cek=OPSI_SEMUA_DATA):
-    where, params = bangun_where(kolom, nilai, cek)
+def get_ringkas(filter_kolom, cek=OPSI_SEMUA_DATA):
+    where, params = bangun_where(dict(filter_kolom), cek)
     r = query(
         f"SELECT COUNT(*) AS total, "
         f"COALESCE(SUM(COALESCE(status_penyelesaian, 0) = 1), 0) AS selesai "
@@ -177,9 +192,9 @@ def get_ringkas(kolom, nilai, cek=OPSI_SEMUA_DATA):
 
 
 @st.cache_data(show_spinner=False)
-def get_halaman(kolom, nilai, cek, ukuran, hal):
+def get_halaman(filter_kolom, cek, ukuran, hal):
     """Hanya satu halaman (LIMIT/OFFSET), hanya kolom yang ditampilkan."""
-    where, params = bangun_where(kolom, nilai, cek)
+    where, params = bangun_where(dict(filter_kolom), cek)
     d = query(
         f"SELECT {', '.join(KOLOM_TAMPIL)} FROM {TABEL} {where} "
         f"ORDER BY rowid LIMIT ? OFFSET ?",
@@ -192,9 +207,9 @@ def get_halaman(kolom, nilai, cek, ukuran, hal):
     return d.to_dict("records")
 
 
-def get_csv(kolom, nilai, cek):
+def get_csv(filter_kolom, cek):
     """Tidak di-cache; hanya dipanggil saat tombol 'Siapkan CSV' ditekan."""
-    where, params = bangun_where(kolom, nilai, cek)
+    where, params = bangun_where(dict(filter_kolom), cek)
     d = query(f"SELECT * FROM {TABEL} {where}", params)
     d = d.drop(columns=["sumber_file"], errors="ignore")
     return d.to_csv(index=False).encode("utf-8-sig")
@@ -254,7 +269,7 @@ def html_gabung(row, items):
     )
 
 
-def tampil_baris(rows, kolom):
+def tampil_baris(rows, kunci):
     head = st.columns(LEBAR)
     for c, nama in zip(head, HEADER):
         c.markdown(f"**{nama}**")
@@ -262,7 +277,7 @@ def tampil_baris(rows, kolom):
 
     for r in rows:
         aid = str(r["assignment_id"])
-        ks, kk = f"status_{kolom}_{aid}", f"ket_{kolom}_{aid}"
+        ks, kk = f"status_{kunci}_{aid}", f"ket_{kunci}_{aid}"
         cols = st.columns(LEBAR, vertical_alignment="top")
 
         # assignment_id sekaligus link ke FASIH
@@ -298,8 +313,8 @@ def tampil_baris(rows, kolom):
         st.divider()
 
 
-def tampil_raw(kolom, nilai, cek, judul, nama_file):
-    total, selesai = get_ringkas(kolom, nilai, cek)
+def tampil_raw(kunci, filter_kolom, cek, judul, nama_file):
+    total, selesai = get_ringkas(filter_kolom, cek)
 
     st.subheader(judul)
     c1, c2, c3 = st.columns(3)
@@ -310,17 +325,18 @@ def tampil_raw(kolom, nilai, cek, judul, nama_file):
     # Pagination: widget per baris itu berat, jadi halaman dibatasi
     p1, p2 = st.columns([1, 3])
     ukuran = p1.selectbox(
-        "Baris per halaman", [10, 25, 50, 100], index=1, key=f"ukuran_{kolom}"
+        "Baris per halaman", [10, 25, 50, 100], index=1, key=f"ukuran_{kunci}"
     )
     total_hal = max(1, -(-total // ukuran))
-    # Key memuat filter & ukuran agar nomor halaman reset otomatis saat filter berubah
+    # Key memuat semua filter & ukuran agar nomor halaman reset otomatis saat filter berubah
+    sidik = "_".join(f"{v}" for _, v in filter_kolom)
     hal = p2.number_input(
         f"Halaman (dari {total_hal})",
         min_value=1,
         max_value=total_hal,
         value=1,
         step=1,
-        key=f"hal_{kolom}_{nilai}_{OPSI_CEK.index(cek)}_{ukuran}",
+        key=f"hal_{kunci}_{sidik}_{OPSI_CEK.index(cek)}_{ukuran}",
     )
 
     awal = (hal - 1) * ukuran + 1
@@ -329,63 +345,85 @@ def tampil_raw(kolom, nilai, cek, judul, nama_file):
         "Centang status atau isi keterangan (klik di luar kotak / Ctrl+Enter) "
         "untuk menyimpan otomatis."
     )
-    tampil_baris(get_halaman(kolom, nilai, cek, ukuran, hal), kolom)
+    tampil_baris(get_halaman(filter_kolom, cek, ukuran, hal), kunci)
 
     # CSV hanya dibuat saat diminta, bukan di setiap rerun
-    if st.button("Siapkan CSV", key=f"csv_{kolom}"):
+    if st.button("Siapkan CSV", key=f"csv_{kunci}"):
         st.download_button(
             "Download CSV",
-            get_csv(kolom, nilai, cek),
+            get_csv(filter_kolom, cek),
             file_name=nama_file.replace("/", "_"),
             mime="text/csv",
-            key=f"dl_{kolom}",
+            key=f"dl_{kunci}",
         )
 
 
 # ============================================================
 # Halaman
 # ============================================================
-def halaman_data(kolom, judul_halaman, label_filter, pakai_cek):
+def halaman_data(utama, kedua, judul_halaman):
+    """
+    utama : kolom filter utama (menentukan pengelompokan rekap)
+    kedua : kolom filter silang (opsional, default Semua)
+    """
     st.title(judul_halaman)
 
-    if pakai_cek:
-        col1, col2 = st.columns(2)
-        terpilih = col1.selectbox(
-            f"Filter {label_filter}", [SEMUA] + get_pilihan(kolom), key=f"f_{kolom}"
-        )
-        cek = col2.selectbox("Filter pengecekan", OPSI_CEK, key=f"cek_{kolom}")
-    else:
-        terpilih = st.selectbox(
-            f"Filter {label_filter}", [SEMUA] + get_pilihan(kolom), key=f"f_{kolom}"
-        )
-        cek = OPSI_SEMUA_DATA
+    col1, col2, col3 = st.columns(3)
+    pilih_utama = col1.selectbox(
+        f"Filter {LABEL[utama]}", [SEMUA] + get_pilihan(utama), key=f"f_{utama}_utama"
+    )
+    pilih_kedua = col2.selectbox(
+        f"Filter {LABEL[kedua]}",
+        [SEMUA] + get_pilihan(kedua),
+        key=f"f_{kedua}_silang_{utama}",
+    )
+    cek = col3.selectbox("Filter pengecekan", OPSI_CEK, key=f"cek_{utama}")
 
-    if terpilih == SEMUA:
-        st.subheader(f"Rekap penyelesaian per {label_filter}")
-        agg = get_rekap(kolom, cek)
+    # Hanya filter yang dipilih (bukan Semua) yang ikut ke query
+    aktif = {}
+    if pilih_utama != SEMUA:
+        aktif[utama] = pilih_utama
+    if pilih_kedua != SEMUA:
+        aktif[kedua] = pilih_kedua
+    filter_kolom = _tuple(aktif)
+
+    if pilih_utama == SEMUA:
+        st.subheader(f"Rekap penyelesaian per {LABEL[utama]}")
+        agg = get_rekap(utama, filter_kolom, cek)
+
+        info = []
         if cek in DESKRIPSI_CEK:
-            st.caption(f"{DESKRIPSI_CEK[cek]} Belum = status 0 atau kosong.")
-        else:
-            st.caption(
-                f"{len(agg):,} {label_filter}. Belum = status 0 atau kosong. "
-                f"Pilih {label_filter} di atas untuk melihat data rinci."
-            )
+            info.append(DESKRIPSI_CEK[cek])
+        if pilih_kedua != SEMUA:
+            info.append(f"Terfilter {LABEL[kedua]} = {pilih_kedua}.")
+        info.append(f"{len(agg):,} {LABEL[utama]}. Belum = status 0 atau kosong.")
+        info.append(f"Pilih {LABEL[utama]} di atas untuk melihat data rinci.")
+        st.caption(" ".join(info))
+
         m1, m2, m3 = st.columns(3)
         m1.metric("Total", f"{int(agg['total'].sum()):,}")
         m2.metric("Belum", f"{int(agg['belum'].sum()):,}")
         m3.metric("Selesai", f"{int(agg['selesai'].sum()):,}")
         st.dataframe(agg, use_container_width=True, hide_index=True)
     else:
-        judul = f"Data rinci {terpilih}" + (f" ({cek})" if cek in KONDISI_CEK else "")
-        tampil_raw(kolom, terpilih, cek, judul, f"{kolom}_{terpilih}.csv")
+        judul = f"Data rinci {pilih_utama}"
+        if pilih_kedua != SEMUA:
+            judul += f" | {LABEL[kedua]}: {pilih_kedua}"
+        if cek in KONDISI_CEK:
+            judul += f" ({cek})"
+
+        nama_file = f"{utama}_{pilih_utama}"
+        if pilih_kedua != SEMUA:
+            nama_file += f"_{kedua}_{pilih_kedua}"
+        tampil_raw(utama, filter_kolom, cek, judul, nama_file + ".csv")
 
 
 def halaman_wilayah():
-    halaman_data("level_2_code", "Data By Wilayah", "kode wilayah", pakai_cek=True)
+    halaman_data("level_2_code", "kategori", "Data By Wilayah")
 
 
 def halaman_kategori():
-    halaman_data("kategori", "Data By Kategori", "kategori", pakai_cek=True)
+    halaman_data("kategori", "level_2_code", "Data By Kategori")
 
 
 pg = st.navigation(
