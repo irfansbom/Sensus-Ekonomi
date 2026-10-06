@@ -3,6 +3,7 @@ from contextlib import closing
 from html import escape
 from pathlib import Path
 
+from datetime import date, timedelta
 import pandas as pd
 import streamlit as st
 
@@ -106,14 +107,16 @@ KOLOM_GABUNG = {
 KOLOM_TAMPIL = [
     "link",
     "assignment_id",
+    "level_2_code",
     "nama_usaha",
     *[c for items in KOLOM_GABUNG.values() for c, _, _ in items],
     "status_penyelesaian",
     "keterangan",
+    "update_at",
 ]
 
-HEADER = ["assignment_id", "nama_usaha", *KOLOM_GABUNG, "selesai", "keterangan"]
-LEBAR = [1.6, 2, 2, 2.4, 2.2, 2.6, 2, 0.9, 2.6]
+HEADER = ["assignment_id","wilayah", "nama_usaha", *KOLOM_GABUNG, "selesai", "keterangan"]
+LEBAR = [1.6, 1.0, 2, 2, 2.4, 2.2, 2.6, 2, 0.9, 2.6]
 
 # {grp}: kolom pengelompokan (utama). Filter silang masuk lewat {where}.
 REKAP_SQL = """
@@ -127,6 +130,14 @@ REKAP_SQL = """
 """
 
 
+# ---------- Cross tabel ----------
+TGL_MULAI = date(2026, 10, 6)
+TGL_AKHIR = date(2026, 10, 14)  # batas 14 Oktober
+DAFTAR_TGL = [
+    TGL_MULAI + timedelta(days=i) for i in range((TGL_AKHIR - TGL_MULAI).days + 1)
+]
+OPSI_HITUNG_SELESAI = "Yang diselesaikan (status = selesai)"
+OPSI_HITUNG_UPDATE = "Semua yang diupdate (selesai maupun hanya keterangan)"
 # ============================================================
 # Database
 # ============================================================
@@ -141,10 +152,14 @@ def query(sql, params=()):
 
 @st.cache_resource
 def siapkan_db():
-    """Sekali per sesi server: index agar filter cepat."""
+    """Sekali per sesi server: index + kolom update_at (jika belum ada)."""
     with connect() as con:
         for kol in KOLOM_FILTER:
             con.execute(f"CREATE INDEX IF NOT EXISTS idx_{kol} ON {TABEL}({kol})")
+
+        kolom_ada = [r[1] for r in con.execute(f"PRAGMA table_info({TABEL})")]
+        if "update_at" not in kolom_ada:
+            con.execute(f"ALTER TABLE {TABEL} ADD COLUMN update_at TEXT")
         con.commit()
 
 
@@ -221,6 +236,36 @@ def get_ringkas(filter_kolom, cek=OPSI_SEMUA_DATA, cari="", status=OPSI_STATUS_S
 
 
 @st.cache_data(show_spinner=False)
+def get_crosstab(filter_kolom=(), cek=OPSI_SEMUA_DATA, hitung=OPSI_HITUNG_SELESAI):
+    where, params_where = bangun_where(dict(filter_kolom), cek)
+
+    selesai = "COALESCE(status_penyelesaian, 0) = 1"
+    syarat_tgl = f"{selesai} AND " if hitung == OPSI_HITUNG_SELESAI else ""
+
+    kolom_tgl, params_tgl = [], []
+    for t in DAFTAR_TGL:
+        kolom_tgl.append(
+            f"SUM(CASE WHEN {syarat_tgl}date(update_at) = ? THEN 1 ELSE 0 END) "
+            f'AS "{t:%d-%m}"'
+        )
+        params_tgl.append(t.isoformat())
+
+    sql = f"""
+        SELECT level_2_code AS wilayah,
+               kategori,
+               COUNT(*) AS jumlah_data,
+               {', '.join(kolom_tgl)},
+               SUM(CASE WHEN {selesai} THEN 1 ELSE 0 END) AS total_selesai,
+               SUM(CASE WHEN {selesai} THEN 0 ELSE 1 END) AS total_belum
+        FROM {TABEL} {where}
+        GROUP BY level_2_code, kategori
+        ORDER BY level_2_code, kategori
+    """
+    # Urutan placeholder di SQL: kolom tanggal dulu, baru WHERE
+    return query(sql, [*params_tgl, *params_where])
+
+
+@st.cache_data(show_spinner=False)
 def get_halaman(filter_kolom, cek, cari, status, ukuran, hal):
     """Hanya satu halaman (LIMIT/OFFSET). rowid ikut diambil sebagai ID unik baris."""
     where, params = bangun_where(dict(filter_kolom), cek, cari, status)
@@ -249,8 +294,10 @@ def simpan(rid, key_status, key_ket):
     status = int(bool(st.session_state[key_status]))
     ket = st.session_state[key_ket] or ""
     with connect() as con:
+        # +7 jam = WIB (SQLite menyimpan waktu UTC secara default)
         con.execute(
-            f"UPDATE {TABEL} SET status_penyelesaian = ?, keterangan = ? "
+            f"UPDATE {TABEL} SET status_penyelesaian = ?, keterangan = ?, "
+            f"update_at = datetime('now', '+7 hours') "
             f"WHERE rowid = ?",
             (status, ket, rid),
         )
@@ -259,6 +306,7 @@ def simpan(rid, key_status, key_ket):
     get_halaman.clear()
     get_ringkas.clear()
     get_rekap.clear()
+    get_crosstab.clear()   
     st.toast("Tersimpan", icon="✅")
 
 
@@ -310,20 +358,27 @@ def tampil_baris(rows, kunci):
         ks, kk = f"status_{kunci}_{rid}", f"ket_{kunci}_{rid}"
         cols = st.columns(LEBAR, vertical_alignment="top")
 
-        # assignment_id sekaligus link ke FASIH
+        # 0: assignment_id sekaligus link ke FASIH
         if pd.notna(r["link"]):
             href = escape(str(r["link"]), quote=True)
             cols[0].html(sel(f'<a href="{href}" target="_blank">{escape(aid)}</a>'))
         else:
             cols[0].html(sel(escape(aid)))
 
-        nama = r["nama_usaha"]
-        cols[1].html(sel("-" if pd.isna(nama) or nama == "" else escape(str(nama))))
+        # 1: wilayah (level_2_code)
+        wil = r["level_2_code"]
+        cols[1].html(sel("-" if pd.isna(wil) or wil == "" else escape(str(wil))))
 
-        for col, items in zip(cols[2:7], KOLOM_GABUNG.values()):
+        # 2: nama usaha
+        nama = r["nama_usaha"]
+        cols[2].html(sel("-" if pd.isna(nama) or nama == "" else escape(str(nama))))
+
+        # 3-7: kolom gabungan (detail, pengeluaran, pendapatan, perhitungan, flag)
+        for col, items in zip(cols[3:8], KOLOM_GABUNG.values()):
             col.html(sel(html_gabung(r, items)))
 
-        cols[7].checkbox(
+        # 8: checkbox selesai
+        cols[8].checkbox(
             "selesai",
             value=r["status_penyelesaian"],
             key=ks,
@@ -331,7 +386,9 @@ def tampil_baris(rows, kunci):
             on_change=simpan,
             args=(rid, ks, kk),
         )
-        cols[8].text_area(
+
+        # 9: keterangan + waktu update terakhir
+        cols[9].text_area(
             "keterangan",
             value=r["keterangan"],
             key=kk,
@@ -339,6 +396,10 @@ def tampil_baris(rows, kunci):
             label_visibility="collapsed",
             on_change=simpan,
             args=(rid, ks, kk),
+        )
+        upd = r["update_at"]
+        cols[9].caption(
+            f"Update: {upd} WIB" if pd.notna(upd) and upd else "Belum pernah diupdate"
         )
         st.divider()
 
@@ -486,12 +547,79 @@ def halaman_kategori():
     halaman_data("kategori", "level_2_code", "Data By Kategori")
 
 
+def halaman_crosstab():
+    st.title("Cross Tabel Wilayah x Kategori")
+
+    c1, c2, c3 = st.columns(3)
+    pilih_wil = c1.selectbox(
+        "Filter kode wilayah",
+        [SEMUA] + get_pilihan("level_2_code"),
+        key="wil_crosstab",
+    )
+    pilih_kat = c2.selectbox(
+        "Filter kategori", [SEMUA] + get_pilihan("kategori"), key="kat_crosstab"
+    )
+    cek = c3.selectbox("Filter pengecekan", OPSI_CEK, key="cek_crosstab")
+
+    hitung = st.selectbox(
+        "Yang dihitung per tanggal",
+        [OPSI_HITUNG_SELESAI, OPSI_HITUNG_UPDATE],
+        key="hitung_crosstab",
+    )
+
+    aktif = {}
+    if pilih_wil != SEMUA:
+        aktif["level_2_code"] = pilih_wil
+    if pilih_kat != SEMUA:
+        aktif["kategori"] = pilih_kat
+
+    df = get_crosstab(_tuple(aktif), cek, hitung)
+
+    if df.empty:
+        st.info("Tidak ada data yang cocok dengan filter.")
+        return
+
+    # Baris total di paling bawah
+    kolom_angka = [c for c in df.columns if c not in ("wilayah", "kategori")]
+    total = df[kolom_angka].sum()
+    df_total = pd.DataFrame([{"wilayah": "TOTAL", "kategori": "", **total.to_dict()}])
+    tampil = pd.concat([df, df_total], ignore_index=True)
+
+    m1, m2, m3 = st.columns(3)
+    m1.metric("Jumlah data", f"{int(total['jumlah_data']):,}")
+    m2.metric("Total selesai", f"{int(total['total_selesai']):,}")
+    m3.metric("Total belum", f"{int(total['total_belum']):,}")
+
+    st.caption(
+        f"Kolom tanggal ({TGL_MULAI:%d-%m} s/d {TGL_AKHIR:%d-%m}-{TGL_AKHIR.year}) "
+        "dihitung dari tanggal update_at. Total selesai/belum mencakup semua "
+        "tanggal, termasuk baris yang update_at-nya kosong."
+    )
+    st.dataframe(tampil, use_container_width=True, hide_index=True)
+
+    nama_file = "crosstab"
+    if pilih_wil != SEMUA:
+        nama_file += f"_{pilih_wil}"
+    if pilih_kat != SEMUA:
+        nama_file += f"_{pilih_kat}"
+    st.download_button(
+        "Download CSV",
+        tampil.to_csv(index=False).encode("utf-8-sig"),
+        file_name=nama_file.replace("/", "_") + ".csv",
+        mime="text/csv",
+        key="dl_crosstab",
+    )
+
+
+# def halaman_cross_table():
+
 pg = st.navigation(
     [
         st.Page(
             halaman_wilayah, title="By Wilayah", icon=":material/map:", default=True
         ),
         st.Page(halaman_kategori, title="By Kategori", icon=":material/category:"),
+        st.Page(halaman_crosstab, title="Cross Tabel", icon=":material/table_chart:"),
     ]
 )
 pg.run()
