@@ -1,9 +1,10 @@
+import io
 import sqlite3
 from contextlib import closing
+from datetime import date, timedelta
 from html import escape
 from pathlib import Path
 
-from datetime import date, timedelta
 import pandas as pd
 import streamlit as st
 
@@ -12,8 +13,9 @@ st.set_page_config(page_title="Monitoring Usaha", layout="wide")
 # ============================================================
 # Konfigurasi
 # ============================================================
+BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = (
-    Path(__file__).resolve().parent
+    BASE_DIR
     / ".."
     / "cleansing_data"
     / "3 Oktober 2026"
@@ -29,8 +31,6 @@ if not DB_PATH.exists():
 TABEL = "usaha"
 SEMUA = "(Semua)"
 KOLOM_FILTER = ("level_2_code", "kategori")  # whitelist kolom yang boleh difilter/group
-
-# Label tampilan tiap kolom filter
 LABEL = {"level_2_code": "kode wilayah", "kategori": "kategori"}
 
 # ---------- Filter pengecekan ----------
@@ -63,6 +63,34 @@ KONDISI_STATUS = {
     OPSI_STATUS_SELESAI: "COALESCE(status_penyelesaian, 0) = 1",
 }
 
+# ---------- CSV monitoring (update dari DB) ----------
+MONITORING_DIR = BASE_DIR / "monitoring_ntb"  # ubah kalau foldernya di tempat lain
+TEKS_SUDAH = "Sudah ditindaklanjut"
+TEKS_BELUM = "Belum ditindaklanjut"
+KOLOM_TINDAK = "Tindak lanjut"
+KOLOM_KET = "Keterangan"
+KOLOM_KRITERIA = "Kriteria"
+KOLOM_OUTPUT_MONEV = [
+    "assignment_id",
+    "level_2_code",
+    "kategori",
+    "nama_usaha",
+    KOLOM_KRITERIA,
+    KOLOM_TINDAK,
+    KOLOM_KET,
+]
+ENCODING_KANDIDAT = ("utf-8-sig", "cp1252", "latin-1")  # latin-1 selalu berhasil
+
+# ---------- Cross tabel ----------
+TGL_MULAI = date(2026, 10, 6)
+TGL_AKHIR = date(2026, 10, 14)
+DAFTAR_TGL = [
+    TGL_MULAI + timedelta(days=i) for i in range((TGL_AKHIR - TGL_MULAI).days + 1)
+]
+OPSI_HITUNG_SELESAI = "Yang diselesaikan (status = selesai)"
+OPSI_HITUNG_UPDATE = "Semua yang diupdate (selesai maupun hanya keterangan)"
+
+# ---------- Tampilan tabel data rinci ----------
 # Kolom gabungan: nama -> [(kolom asli, label, jenis)], jenis: str / kbli / int / real
 KOLOM_GABUNG = {
     "detail_usaha": [
@@ -115,10 +143,16 @@ KOLOM_TAMPIL = [
     "update_at",
 ]
 
-HEADER = ["assignment_id","wilayah", "nama_usaha", *KOLOM_GABUNG, "selesai", "keterangan"]
+HEADER = [
+    "assignment_id",
+    "wilayah",
+    "nama_usaha",
+    *KOLOM_GABUNG,
+    "selesai",
+    "keterangan",
+]
 LEBAR = [1.6, 1.0, 2, 2, 2.4, 2.2, 2.6, 2, 0.9, 2.6]
 
-# {grp}: kolom pengelompokan (utama). Filter silang masuk lewat {where}.
 REKAP_SQL = """
     SELECT {grp},
            SUM(COALESCE(status_penyelesaian, 0) <> 1) AS belum,
@@ -130,14 +164,6 @@ REKAP_SQL = """
 """
 
 
-# ---------- Cross tabel ----------
-TGL_MULAI = date(2026, 10, 6)
-TGL_AKHIR = date(2026, 10, 14)  # batas 14 Oktober
-DAFTAR_TGL = [
-    TGL_MULAI + timedelta(days=i) for i in range((TGL_AKHIR - TGL_MULAI).days + 1)
-]
-OPSI_HITUNG_SELESAI = "Yang diselesaikan (status = selesai)"
-OPSI_HITUNG_UPDATE = "Semua yang diupdate (selesai maupun hanya keterangan)"
 # ============================================================
 # Database
 # ============================================================
@@ -156,7 +182,6 @@ def siapkan_db():
     with connect() as con:
         for kol in KOLOM_FILTER:
             con.execute(f"CREATE INDEX IF NOT EXISTS idx_{kol} ON {TABEL}({kol})")
-
         kolom_ada = [r[1] for r in con.execute(f"PRAGMA table_info({TABEL})")]
         if "update_at" not in kolom_ada:
             con.execute(f"ALTER TABLE {TABEL} ADD COLUMN update_at TEXT")
@@ -172,7 +197,6 @@ def bangun_where(
     """
     filter_kolom: dict {kolom: nilai}. Kolom dengan nilai None diabaikan.
     cari: teks pencarian pada nama_usaha atau assignment_id (LIKE, tidak peka huruf).
-    status: salah satu OPSI_STATUS.
     """
     syarat, params = [], []
     for kolom, nilai in dict(filter_kolom or {}).items():
@@ -236,6 +260,22 @@ def get_ringkas(filter_kolom, cek=OPSI_SEMUA_DATA, cari="", status=OPSI_STATUS_S
 
 
 @st.cache_data(show_spinner=False)
+def get_halaman(filter_kolom, cek, cari, status, ukuran, hal):
+    """Hanya satu halaman (LIMIT/OFFSET). rowid ikut diambil sebagai ID unik baris."""
+    where, params = bangun_where(dict(filter_kolom), cek, cari, status)
+    d = query(
+        f"SELECT rowid AS rid, {', '.join(KOLOM_TAMPIL)} FROM {TABEL} {where} "
+        f"ORDER BY rowid LIMIT ? OFFSET ?",
+        [*params, ukuran, (hal - 1) * ukuran],
+    )
+    d["status_penyelesaian"] = (
+        d["status_penyelesaian"].fillna(0).astype(int).astype(bool)
+    )
+    d["keterangan"] = d["keterangan"].fillna("")
+    return d.to_dict("records")
+
+
+@st.cache_data(show_spinner=False)
 def get_crosstab(filter_kolom=(), cek=OPSI_SEMUA_DATA, hitung=OPSI_HITUNG_SELESAI):
     where, params_where = bangun_where(dict(filter_kolom), cek)
 
@@ -265,26 +305,13 @@ def get_crosstab(filter_kolom=(), cek=OPSI_SEMUA_DATA, hitung=OPSI_HITUNG_SELESA
     return query(sql, [*params_tgl, *params_where])
 
 
-@st.cache_data(show_spinner=False)
-def get_halaman(filter_kolom, cek, cari, status, ukuran, hal):
-    """Hanya satu halaman (LIMIT/OFFSET). rowid ikut diambil sebagai ID unik baris."""
-    where, params = bangun_where(dict(filter_kolom), cek, cari, status)
-    d = query(
-        f"SELECT rowid AS rid, {', '.join(KOLOM_TAMPIL)} FROM {TABEL} {where} "
-        f"ORDER BY rowid LIMIT ? OFFSET ?",
-        [*params, ukuran, (hal - 1) * ukuran],
-    )
-    d["status_penyelesaian"] = (
-        d["status_penyelesaian"].fillna(0).astype(int).astype(bool)
-    )
-    d["keterangan"] = d["keterangan"].fillna("")
-    return d.to_dict("records")
-
-
 def get_csv(filter_kolom, cek, cari, status):
     """Tidak di-cache; hanya dipanggil saat tombol 'Siapkan CSV' ditekan."""
     where, params = bangun_where(dict(filter_kolom), cek, cari, status)
-    d = query(f"SELECT * FROM {TABEL} {where}", params)
+    d = query(
+        f"SELECT * FROM {TABEL} {where} ORDER BY assignment_id, nama_usaha, rowid",
+        params,
+    )
     d = d.drop(columns=["sumber_file"], errors="ignore")
     return d.to_csv(index=False).encode("utf-8-sig")
 
@@ -297,8 +324,7 @@ def simpan(rid, key_status, key_ket):
         # +7 jam = WIB (SQLite menyimpan waktu UTC secara default)
         con.execute(
             f"UPDATE {TABEL} SET status_penyelesaian = ?, keterangan = ?, "
-            f"update_at = datetime('now', '+7 hours') "
-            f"WHERE rowid = ?",
+            f"update_at = datetime('now', '+7 hours') WHERE rowid = ?",
             (status, ket, rid),
         )
         con.commit()
@@ -306,8 +332,129 @@ def simpan(rid, key_status, key_ket):
     get_halaman.clear()
     get_ringkas.clear()
     get_rekap.clear()
-    get_crosstab.clear()   
+    get_crosstab.clear()
     st.toast("Tersimpan", icon="✅")
+
+
+# ============================================================
+# CSV monitoring (update dari DB)
+# ============================================================
+def _baca_teks(path):
+    """Baca file dengan encoding pertama yang berhasil. Return (teks, encoding)."""
+    mentah = path.read_bytes()
+    for enc in ENCODING_KANDIDAT:
+        try:
+            return mentah.decode(enc), enc
+        except UnicodeDecodeError:
+            continue
+    raise ValueError(f"Encoding {path.name} tidak dikenali")
+
+
+def _norm(s):
+    """Normalisasi kunci pencocokan: tanpa spasi tepi, tidak peka huruf besar/kecil."""
+    return s.fillna("").astype(str).str.strip().str.casefold()
+
+
+def get_csv_monitoring(wilayah):
+    """
+    Baca monitoring_ntb/{wilayah}.csv, isi 'Tindak lanjut' dan 'Keterangan' dari DB
+    (dicocokkan lewat assignment_id + nama_usaha), lalu ambil kolom KOLOM_OUTPUT_MONEV.
+    Return (bytes_csv, total_baris, baris_cocok), atau None bila file tidak ada.
+    """
+    path = MONITORING_DIR / f"{wilayah}.csv"
+    if not path.exists():
+        return None
+
+    teks, enc = _baca_teks(path)
+    header = teks.splitlines()[0]
+    sep = max([",", ";", "\t"], key=header.count)  # deteksi pemisah
+
+    d = pd.read_csv(io.StringIO(teks), dtype=str, sep=sep, keep_default_na=False)
+    d.columns = d.columns.str.strip()
+
+    for wajib in ("assignment_id", "nama_usaha"):
+        if wajib not in d.columns:
+            raise ValueError(
+                f"Kolom '{wajib}' tidak ada di {path.name}. Kolom: {list(d.columns)}"
+            )
+
+    # Data DB untuk wilayah ini saja
+    db = query(
+        f"SELECT assignment_id, nama_usaha, level_2_code, kategori, "
+        f"status_penyelesaian, keterangan FROM {TABEL} WHERE level_2_code = ?",
+        (wilayah,),
+    )
+    db["_a"] = _norm(db["assignment_id"])
+    db["_n"] = _norm(db["nama_usaha"])
+    db["_status"] = db["status_penyelesaian"].fillna(0).astype(int)
+    db["_ket"] = db["keterangan"].fillna("").astype(str).str.strip()
+
+    # Kunci kembar di DB: status tertinggi, keterangan tidak kosong digabung
+    agg = db.groupby(["_a", "_n"], as_index=False).agg(
+        _status=("_status", "max"),
+        _ket=("_ket", lambda s: " | ".join(dict.fromkeys(x for x in s if x))),
+        _wil=("level_2_code", "first"),
+        _kat=("kategori", "first"),
+    )
+
+    d["_a"] = _norm(d["assignment_id"])
+    d["_n"] = _norm(d["nama_usaha"])
+    m = d.merge(agg, on=["_a", "_n"], how="left")
+
+    ada = m["_status"].notna()
+    for kol in (KOLOM_TINDAK, KOLOM_KET):
+        if kol not in m.columns:
+            m[kol] = ""
+    m.loc[ada, KOLOM_TINDAK] = m.loc[ada, "_status"].map(
+        lambda s: TEKS_SUDAH if s == 1 else TEKS_BELUM
+    )
+    m.loc[ada, KOLOM_KET] = m.loc[ada, "_ket"]
+
+    # Kolom yang tidak ada di CSV: wilayah/kategori diambil dari DB, sisanya kosong
+    for kol, cadangan in (("level_2_code", "_wil"), ("kategori", "_kat")):
+        if kol not in m.columns:
+            m[kol] = m[cadangan].fillna("")
+    if KOLOM_KRITERIA not in m.columns:
+        m[KOLOM_KRITERIA] = ""
+
+    hasil = m[KOLOM_OUTPUT_MONEV]
+    out_enc = "utf-8-sig" if enc.startswith("utf-8") else enc
+    data = hasil.to_csv(index=False, sep=sep).encode(out_enc, errors="replace")
+    return data, len(m), int(ada.sum())
+
+
+def unduh_monev(utama, filter_kolom):
+    wilayah = dict(filter_kolom).get("level_2_code")
+
+    if st.button(
+        "Siapkan CSV monitoring (update dari DB)",
+        key=f"monev_btn_{utama}",
+        disabled=wilayah is None,
+        help=f"Pilih kode wilayah dulu. File dibaca dari {MONITORING_DIR.name}/<kode>.csv",
+    ):
+        try:
+            hasil = get_csv_monitoring(wilayah)
+        except Exception as e:
+            st.error(f"Gagal memproses CSV: {e}")
+            return
+
+        if hasil is None:
+            st.error(f"File tidak ditemukan: {MONITORING_DIR / f'{wilayah}.csv'}")
+            return
+
+        data, total, cocok = hasil
+        if cocok < total:
+            st.warning(
+                f"{total - cocok:,} dari {total:,} baris tidak ditemukan di DB "
+                "(assignment_id + nama_usaha tidak cocok), isinya dibiarkan seperti CSV asli."
+            )
+        st.download_button(
+            f"Download {wilayah}.csv ({total:,} baris)",
+            data,
+            file_name=f"{wilayah}.csv",
+            mime="text/csv",
+            key=f"monev_dl_{utama}",
+        )
 
 
 # ============================================================
@@ -346,6 +493,10 @@ def html_gabung(row, items):
     )
 
 
+def teks_atau_strip(v):
+    return "-" if pd.isna(v) or v == "" else escape(str(v))
+
+
 def tampil_baris(rows, kunci):
     head = st.columns(LEBAR)
     for c, nama in zip(head, HEADER):
@@ -358,26 +509,20 @@ def tampil_baris(rows, kunci):
         ks, kk = f"status_{kunci}_{rid}", f"ket_{kunci}_{rid}"
         cols = st.columns(LEBAR, vertical_alignment="top")
 
-        # 0: assignment_id sekaligus link ke FASIH
+        # assignment_id sekaligus link ke FASIH
         if pd.notna(r["link"]):
             href = escape(str(r["link"]), quote=True)
             cols[0].html(sel(f'<a href="{href}" target="_blank">{escape(aid)}</a>'))
         else:
             cols[0].html(sel(escape(aid)))
 
-        # 1: wilayah (level_2_code)
-        wil = r["level_2_code"]
-        cols[1].html(sel("-" if pd.isna(wil) or wil == "" else escape(str(wil))))
+        cols[1].html(sel(teks_atau_strip(r["level_2_code"])))
+        cols[2].html(sel(teks_atau_strip(r["nama_usaha"])))
 
-        # 2: nama usaha
-        nama = r["nama_usaha"]
-        cols[2].html(sel("-" if pd.isna(nama) or nama == "" else escape(str(nama))))
-
-        # 3-7: kolom gabungan (detail, pengeluaran, pendapatan, perhitungan, flag)
+        # kolom gabungan (detail, pengeluaran, pendapatan, perhitungan, flag)
         for col, items in zip(cols[3:8], KOLOM_GABUNG.values()):
             col.html(sel(html_gabung(r, items)))
 
-        # 8: checkbox selesai
         cols[8].checkbox(
             "selesai",
             value=r["status_penyelesaian"],
@@ -386,8 +531,6 @@ def tampil_baris(rows, kunci):
             on_change=simpan,
             args=(rid, ks, kk),
         )
-
-        # 9: keterangan + waktu update terakhir
         cols[9].text_area(
             "keterangan",
             value=r["keterangan"],
@@ -423,7 +566,7 @@ def tampil_raw(kunci, filter_kolom, cek, cari, status, judul, nama_file):
         "Baris per halaman", [10, 25, 50, 100], index=1, key=f"ukuran_{kunci}"
     )
     total_hal = max(1, -(-total // ukuran))
-    # Key memuat semua filter, pencarian, status & ukuran agar nomor halaman reset saat berubah
+    # Key memuat semua filter agar nomor halaman reset saat berubah
     sidik = "_".join(f"{v}" for _, v in filter_kolom)
     hal = p2.number_input(
         f"Halaman (dari {total_hal})",
@@ -538,6 +681,9 @@ def halaman_data(utama, kedua, judul_halaman):
             nama_file += f"_{cari}"
         tampil_raw(utama, filter_kolom, cek, cari, status, judul, nama_file + ".csv")
 
+    # Tombol CSV monitoring: aktif kalau kode wilayah sudah dipilih
+    unduh_monev(utama, filter_kolom)
+
 
 def halaman_wilayah():
     halaman_data("level_2_code", "kategori", "Data By Wilayah")
@@ -552,9 +698,7 @@ def halaman_crosstab():
 
     c1, c2, c3 = st.columns(3)
     pilih_wil = c1.selectbox(
-        "Filter kode wilayah",
-        [SEMUA] + get_pilihan("level_2_code"),
-        key="wil_crosstab",
+        "Filter kode wilayah", [SEMUA] + get_pilihan("level_2_code"), key="wil_crosstab"
     )
     pilih_kat = c2.selectbox(
         "Filter kategori", [SEMUA] + get_pilihan("kategori"), key="kat_crosstab"
@@ -574,7 +718,6 @@ def halaman_crosstab():
         aktif["kategori"] = pilih_kat
 
     df = get_crosstab(_tuple(aktif), cek, hitung)
-
     if df.empty:
         st.info("Tidak ada data yang cocok dengan filter.")
         return
@@ -610,8 +753,6 @@ def halaman_crosstab():
         key="dl_crosstab",
     )
 
-
-# def halaman_cross_table():
 
 pg = st.navigation(
     [
