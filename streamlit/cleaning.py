@@ -355,19 +355,20 @@ def _norm(s):
     return s.fillna("").astype(str).str.strip().str.casefold()
 
 
-def get_csv_monitoring(wilayah):
+def get_excel_monitoring(wilayah):
     """
     Baca monitoring_ntb/{wilayah}.csv, isi 'Tindak lanjut' dan 'Keterangan' dari DB
-    (dicocokkan lewat assignment_id + nama_usaha), lalu ambil kolom KOLOM_OUTPUT_MONEV.
-    Return (bytes_csv, total_baris, baris_cocok), atau None bila file tidak ada.
+    (dicocokkan lewat assignment_id + nama_usaha), ambil kolom KOLOM_OUTPUT_MONEV,
+    lalu tulis ke Excel. Return (bytes_xlsx, total_baris, baris_cocok),
+    atau None bila file CSV tidak ada.
     """
     path = MONITORING_DIR / f"{wilayah}.csv"
     if not path.exists():
         return None
 
-    teks, enc = _baca_teks(path)
+    teks, _ = _baca_teks(path)
     header = teks.splitlines()[0]
-    sep = max([",", ";", "\t"], key=header.count)  # deteksi pemisah
+    sep = max([",", ";", "\t"], key=header.count)  # deteksi pemisah CSV sumber
 
     d = pd.read_csv(io.StringIO(teks), dtype=str, sep=sep, keep_default_na=False)
     d.columns = d.columns.str.strip()
@@ -417,23 +418,49 @@ def get_csv_monitoring(wilayah):
     if KOLOM_KRITERIA not in m.columns:
         m[KOLOM_KRITERIA] = ""
 
-    hasil = m[KOLOM_OUTPUT_MONEV]
-    out_enc = "utf-8-sig" if enc.startswith("utf-8") else enc
-    data = hasil.to_csv(index=False, sep=sep).encode(out_enc, errors="replace")
-    return data, len(m), int(ada.sum())
+    hasil = m[KOLOM_OUTPUT_MONEV].reset_index(drop=True)
+
+    # ---- Tulis ke Excel ----
+    buf = io.BytesIO()
+    with pd.ExcelWriter(
+        buf, engine="xlsxwriter", engine_kwargs={"options": {"strings_to_urls": False}}
+    ) as writer:
+        hasil.to_excel(writer, sheet_name=str(wilayah), index=False)
+        ws, wb = writer.sheets[str(wilayah)], writer.book
+        fmt_header = wb.add_format({"bold": True, "bg_color": "#D9E1F2", "border": 1})
+        fmt_teks = wb.add_format({"num_format": "@"})  # kode tetap teks
+        fmt_wrap = wb.add_format({"text_wrap": True, "valign": "top"})
+        teks_kolom = {"assignment_id", "level_2_code"}
+
+        for j, col in enumerate(hasil.columns):
+            ws.write(0, j, col, fmt_header)
+            lebar = max(
+                len(str(col)),
+                hasil[col].head(1000).astype(str).str.len().max() if len(hasil) else 0,
+            )
+            fmt = (
+                fmt_teks
+                if col in teks_kolom
+                else (fmt_wrap if col == KOLOM_KET else None)
+            )
+            ws.set_column(j, j, min(lebar + 2, 50), fmt)
+        ws.freeze_panes(1, 0)
+        ws.autofilter(0, 0, max(len(hasil), 1), len(hasil.columns) - 1)
+
+    return buf.getvalue(), len(m), int(ada.sum())
 
 
 def unduh_monev(utama, filter_kolom):
     wilayah = dict(filter_kolom).get("level_2_code")
 
     if st.button(
-        "Siapkan CSV monitoring (update dari DB)",
+        "Siapkan Excel monitoring (update dari DB)",
         key=f"monev_btn_{utama}",
         disabled=wilayah is None,
-        help=f"Pilih kode wilayah dulu. File dibaca dari {MONITORING_DIR.name}/<kode>.csv",
+        help=f"Pilih kode wilayah dulu. Sumber data: {MONITORING_DIR.name}/<kode>.csv",
     ):
         try:
-            hasil = get_csv_monitoring(wilayah)
+            hasil = get_excel_monitoring(wilayah)
         except Exception as e:
             st.error(f"Gagal memproses CSV: {e}")
             return
@@ -446,13 +473,14 @@ def unduh_monev(utama, filter_kolom):
         if cocok < total:
             st.warning(
                 f"{total - cocok:,} dari {total:,} baris tidak ditemukan di DB "
-                "(assignment_id + nama_usaha tidak cocok), isinya dibiarkan seperti CSV asli."
+                "(assignment_id + nama_usaha tidak cocok), kolom Tindak lanjut "
+                "dan Keterangan dibiarkan seperti CSV asli."
             )
         st.download_button(
-            f"Download {wilayah}.csv ({total:,} baris)",
+            f"Download {wilayah}.xlsx ({total:,} baris)",
             data,
-            file_name=f"{wilayah}.csv",
-            mime="text/csv",
+            file_name=f"{wilayah}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             key=f"monev_dl_{utama}",
         )
 
