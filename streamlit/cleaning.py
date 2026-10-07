@@ -65,8 +65,8 @@ KONDISI_STATUS = {
 
 # ---------- CSV monitoring (update dari DB) ----------
 MONITORING_DIR = BASE_DIR / "monitoring_ntb"  # ubah kalau foldernya di tempat lain
-TEKS_SUDAH = "Sudah ditindaklanjut"
-TEKS_BELUM = "Belum ditindaklanjut"
+TEKS_SUDAH = "Sudah ditindaklanjuti"
+TEKS_BELUM = "Belum ditindaklanjuti"
 KOLOM_TINDAK = "Tindak lanjut"
 KOLOM_KET = "Keterangan"
 KOLOM_KRITERIA = "Kriteria"
