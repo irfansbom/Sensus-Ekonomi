@@ -50,7 +50,7 @@ KODE_KAB_LIST = [
     "1610", "1611", "1612", "1613", "1671", "1672", "1673", "1674",
 ]
  
-FILE_DAFTAR_PPL = Path("../20260608 Rekap Prelist_16_ppl_pml.xlsx")
+FILE_DAFTAR_PPL = Path("../20260807 Rekap Prelist_16_ppl_pml_update.xlsx")
 FOLDER_OUTPUT_EXCEL = Path("../Rekap Progres Pendataan")
 FOLDER_OUTPUT_DB = Path("../SQLLITE")
 DB_PATH = FOLDER_OUTPUT_DB / "rekap_progress_pendataan.db"
@@ -241,7 +241,7 @@ def simpan_backup_excel(df: pd.DataFrame, folder: Path, prefix: str) -> Path:
     return path_output
  
  
-SELECTOR_TOMBOL_LOGIN = "xpath=//*[@id='v-0']/button"
+SELECTOR_TOMBOL_LOGIN = "xpath=//*[@id='v-0']/button[1]"
  
  
 def isi_username_password(page) -> None:
