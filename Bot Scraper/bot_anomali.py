@@ -51,7 +51,7 @@ DASHBOARD_OTP_SECRET = os.environ.get("DASHBOARD_OTP_SECRET")
 SELECTOR_USERNAME = "xpath=//*[@id='username']"
 SELECTOR_PASSWORD = "xpath=//*[@id='password']"
 SELECTOR_OTP = "xpath=//*[@id='otp']"
-SELECTOR_TOMBOL_LOGIN = "xpath=//*[@id='v-0']/button"
+SELECTOR_TOMBOL_LOGIN = "xpath=//*[@id='v-0']/button[1]" 
 
 KODE_KAB_LIST = [
     "1601",
@@ -330,7 +330,7 @@ def jalankan_scraping_anomali() -> tuple[pd.DataFrame, pd.DataFrame]:
     sesi browser. Mengembalikan (df_usaha, df_keluarga) mentah."""
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=True, args=["--disable-blink-features=AutomationControlled"]
+            headless=False, args=["--disable-blink-features=AutomationControlled"]
         )
         context = browser.new_context(
             accept_downloads=True,
@@ -387,6 +387,19 @@ def _normalisasi_kolom_key(df: pd.DataFrame) -> pd.DataFrame:
             df[kolom] = df[kolom].astype(str).str.strip()
     return df
 
+def _cek_dan_hapus_duplikat_key(df: pd.DataFrame, label: str) -> pd.DataFrame:
+    """Hapus baris dengan KEY_COLS yang sama persis (duplikat), supaya
+    pd.merge tidak menghasilkan cartesian product. Baris pertama yang
+    dipertahankan."""
+    mask_duplikat = df.duplicated(subset=KEY_COLS, keep="first")
+    jumlah_duplikat = mask_duplikat.sum()
+    if jumlah_duplikat > 0:
+        print(
+            f"PERINGATAN [{label}]: {jumlah_duplikat} baris duplikat "
+            f"(KEY_COLS sama) ditemukan & dihapus."
+        )
+    return df[~mask_duplikat].copy()
+
 
 def siapkan_raw_anomali(
     df_usaha: pd.DataFrame, df_keluarga: pd.DataFrame
@@ -404,6 +417,7 @@ def siapkan_raw_anomali(
         gabungan[kolom] = gabungan[kolom].map(_jsonify_dict_list)
 
     gabungan = _normalisasi_kolom_key(gabungan)
+    gabungan = _cek_dan_hapus_duplikat_key(gabungan, "raw_anomali")
 
     return gabungan
 
@@ -421,8 +435,6 @@ def pisahkan_status_resolved(
 
 
 def muat_rekap_terakhir(folder_rekap: Path) -> pd.DataFrame | None:
-    """Cari & muat file rekap terakhir berdasarkan waktu modifikasi.
-    Return None kalau belum ada file rekap sama sekali."""
     existing_files = list(folder_rekap.glob("rekap_anomali_*.xlsx"))
     if not existing_files:
         print("Belum ada file rekap sebelumnya, akan membuat baru.")
@@ -431,6 +443,8 @@ def muat_rekap_terakhir(folder_rekap: Path) -> pd.DataFrame | None:
     file_terakhir = max(existing_files, key=lambda f: f.stat().st_mtime)
     print("File rekap terakhir ditemukan:", file_terakhir)
     df_lama = pd.read_excel(file_terakhir, sheet_name="Rekap", dtype=str)
+    df_lama = _normalisasi_kolom_key(df_lama)
+    df_lama = _cek_dan_hapus_duplikat_key(df_lama, "rekap_lama") 
     return _normalisasi_kolom_key(df_lama)
 
 
@@ -719,6 +733,8 @@ def main() -> None:
 
     print("=== Proses Login & Scraping Anomali (headless) ===")
     df_usaha, df_keluarga = jalankan_scraping_anomali()
+    # df_usaha = pd.read_excel("../scrap_anomali_usaha/anomali_usaha_sumsel_20261008_085837.xlsx", dtype=str)
+    # df_keluarga = pd.read_excel("../scrap_anomali_keluarga/anomali_keluarga_sumsel_20261008_085916.xlsx", dtype=str)
     print("=== Proses Rekap Pertanggal ===")
     raw_anomali = siapkan_raw_anomali(df_usaha, df_keluarga)
     is_resolved, not_resolved = pisahkan_status_resolved(raw_anomali)
@@ -744,8 +760,8 @@ def main() -> None:
 
     nama_file_baru = FOLDER_REKAP / f"rekap_anomali_{TANGGAL_JAM}.xlsx"
     simpan_ke_excel(rekap, ringkasan, nama_file_baru)
-    
     print("=== Proses Upsert ke SQLite ===")
+    # rekap = pd.read_excel("../rekap_anomali_pertanggal/rekap_anomali_17-08-2026_17-47-53.xlsx", sheet_name="Rekap", dtype=str)
     upsert_ke_sqlite(rekap, TANGGAL_JAM)
 
     print("Selesai.")

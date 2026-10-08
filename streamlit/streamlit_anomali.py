@@ -4,6 +4,7 @@ import pandas as pd
 from pathlib import Path
 import io
 import re
+from datetime import date
 
 # Layout wide agar memanfaatkan lebar layar laptop standar
 st.set_page_config(page_title="Rekap Anomali Pertanggal", layout="wide")
@@ -40,9 +41,7 @@ type_list = sorted(df["source_type"].dropna().unique().tolist())
 selected_type = st.sidebar.multiselect("Filter Tipe Anomali", type_list)
 
 anomali_no = sorted(df["anomali_no"].dropna().unique().tolist())
-selected_anomali_no = st.sidebar.multiselect(
-    "Filter Nomor Anomali", anomali_no
-)
+selected_anomali_no = st.sidebar.multiselect("Filter Nomor Anomali", anomali_no)
 
 # ==== TERAPKAN FILTER ====
 filtered_df = df.copy()
@@ -53,7 +52,6 @@ if selected_type:
     filtered_df = filtered_df[filtered_df["source_type"].isin(selected_type)]
 if selected_anomali_no:
     filtered_df = filtered_df[filtered_df["anomali_no"].isin(selected_anomali_no)]
-
 
 filtered_df = filtered_df.sort_values(by="level_6_code", ascending=True).reset_index(
     drop=True
@@ -70,17 +68,29 @@ date_columns_sorted = sorted(
     date_columns, key=lambda x: pd.to_datetime(x, format="%d-%m-%Y")
 )
 
-st.sidebar.subheader("Pilih Kolom Tanggal")
+# ==== SEMBUNYIKAN KOLOM TANGGAL LAMA ====
+st.sidebar.subheader("Rentang Kolom Tanggal")
+cutoff_date = st.sidebar.date_input(
+    "Tampilkan tanggal setelah",
+    value=date(2026, 9, 29),
+    format="DD/MM/YYYY",
+)
+cutoff_ts = pd.Timestamp(cutoff_date)
 
-# Default: tampilkan cuma tanggal PALING BARU
-default_date_cols = date_columns_sorted[-1:] if date_columns_sorted else []
+# Hanya kolom tanggal yang LEBIH BARU dari cutoff
+visible_date_columns = [
+    c
+    for c in date_columns_sorted
+    if pd.to_datetime(c, format="%d-%m-%Y") > cutoff_ts
+]
+
 # ==== FILTER ISI KOLOM TANGGAL (mirip filter Excel per kolom) ====
 st.sidebar.subheader("Filter Isian Kolom Tanggal")
 
-if date_columns_sorted:
+if visible_date_columns:
     filter_date_col = st.sidebar.selectbox(
         "Pilih kolom tanggal untuk difilter isinya",
-        options=["(Tidak difilter)"] + date_columns_sorted,
+        options=["(Tidak difilter)"] + visible_date_columns,
     )
 else:
     filter_date_col = "(Tidak difilter)"
@@ -120,9 +130,15 @@ if filter_date_col != "(Tidak difilter)":
 
         filtered_df = filtered_df[mask]
 
-display_df = filtered_df
+# ==== SUSUN KOLOM YANG DITAMPILKAN: kolom non-tanggal + tanggal terbaru ====
+non_date_columns = [c for c in all_columns if c not in date_columns]
+display_columns = non_date_columns + visible_date_columns
+display_df = filtered_df[display_columns]
 
-st.write(f"Menampilkan **{len(filtered_df)}** dari **{len(df)}** total baris")
+st.write(
+    f"Menampilkan **{len(display_df)}** dari **{len(df)}** total baris "
+    f"({len(visible_date_columns)} dari {len(date_columns)} kolom tanggal)"
+)
 st.dataframe(
     display_df,
     use_container_width=True,
@@ -146,7 +162,7 @@ with col1:
     st.download_button(
         label="⬇️ Download CSV",
         data=csv_data,
-        file_name="keberadaan_usaha_subsls.csv",
+        file_name="rekap_anomali.csv",
         mime="text/csv",
         use_container_width=True,
     )
@@ -156,7 +172,7 @@ with col2:
     st.download_button(
         label="⬇️ Download Excel",
         data=excel_data,
-        file_name="keberadaan_usaha_subsls.xlsx",
+        file_name="rekap_anomali.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         use_container_width=True,
     )
