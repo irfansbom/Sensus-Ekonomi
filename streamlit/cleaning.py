@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = (
     BASE_DIR
     / ".."
-    / "cleansing_data"
+    / "cleaning_data"
     / "3 Oktober 2026"
     / "Mikro"
     / "RantabDBNAS"
@@ -40,17 +40,21 @@ AMBANG_NTB = -5_000_000  # nilai tambah <= -5 juta
 OPSI_SEMUA_DATA = "Semua data"
 OPSI_CEK_1 = f"Output >= {AMBANG_OUTPUT:,} & flag_rasio_3 = 1"
 OPSI_CEK_2 = f"Nilai tambah <= {AMBANG_NTB:,} & flag_rasio_3 = 1"
-OPSI_CEK = [OPSI_SEMUA_DATA, OPSI_CEK_1, OPSI_CEK_2]
+OPSI_CEK_3 = "Nilai tambah < 0 ATAU flag_rasio_3 = 1"
+OPSI_CEK = [OPSI_SEMUA_DATA, OPSI_CEK_1, OPSI_CEK_2, OPSI_CEK_3]
+INDEX_CEK_DEFAULT = OPSI_CEK.index(OPSI_CEK_3)  # filter yang aktif saat halaman dibuka
 
 # CAST agar aman kalau flag tersimpan '1' / '1.0' (TEXT)
 FLAG_3 = "CAST(flag_rasio_3_ntb_output AS REAL) = 1"
 KONDISI_CEK = {
     OPSI_CEK_1: f"metrik_output >= {AMBANG_OUTPUT} AND {FLAG_3}",
     OPSI_CEK_2: f"metrik_nilai_tambah <= {AMBANG_NTB} AND {FLAG_3}",
+    OPSI_CEK_3: f"(metrik_nilai_tambah < 0 OR {FLAG_3})",
 }
 DESKRIPSI_CEK = {
     OPSI_CEK_1: f"Hanya baris dengan metrik_output >= {AMBANG_OUTPUT:,} dan flag_rasio_3_ntb_output = 1.",
     OPSI_CEK_2: f"Hanya baris dengan metrik_nilai_tambah <= {AMBANG_NTB:,} dan flag_rasio_3_ntb_output = 1.",
+    OPSI_CEK_3: "Hanya baris dengan metrik_nilai_tambah < 0 atau flag_rasio_3_ntb_output = 1.",
 }
 
 # ---------- Filter status penyelesaian ----------
@@ -646,7 +650,9 @@ def halaman_data(utama, kedua, judul_halaman):
         [SEMUA] + get_pilihan(kedua),
         key=f"f_{kedua}_silang_{utama}",
     )
-    cek = col3.selectbox("Filter pengecekan", OPSI_CEK, key=f"cek_{utama}")
+    cek = col3.selectbox(
+        "Filter pengecekan", OPSI_CEK, index=INDEX_CEK_DEFAULT, key=f"cek_{utama}"
+    )
 
     cs1, cs2 = st.columns([3, 1])
     cari = cs1.text_input(
@@ -731,7 +737,9 @@ def halaman_crosstab():
     pilih_kat = c2.selectbox(
         "Filter kategori", [SEMUA] + get_pilihan("kategori"), key="kat_crosstab"
     )
-    cek = c3.selectbox("Filter pengecekan", OPSI_CEK, key="cek_crosstab")
+    cek = c3.selectbox(
+        "Filter pengecekan", OPSI_CEK, index=INDEX_CEK_DEFAULT, key="cek_crosstab"
+    )
 
     hitung = st.selectbox(
         "Yang dihitung per tanggal",
