@@ -41,12 +41,12 @@ OPSI_SEMUA_DATA = "Semua data"
 OPSI_CEK_1 = f"Output >= {AMBANG_OUTPUT:,} & flag_rasio_3 = 1"
 OPSI_CEK_2 = f"Nilai tambah <= {AMBANG_NTB:,} & flag_rasio_3 = 1"
 OPSI_CEK_3 = "Nilai tambah < 0 ATAU flag_rasio_3 = 1"
-OPSI_CEK_4 = "flag_rasio_3 = 1"
+OPSI_CEK_4 = "target 13 oktober"
 OPSI_CEK = [OPSI_SEMUA_DATA, OPSI_CEK_1, OPSI_CEK_2, OPSI_CEK_3, OPSI_CEK_4]
 INDEX_CEK_DEFAULT = OPSI_CEK.index(OPSI_CEK_3)  # filter yang aktif saat halaman dibuka
 
 # CAST agar aman kalau flag tersimpan '1' / '1.0' (TEXT)
-FLAG_3 = "CAST(flag_rasio_3_ntb_output AS REAL) = 1"
+FLAG_3 = "CAST(flag_3_new AS REAL) = 1"
 KONDISI_CEK = {
     OPSI_CEK_1: f"metrik_output >= {AMBANG_OUTPUT} AND {FLAG_3}",
     OPSI_CEK_2: f"metrik_nilai_tambah <= {AMBANG_NTB} AND {FLAG_3}",
@@ -57,7 +57,7 @@ DESKRIPSI_CEK = {
     OPSI_CEK_1: f"Hanya baris dengan metrik_output >= {AMBANG_OUTPUT:,} dan flag_rasio_3_ntb_output = 1.",
     OPSI_CEK_2: f"Hanya baris dengan metrik_nilai_tambah <= {AMBANG_NTB:,} dan flag_rasio_3_ntb_output = 1.",
     OPSI_CEK_3: "Hanya baris dengan metrik_nilai_tambah < 0 atau flag_rasio_3_ntb_output = 1.",
-    OPSI_CEK_4: "Hanya baris dengan flag_rasio_3_ntb_output = 1.",
+    OPSI_CEK_4: "Hanya baris dengan target 13 oktober.",
 }
 
 # ---------- Filter status penyelesaian ----------
@@ -805,11 +805,11 @@ def halaman_crosstab():
 
 pg = st.navigation(
     [
-        # st.Page(
-        #     halaman_wilayah, title="By Wilayah", icon=":material/map:", default=True
-        # ),
-        # st.Page(halaman_kategori, title="By Kategori", icon=":material/category:"),
-        # st.Page(halaman_crosstab, title="Cross Tabel", icon=":material/table_chart:"),
+        st.Page(
+            halaman_wilayah, title="By Wilayah", icon=":material/map:", default=True
+        ),
+        st.Page(halaman_kategori, title="By Kategori", icon=":material/category:"),
+        st.Page(halaman_crosstab, title="Cross Tabel", icon=":material/table_chart:"),
     ]
 )
 pg.run()
