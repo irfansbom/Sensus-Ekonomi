@@ -41,7 +41,8 @@ OPSI_SEMUA_DATA = "Semua data"
 OPSI_CEK_1 = f"Output >= {AMBANG_OUTPUT:,} & flag_rasio_3 = 1"
 OPSI_CEK_2 = f"Nilai tambah <= {AMBANG_NTB:,} & flag_rasio_3 = 1"
 OPSI_CEK_3 = "Nilai tambah < 0 ATAU flag_rasio_3 = 1"
-OPSI_CEK = [OPSI_SEMUA_DATA, OPSI_CEK_1, OPSI_CEK_2, OPSI_CEK_3]
+OPSI_CEK_4 = "flag_rasio_3 = 1"
+OPSI_CEK = [OPSI_SEMUA_DATA, OPSI_CEK_1, OPSI_CEK_2, OPSI_CEK_3, OPSI_CEK_4]
 INDEX_CEK_DEFAULT = OPSI_CEK.index(OPSI_CEK_3)  # filter yang aktif saat halaman dibuka
 
 # CAST agar aman kalau flag tersimpan '1' / '1.0' (TEXT)
@@ -50,11 +51,13 @@ KONDISI_CEK = {
     OPSI_CEK_1: f"metrik_output >= {AMBANG_OUTPUT} AND {FLAG_3}",
     OPSI_CEK_2: f"metrik_nilai_tambah <= {AMBANG_NTB} AND {FLAG_3}",
     OPSI_CEK_3: f"(metrik_nilai_tambah < 0 OR {FLAG_3})",
+    OPSI_CEK_4: f"{FLAG_3}",
 }
 DESKRIPSI_CEK = {
     OPSI_CEK_1: f"Hanya baris dengan metrik_output >= {AMBANG_OUTPUT:,} dan flag_rasio_3_ntb_output = 1.",
     OPSI_CEK_2: f"Hanya baris dengan metrik_nilai_tambah <= {AMBANG_NTB:,} dan flag_rasio_3_ntb_output = 1.",
     OPSI_CEK_3: "Hanya baris dengan metrik_nilai_tambah < 0 atau flag_rasio_3_ntb_output = 1.",
+    OPSI_CEK_4: "Hanya baris dengan flag_rasio_3_ntb_output = 1.",
 }
 
 # ---------- Filter status penyelesaian ----------
@@ -148,6 +151,7 @@ KOLOM_TAMPIL = [
 ]
 
 HEADER = [
+    "no",
     "assignment_id",
     "wilayah",
     "nama_usaha",
@@ -155,7 +159,7 @@ HEADER = [
     "selesai",
     "keterangan",
 ]
-LEBAR = [1.6, 1.0, 2, 2, 2.4, 2.2, 2.6, 2, 0.9, 2.6]
+LEBAR = [0.5,1.6, 1.0, 2, 2, 2.4, 2.2, 2.6, 2, 0.9, 2.6]
 
 REKAP_SQL = """
     SELECT {grp},
@@ -317,6 +321,7 @@ def get_csv(filter_kolom, cek, cari, status):
         params,
     )
     d = d.drop(columns=["sumber_file"], errors="ignore")
+    d.insert(0, "no", range(1, len(d) + 1))  # nomor urut, mulai dari 1
     return d.to_csv(index=False).encode("utf-8-sig")
 
 
@@ -529,33 +534,37 @@ def teks_atau_strip(v):
     return "-" if pd.isna(v) or v == "" else escape(str(v))
 
 
-def tampil_baris(rows, kunci):
+def tampil_baris(rows, kunci, awal=1):
     head = st.columns(LEBAR)
     for c, nama in zip(head, HEADER):
         c.markdown(f"**{nama}**")
     st.divider()
 
-    for r in rows:
+    for no, r in enumerate(rows, start=awal):
         rid = int(r["rid"])  # unik per baris, dipakai untuk key & UPDATE
         aid = str(r["assignment_id"])
         ks, kk = f"status_{kunci}_{rid}", f"ket_{kunci}_{rid}"
         cols = st.columns(LEBAR, vertical_alignment="top")
 
-        # assignment_id sekaligus link ke FASIH
+        # 0: nomor urut
+        cols[0].html(sel(f"{no:,}".replace(",", ".")))
+
+        # 1: assignment_id sekaligus link ke FASIH
         if pd.notna(r["link"]):
             href = escape(str(r["link"]), quote=True)
-            cols[0].html(sel(f'<a href="{href}" target="_blank">{escape(aid)}</a>'))
+            cols[1].html(sel(f'<a href="{href}" target="_blank">{escape(aid)}</a>'))
         else:
-            cols[0].html(sel(escape(aid)))
+            cols[1].html(sel(escape(aid)))
 
-        cols[1].html(sel(teks_atau_strip(r["level_2_code"])))
-        cols[2].html(sel(teks_atau_strip(r["nama_usaha"])))
+        cols[2].html(sel(teks_atau_strip(r["level_2_code"])))
+        cols[3].html(sel(teks_atau_strip(r["nama_usaha"])))
 
-        # kolom gabungan (detail, pengeluaran, pendapatan, perhitungan, flag)
-        for col, items in zip(cols[3:8], KOLOM_GABUNG.values()):
+        # 4-8: kolom gabungan (detail, pengeluaran, pendapatan, perhitungan, flag)
+        for col, items in zip(cols[4:9], KOLOM_GABUNG.values()):
             col.html(sel(html_gabung(r, items)))
 
-        cols[8].checkbox(
+        # 9: checkbox selesai
+        cols[9].checkbox(
             "selesai",
             value=r["status_penyelesaian"],
             key=ks,
@@ -563,7 +572,9 @@ def tampil_baris(rows, kunci):
             on_change=simpan,
             args=(rid, ks, kk),
         )
-        cols[9].text_area(
+
+        # 10: keterangan + waktu update terakhir
+        cols[10].text_area(
             "keterangan",
             value=r["keterangan"],
             key=kk,
@@ -573,7 +584,7 @@ def tampil_baris(rows, kunci):
             args=(rid, ks, kk),
         )
         upd = r["update_at"]
-        cols[9].caption(
+        cols[10].caption(
             f"Update: {upd} WIB" if pd.notna(upd) and upd else "Belum pernah diupdate"
         )
         st.divider()
@@ -618,7 +629,9 @@ def tampil_raw(kunci, filter_kolom, cek, cari, status, judul, nama_file):
         "Centang status atau isi keterangan (klik di luar kotak / Ctrl+Enter) "
         "untuk menyimpan otomatis."
     )
-    tampil_baris(get_halaman(filter_kolom, cek, cari, status, ukuran, hal), kunci)
+    tampil_baris(
+        get_halaman(filter_kolom, cek, cari, status, ukuran, hal), kunci, awal
+    )
 
     # CSV hanya dibuat saat diminta, bukan di setiap rerun
     if st.button("Siapkan CSV", key=f"csv_{kunci}"):
@@ -792,11 +805,11 @@ def halaman_crosstab():
 
 pg = st.navigation(
     [
-        st.Page(
-            halaman_wilayah, title="By Wilayah", icon=":material/map:", default=True
-        ),
-        st.Page(halaman_kategori, title="By Kategori", icon=":material/category:"),
-        st.Page(halaman_crosstab, title="Cross Tabel", icon=":material/table_chart:"),
+        # st.Page(
+        #     halaman_wilayah, title="By Wilayah", icon=":material/map:", default=True
+        # ),
+        # st.Page(halaman_kategori, title="By Kategori", icon=":material/category:"),
+        # st.Page(halaman_crosstab, title="Cross Tabel", icon=":material/table_chart:"),
     ]
 )
 pg.run()
