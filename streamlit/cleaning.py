@@ -48,6 +48,8 @@ INDEX_CEK_DEFAULT = OPSI_CEK.index(OPSI_CEK_4)  # filter yang aktif saat halaman
 # CAST agar aman kalau flag tersimpan '1' / '1.0' (TEXT)
 FLAG_3 = "CAST(flag_rasio_3_ntb_output AS REAL) = 1"
 FLAG_3_new = "CAST(flag_3_new AS REAL) = 1"
+FLAG_3 = "CAST(flag_rasio_3_ntb_output AS REAL) = 1"
+FLAG_3_new = "CAST(flag_3_new AS REAL) = 1"
 KONDISI_CEK = {
     OPSI_CEK_1: f"metrik_output >= {AMBANG_OUTPUT} AND {FLAG_3} AND {FLAG_3_new}",
     OPSI_CEK_2: f"metrik_nilai_tambah <= {AMBANG_NTB} AND {FLAG_3} AND {FLAG_3_new}",
