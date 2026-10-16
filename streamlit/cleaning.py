@@ -37,27 +37,28 @@ LABEL = {"level_2_code": "kode wilayah", "kategori": "kategori"}
 AMBANG_OUTPUT = 1_000_000_000  # output >= 1 miliar
 AMBANG_NTB = -5_000_000  # nilai tambah <= -5 juta
 
-OPSI_SEMUA_DATA = "Semua data"
+# OPSI_SEMUA_DATA = "Semua data"
 OPSI_CEK_1 = f"Output >= {AMBANG_OUTPUT:,} & flag_rasio_3 = 1"
 OPSI_CEK_2 = f"Nilai tambah <= {AMBANG_NTB:,} & flag_rasio_3 = 1"
-OPSI_CEK_3 = "Nilai tambah < 0 ATAU flag_rasio_3 = 1"
-OPSI_CEK_4 = "target 13 oktober"
-OPSI_CEK = [OPSI_SEMUA_DATA, OPSI_CEK_1, OPSI_CEK_2, OPSI_CEK_3, OPSI_CEK_4]
-INDEX_CEK_DEFAULT = OPSI_CEK.index(OPSI_CEK_3)  # filter yang aktif saat halaman dibuka
+# OPSI_CEK_3 = "Nilai tambah < 0 ATAU flag_rasio_3 = 1"
+OPSI_CEK_4 = "Target 13 oktober"
+OPSI_CEK = [ OPSI_CEK_4,OPSI_CEK_1, OPSI_CEK_2 ]
+INDEX_CEK_DEFAULT = OPSI_CEK.index(OPSI_CEK_4)  # filter yang aktif saat halaman dibuka
 
 # CAST agar aman kalau flag tersimpan '1' / '1.0' (TEXT)
-FLAG_3 = "CAST(flag_3_new AS REAL) = 1"
+FLAG_3 = "CAST(flag_rasio_3_ntb_output AS REAL) = 1"
+FLAG_3_new = "CAST(flag_3_new AS REAL) = 1"
 KONDISI_CEK = {
-    OPSI_CEK_1: f"metrik_output >= {AMBANG_OUTPUT} AND {FLAG_3}",
-    OPSI_CEK_2: f"metrik_nilai_tambah <= {AMBANG_NTB} AND {FLAG_3}",
-    OPSI_CEK_3: f"(metrik_nilai_tambah < 0 OR {FLAG_3})",
-    OPSI_CEK_4: f"{FLAG_3}",
+    OPSI_CEK_1: f"metrik_output >= {AMBANG_OUTPUT} AND {FLAG_3} AND {FLAG_3_new}",
+    OPSI_CEK_2: f"metrik_nilai_tambah <= {AMBANG_NTB} AND {FLAG_3} AND {FLAG_3_new}",
+    # OPSI_CEK_3: f"(metrik_nilai_tambah < 0 OR {FLAG_3})",
+    OPSI_CEK_4: f"{FLAG_3_new}",
 }
 DESKRIPSI_CEK = {
     OPSI_CEK_1: f"Hanya baris dengan metrik_output >= {AMBANG_OUTPUT:,} dan flag_rasio_3_ntb_output = 1.",
     OPSI_CEK_2: f"Hanya baris dengan metrik_nilai_tambah <= {AMBANG_NTB:,} dan flag_rasio_3_ntb_output = 1.",
-    OPSI_CEK_3: "Hanya baris dengan metrik_nilai_tambah < 0 atau flag_rasio_3_ntb_output = 1.",
-    OPSI_CEK_4: "Hanya baris dengan target 13 oktober.",
+    # OPSI_CEK_3: "Hanya baris dengan metrik_nilai_tambah < 0 atau flag_rasio_3_ntb_output = 1.",
+    OPSI_CEK_4: "Usaha Flag 3 & agregat kblinya diluar range rasio ntb/output perkategori"
 }
 
 # ---------- Filter status penyelesaian ----------
@@ -89,8 +90,8 @@ KOLOM_OUTPUT_MONEV = [
 ENCODING_KANDIDAT = ("utf-8-sig", "cp1252", "latin-1")  # latin-1 selalu berhasil
 
 # ---------- Cross tabel ----------
-TGL_MULAI = date(2026, 10, 6)
-TGL_AKHIR = date(2026, 10, 14)
+TGL_MULAI = date(2026, 10, 11)
+TGL_AKHIR = date(2026, 10, 16)
 DAFTAR_TGL = [
     TGL_MULAI + timedelta(days=i) for i in range((TGL_AKHIR - TGL_MULAI).days + 1)
 ]
@@ -200,7 +201,7 @@ siapkan_db()
 
 
 def bangun_where(
-    filter_kolom=None, cek=OPSI_SEMUA_DATA, cari="", status=OPSI_STATUS_SEMUA
+    filter_kolom=None, cek=OPSI_CEK_4, cari="", status=OPSI_STATUS_SEMUA
 ):
     """
     filter_kolom: dict {kolom: nilai}. Kolom dengan nilai None diabaikan.
@@ -249,14 +250,14 @@ def get_pilihan(kolom):
 
 
 @st.cache_data(show_spinner=False)
-def get_rekap(grp, filter_kolom=(), cek=OPSI_SEMUA_DATA, status=OPSI_STATUS_SEMUA):
+def get_rekap(grp, filter_kolom=(), cek=OPSI_CEK_4, status=OPSI_STATUS_SEMUA):
     assert grp in KOLOM_FILTER
     where, params = bangun_where(dict(filter_kolom), cek, "", status)
     return query(REKAP_SQL.format(grp=grp, tabel=TABEL, where=where), params)
 
 
 @st.cache_data(show_spinner=False)
-def get_ringkas(filter_kolom, cek=OPSI_SEMUA_DATA, cari="", status=OPSI_STATUS_SEMUA):
+def get_ringkas(filter_kolom, cek=OPSI_CEK_4, cari="", status=OPSI_STATUS_SEMUA):
     where, params = bangun_where(dict(filter_kolom), cek, cari, status)
     r = query(
         f"SELECT COUNT(*) AS total, "
@@ -284,7 +285,7 @@ def get_halaman(filter_kolom, cek, cari, status, ukuran, hal):
 
 
 @st.cache_data(show_spinner=False)
-def get_crosstab(filter_kolom=(), cek=OPSI_SEMUA_DATA, hitung=OPSI_HITUNG_SELESAI):
+def get_crosstab(filter_kolom=(), cek=OPSI_CEK_4, hitung=OPSI_HITUNG_SELESAI):
     where, params_where = bangun_where(dict(filter_kolom), cek)
 
     selesai = "COALESCE(status_penyelesaian, 0) = 1"
@@ -317,11 +318,11 @@ def get_csv(filter_kolom, cek, cari, status):
     """Tidak di-cache; hanya dipanggil saat tombol 'Siapkan CSV' ditekan."""
     where, params = bangun_where(dict(filter_kolom), cek, cari, status)
     d = query(
-        f"SELECT * FROM {TABEL} {where} ORDER BY assignment_id, nama_usaha, rowid",
+        f"SELECT * FROM {TABEL} {where} ORDER BY rowid",
         params,
     )
     d = d.drop(columns=["sumber_file"], errors="ignore")
-    d.insert(0, "no", range(1, len(d) + 1))  # nomor urut, mulai dari 1
+    # d.insert(0, "no", range(1, len(d) + 1))  # nomor urut, mulai dari 1
     return d.to_csv(index=False).encode("utf-8-sig")
 
 
@@ -590,10 +591,49 @@ def tampil_baris(rows, kunci, awal=1):
         st.divider()
 
 
-def tampil_raw(kunci, filter_kolom, cek, cari, status, judul, nama_file):
+UKURAN_OPSI = [10, 25, 50, 100]
+
+
+def _sinkron(asal, tujuan):
+    """Salin nilai widget ini ke widget kembarannya (atas <-> bawah)."""
+    st.session_state[tujuan] = st.session_state[asal]
+
+
+def kontrol_halaman(pos, kunci, dasar_hal, ukuran_awal, total_hal):
+    """Selectbox jumlah baris + number_input halaman. pos: 'atas' atau 'bawah'."""
+    lain = "bawah" if pos == "atas" else "atas"
+    k_uk, k_uk_lain = f"ukuran_{kunci}_{pos}", f"ukuran_{kunci}_{lain}"
+    k_hal, k_hal_lain = f"{dasar_hal}_{pos}", f"{dasar_hal}_{lain}"
+
+    st.session_state.setdefault(k_uk, ukuran_awal)
+    st.session_state.setdefault(k_hal, 1)
+    # Jaga-jaga jumlah halaman menyusut (mis. setelah centang di filter "Belum selesai")
+    st.session_state[k_hal] = min(st.session_state[k_hal], total_hal)
+
+    p1, p2 = st.columns([1, 3])
+    p1.selectbox(
+        "Baris per halaman",
+        UKURAN_OPSI,
+        key=k_uk,
+        on_change=_sinkron,
+        args=(k_uk, k_uk_lain),
+    )
+    p2.number_input(
+        f"Halaman (dari {total_hal})",
+        min_value=1,
+        max_value=total_hal,
+        step=1,
+        key=k_hal,
+        on_change=_sinkron,
+        args=(k_hal, k_hal_lain),
+    )
+
+
+def tampil_raw(kunci, filter_kolom, cek, cari, status, judul, info, nama_file):
     total, selesai = get_ringkas(filter_kolom, cek, cari, status)
 
     st.subheader(judul)
+    st.caption(" ".join(info))
     c1, c2, c3 = st.columns(3)
     c1.metric("Jumlah usaha", f"{total:,}")
     c2.metric("Selesai", f"{selesai:,}")
@@ -603,25 +643,19 @@ def tampil_raw(kunci, filter_kolom, cek, cari, status, judul, nama_file):
         st.info("Tidak ada data yang cocok dengan filter / pencarian.")
         return
 
-    # Pagination: widget per baris itu berat, jadi halaman dibatasi
-    p1, p2 = st.columns([1, 3])
-    ukuran = p1.selectbox(
-        "Baris per halaman", [10, 25, 50, 100], index=1, key=f"ukuran_{kunci}"
-    )
+    # Jumlah baris per halaman dibaca dari widget atas (sumber kebenaran)
+    ukuran = st.session_state.get(f"ukuran_{kunci}_atas", 25)
     total_hal = max(1, -(-total // ukuran))
-    # Key memuat semua filter agar nomor halaman reset saat berubah
+
+    # Key halaman memuat semua filter + ukuran, jadi otomatis reset ke 1 saat berubah
     sidik = "_".join(f"{v}" for _, v in filter_kolom)
-    hal = p2.number_input(
-        f"Halaman (dari {total_hal})",
-        min_value=1,
-        max_value=total_hal,
-        value=1,
-        step=1,
-        key=(
-            f"hal_{kunci}_{sidik}_{OPSI_CEK.index(cek)}_"
-            f"{OPSI_STATUS.index(status)}_{cari}_{ukuran}"
-        ),
+    dasar_hal = (
+        f"hal_{kunci}_{sidik}_{OPSI_CEK.index(cek)}_"
+        f"{OPSI_STATUS.index(status)}_{cari}_{ukuran}"
     )
+
+    kontrol_halaman("atas", kunci, dasar_hal, ukuran, total_hal)
+    hal = st.session_state[f"{dasar_hal}_atas"]
 
     awal = (hal - 1) * ukuran + 1
     st.caption(
@@ -632,6 +666,8 @@ def tampil_raw(kunci, filter_kolom, cek, cari, status, judul, nama_file):
     tampil_baris(
         get_halaman(filter_kolom, cek, cari, status, ukuran, hal), kunci, awal
     )
+
+    kontrol_halaman("bawah", kunci, dasar_hal, ukuran, total_hal)
 
     # CSV hanya dibuat saat diminta, bukan di setiap rerun
     if st.button("Siapkan CSV", key=f"csv_{kunci}"):
@@ -710,6 +746,7 @@ def halaman_data(utama, kedua, judul_halaman):
         judul = (
             f"Data rinci {pilih_utama}" if pilih_utama != SEMUA else "Hasil pencarian"
         )
+        
         if pilih_kedua != SEMUA:
             judul += f" | {LABEL[kedua]}: {pilih_kedua}"
         if cari:
@@ -726,7 +763,10 @@ def halaman_data(utama, kedua, judul_halaman):
             nama_file += f"_{status.replace(' ', '_')}"
         if cari:
             nama_file += f"_{cari}"
-        tampil_raw(utama, filter_kolom, cek, cari, status, judul, nama_file + ".csv")
+        info = []
+        info.append(DESKRIPSI_CEK[cek])
+        # st.caption(" ".join(info))
+        tampil_raw(utama, filter_kolom, cek, cari, status, judul,info, nama_file + ".csv")
 
     # Tombol CSV monitoring: aktif kalau kode wilayah sudah dipilih
     unduh_monev(utama, filter_kolom)
